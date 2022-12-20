@@ -21,6 +21,16 @@ public class Card
         CardInfo = cardInfo;
         Level = 1;
         ExperiencePoints = 0;
+        ExperiencePointsRequired = StartExperiencePointsRequired;
+        InvokeExperienceStatsChanges();
+    }
+
+    public Card(CardInfo cardInfo, int level, int experiencePoints)
+    {
+        CardInfo = cardInfo;
+        Level = level;
+        ExperiencePoints = experiencePoints;
+        UpExperiencePointsRequiredToLevel(Level);
         InvokeExperienceStatsChanges();
     }
 
