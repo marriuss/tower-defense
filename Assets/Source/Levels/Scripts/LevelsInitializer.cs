@@ -1,13 +1,21 @@
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelsInitializer : MonoBehaviour
 {
+    public UnityAction<LevelButton> CurrentLevelChanged;
+
+    [SerializeField] private LevelProgress _levelProgress;
     [SerializeField] private LevelInfo[] _levelsInfo;
     [SerializeField] private LevelButton[] _levelButtons;
+
+    private LevelInfo _currentLevelInfo;
 
     private void Start()
     {
         InitLevels();
+        ApplayProgress();
     }
 
     public void InitLevels()
@@ -23,5 +31,13 @@ public class LevelsInitializer : MonoBehaviour
         {
             _levelButtons[i].Init(_levelsInfo[i]);
         }
+    }
+
+    private void ApplayProgress()
+    {
+        int lastOpenLevelIdentifier = _levelProgress.LastOpenLevelIdentifier;
+        _currentLevelInfo = _levelsInfo.First(level => level.Identifier == lastOpenLevelIdentifier);
+        LevelButton currentLevelButton = _levelButtons.First(button => button.LevelInfo == _currentLevelInfo);
+        CurrentLevelChanged?.Invoke(currentLevelButton);
     }
 }

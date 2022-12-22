@@ -31,6 +31,8 @@ public class LevelButton : MonoBehaviour
         _levelNumberText.text = _levelInfo.Identifier.ToString();
     }
 
+    public LevelInfo LevelInfo => _levelInfo;
+
     private void OnButtonClicked()
     {
         // TODO: Load level
