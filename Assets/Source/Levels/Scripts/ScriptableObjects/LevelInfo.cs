@@ -5,11 +5,11 @@ public class LevelInfo : ScriptableObject
 {
     [SerializeField] private int _identifier;
     [SerializeField] private Zone _zone;
-
-    // TODO: waves
+    [SerializeField] private Wave[] _waves;
 
     public int Identifier => _identifier;
     public Zone Zone => _zone;
+    public Wave GetWave(int index) => _waves[index];
 }
 
 public enum Zone
