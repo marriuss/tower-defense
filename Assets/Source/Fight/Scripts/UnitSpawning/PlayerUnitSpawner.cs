@@ -4,4 +4,8 @@ using UnityEngine;
 
 public class PlayerUnitSpawner : UnitSpawner
 {
+    public void SpawnUnit(FightingCard card)
+    {
+        SpawnUnit(card.Unit);
+    }
 }
