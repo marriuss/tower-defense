@@ -35,7 +35,7 @@ public class LevelsInitializer : MonoBehaviour
 
     private void ApplayProgress()
     {
-        int lastOpenLevelIdentifier = _levelProgress.LastOpenLevelIdentifier;
+        int lastOpenLevelIdentifier = _levelProgress.GetLastOpenedLevelIdentifier();
         _currentLevelInfo = _levelsInfo.First(level => level.Identifier == lastOpenLevelIdentifier);
         LevelButton currentLevelButton = _levelButtons.First(button => button.LevelInfo == _currentLevelInfo);
         CurrentLevelChanged?.Invoke(currentLevelButton);
