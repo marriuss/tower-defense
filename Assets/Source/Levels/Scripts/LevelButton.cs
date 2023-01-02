@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class LevelButton : MonoBehaviour
 {
     [SerializeField] private TMP_Text _levelNumberText;
+    [SerializeField] private LevelInfo _levelInfo;
 
     private Button _button;
-    private LevelInfo _levelInfo;
 
     private void Awake()
     {
