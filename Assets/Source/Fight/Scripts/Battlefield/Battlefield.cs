@@ -43,13 +43,8 @@ public class Battlefield : MonoBehaviour
         if (CheckInBattlefield(position) == false)
             throw new ArgumentException("Object doesn't belong to battlefield");
 
-        Vector2 subtraction = position - _battlefieldRect.center;
-
-        float xDistance = Mathf.Abs(subtraction.x);
-        int column = Mathf.FloorToInt(xDistance / _cellWidth);
-
-        float yDistance = Mathf.Abs(subtraction.y);
-        int row = Mathf.FloorToInt(yDistance / _cellHeight);
+        int column = Mathf.FloorToInt((position.x - _battlefieldRect.xMin) / _cellWidth);
+        int row = Mathf.FloorToInt((position.y - _battlefieldRect.yMin) / _cellHeight);
 
         return new GridCell(row, column);
     }
