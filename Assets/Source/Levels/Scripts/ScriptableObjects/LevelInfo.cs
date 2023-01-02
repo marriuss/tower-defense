@@ -9,7 +9,7 @@ public class LevelInfo : ScriptableObject
     [SerializeField] private Wave[] _waves;
     [SerializeField] private int _cardStackCapacity;
 
-    public int Identifier => _identifier;
+    public int Id => _identifier;
     public Zone Zone => _zone;
     public Wave GetWave(int index) => _waves[index];
     public int CardStackCapacity => _cardStackCapacity;

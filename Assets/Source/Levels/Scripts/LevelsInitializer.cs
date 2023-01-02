@@ -6,38 +6,39 @@ public class LevelsInitializer : MonoBehaviour
 {
     public UnityAction<LevelButton> CurrentLevelChanged;
 
-    [SerializeField] private LevelProgress _levelProgress;
-    [SerializeField] private LevelInfo[] _levelsInfo;
     [SerializeField] private LevelButton[] _levelButtons;
+    [SerializeField] private ProgressLoader _progressLoader;
 
-    private LevelInfo _currentLevelInfo;
+    private int _lastLevelId;
 
-    private void Start()
+    private void OnEnable()
     {
-        InitLevels();
-        ApplayProgress();
-    }
+        _progressLoader.ProgressLoaded += OnProgressLoaded;
 
-    public void InitLevels()
-    {
-#if UNITY_EDITOR
-        if (_levelsInfo.Length != _levelButtons.Length)
+        foreach (var levelButton in _levelButtons)
         {
-            Debug.LogWarning("Incorrect levels data");
-        }
-#endif
-
-        for (int i = 0; i < _levelButtons.Length; i++)
-        {
-            _levelButtons[i].Init(_levelsInfo[i]);
+            levelButton.ButtonClicked += OnLevelButtonClicked;
         }
     }
 
-    private void ApplayProgress()
+    private void OnDisable()
     {
-        int lastOpenLevelIdentifier = _levelProgress.LastOpenLevelIdentifier;
-        _currentLevelInfo = _levelsInfo.First(level => level.Identifier == lastOpenLevelIdentifier);
-        LevelButton currentLevelButton = _levelButtons.First(button => button.LevelInfo == _currentLevelInfo);
-        CurrentLevelChanged?.Invoke(currentLevelButton);
+        _progressLoader.ProgressLoaded -= OnProgressLoaded;
+
+        foreach (var levelButton in _levelButtons)
+        {
+            levelButton.ButtonClicked -= OnLevelButtonClicked;
+        }
+    }
+
+    private void OnProgressLoaded(PlayerProgress progress)
+    {
+        _lastLevelId = progress.LastLevelId;
+        CurrentLevelChanged?.Invoke(_levelButtons.First(l => l.LevelInfo.Id == _lastLevelId));
+    }
+
+    private void OnLevelButtonClicked(LevelButton levelButton)
+    {
+        // TODO: open level
     }
 }
