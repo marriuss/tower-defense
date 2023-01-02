@@ -39,17 +39,24 @@ public abstract class UnitSpawner : MonoBehaviour
             amount = rows;
         }
 
-        int centerRow = rows / 2;
+        int centerRow = _cell.Value.Row;
+
         int mod = amount % 2;
         amount -= mod;
 
         if (mod != 0)
-            SpawnUnit(unitPrefab, column, centerRow);
+            SpawnUnit(unitPrefab, centerRow, column);
+
+        int topRow = centerRow;
+        int bottomRow = centerRow;
 
         for (int i = 1; i <= amount / 2; i++)
         {
-            SpawnUnit(unitPrefab, _battlefield.GetNextRow(centerRow, true), column);
-            SpawnUnit(unitPrefab, _battlefield.GetNextRow(centerRow, false), column);
+            topRow = _battlefield.GetNextRow(topRow, true);
+            bottomRow = _battlefield.GetNextRow(bottomRow, false);
+
+            SpawnUnit(unitPrefab, topRow, column);
+            SpawnUnit(unitPrefab, bottomRow, column);
         }
     }
 
@@ -57,7 +64,6 @@ public abstract class UnitSpawner : MonoBehaviour
     {
         GridCell cell = new(row, column);
         Vector2 position = _battlefield.GetPosition(cell);
-        
         Unit unit = Instantiate(unitPrefab, position, Quaternion.identity, transform);
         unit.SetSide(_leftSided);
     }
