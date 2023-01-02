@@ -5,8 +5,8 @@ using UnityEngine;
 public class UnitSpawner : MonoBehaviour
 {
     [SerializeField] private Battlefield _battlefield;
-    [SerializeField] private bool _leftSided;
 
+    private bool _leftSided;
     private GridCell? _cell;
 
     public void SpawnUnit(Unit unitPrefab, int amount)
