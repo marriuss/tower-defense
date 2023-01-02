@@ -84,6 +84,6 @@ public class Battlefield : MonoBehaviour
         int row = cell.Row;
         int column = cell.Column;
 
-        return 0 < row && row < _rows && 0 < column && column < _columns;
+        return 0 <= row && row < _rows && 0 <= column && column < _columns;
     }
 }
