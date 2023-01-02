@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitSpawner : MonoBehaviour
+public abstract class UnitSpawner : MonoBehaviour
 {
     [SerializeField] private Battlefield _battlefield;
 
     private bool _leftSided;
     private GridCell? _cell;
 
-    public void SpawnUnit(Unit unitPrefab, int amount)
+    protected void SpawnUnit(Unit unitPrefab, int amount)
     {
         if (_cell == null)
         {
@@ -49,6 +49,8 @@ public class UnitSpawner : MonoBehaviour
     {
         GridCell cell = new(row, column);
         Vector2 position = _battlefield.GetPosition(cell);
-        Instantiate(unitPrefab, position, Quaternion.identity, transform);
+        
+        Unit unit = Instantiate(unitPrefab, position, Quaternion.identity, transform);
+        unit.SetSide(_leftSided);
     }
 }
