@@ -552,6 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelButtons:
   - {fileID: 1893103645}
+  _progressLoader: {fileID: 1922261953}
 --- !u!1 &838635323
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4d067fb02dd9644882254f5db72097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _progressLoader: {fileID: 1922261953}
 --- !u!1 &1043522192
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +972,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ef15794c3527547b548e0181683308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1922261951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1922261952}
+  - component: {fileID: 1922261953}
+  m_Layer: 0
+  m_Name: Saves
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1922261952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922261951}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1922261953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922261951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9158f998b4238418dadfcc4734fa4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1889458099236108856
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -977,6 +1023,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 787691505}
     m_Modifications:
+    - target: {fileID: 1856788029792960058, guid: ac2e7f311de846e49819c1f223984100, type: 3}
+      propertyPath: _levelInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 4603597096e97f747852c21d98975969, type: 2}
     - target: {fileID: 1889458097696349856, guid: ac2e7f311de846e49819c1f223984100, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

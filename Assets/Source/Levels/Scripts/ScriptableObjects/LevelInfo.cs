@@ -8,7 +8,7 @@ public class LevelInfo : ScriptableObject
     [SerializeField] private Zone _zone;
     [SerializeField] private Wave[] _waves;
 
-    public int Identifier => _identifier;
+    public int Id => _identifier;
     public Zone Zone => _zone;
     public Wave GetWave(int index) => _waves[index];
     public List<Wave> Waves => new(_waves);
