@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LevelProgress : MonoBehaviour
+public class LevelProgress
 {
     private int _lastOpenLevelIdentifier;
 
