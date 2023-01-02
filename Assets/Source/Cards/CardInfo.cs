@@ -6,7 +6,6 @@ public class CardInfo : MonoBehaviour
 {
     [SerializeField] private int _id;
     [SerializeField] private Unit _unit;
-    [SerializeField] private int _spawnAmount;
     [SerializeField] private Rarity _rarity;
     [SerializeField] private int _mana;
     [SerializeField] private string _name;
@@ -14,7 +13,6 @@ public class CardInfo : MonoBehaviour
 
     public int Id => _id;
     public Unit Unit => _unit;
-    public int SpawnAmount => _spawnAmount;
     public Rarity Rarity => _rarity;
     public int Mana => _mana;
     public string Name => _name;
