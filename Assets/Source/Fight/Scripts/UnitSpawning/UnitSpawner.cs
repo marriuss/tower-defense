@@ -6,10 +6,15 @@ public abstract class UnitSpawner : MonoBehaviour
 {
     [SerializeField] private Battlefield _battlefield;
 
+    private const int MinSpawnAmount = 1;
+    private const int MaxSpawnAmount = 5;
+
     private bool _leftSided;
     private GridCell? _cell;
+    private int _spawnAmountRange = MaxSpawnAmount - MinSpawnAmount;
+    private float _unitValueRange = Unit.MaxValue - Unit.MinValue;
 
-    protected void SpawnUnit(Unit unitPrefab, int amount)
+    protected void SpawnUnit(Unit unitPrefab)
     {
         if (_cell == null)
         {
@@ -18,8 +23,11 @@ public abstract class UnitSpawner : MonoBehaviour
         }
 
         int column = _cell.Value.Column;
+        int amount = CalculateSpawnAmount(unitPrefab.GetValue());
         FillColumn(column, amount, unitPrefab);
     }
+
+    private int CalculateSpawnAmount(int unitValue) => Mathf.RoundToInt(_spawnAmountRange * (Unit.MaxValue - unitValue) / _unitValueRange + MinSpawnAmount);
 
     private void FillColumn(int column, int amount, Unit unitPrefab)
     {
