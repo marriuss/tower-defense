@@ -11,11 +11,3 @@ public class LevelInfo : ScriptableObject
     public Zone Zone => _zone;
     public Wave GetWave(int index) => _waves[index];
 }
-
-public enum Zone
-{
-    Forest,
-    Winter,
-    Desert,
-    Jungle
-}
