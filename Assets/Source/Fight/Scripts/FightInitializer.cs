@@ -7,6 +7,7 @@ public class FightInitializer : MonoBehaviour
 {
     [SerializeField] private CardStack _cardStack;
     [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private Castle _castle;
 
     public void Initialize(FightInfo fightInfo)
     {
@@ -15,6 +16,7 @@ public class FightInitializer : MonoBehaviour
 
         InitializeCardStack(fightInfo.Deck, levelInfo.CardStackCapacity);
         InitializeEnemySpawner(zone, levelInfo.Waves);
+        InitializeCastle(fightInfo.CastleStats);
     }
 
     private void InitializeCardStack(Deck deck, int cardStackCapacity)
@@ -26,5 +28,10 @@ public class FightInitializer : MonoBehaviour
     private void InitializeEnemySpawner(Zone zone, List<Wave> waves)
     {
         _enemySpawner.StartSpawn(zone.WavesDelay, zone.SpawnDelay, waves);
+    }
+
+    private void InitializeCastle(CastleStats castleStats)
+    {
+        _castle.ApplyProgress(castleStats);
     }
 }
