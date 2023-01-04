@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class MainHouse : WorkButton
+[RequireComponent(typeof(Button))]
+public class MainHouse : MonoBehaviour
 {
     [SerializeField] private MainHouseStatsPanel _mainHouseStatsPanel;
     [SerializeField] private ProgressLoader _progressLoader;
@@ -13,6 +15,8 @@ public class MainHouse : WorkButton
     private int _guardHealth;
     private int _guardDamage;
 
+    private Button _mainHousePanelButton;
+
     public int Level => _level;
     public int Health => _health;
     public int Damage => _damage;
@@ -20,14 +24,21 @@ public class MainHouse : WorkButton
     public int GuardHealth => _guardHealth;
     public int GuardDamage => _guardDamage;
 
+    private void Awake()
+    {
+        _mainHousePanelButton = GetComponent<Button>();
+    }
+
     private void OnEnable()
     {
         _progressLoader.ProgressLoaded += ApplyProgress;
+        _mainHousePanelButton.onClick.AddListener(OnMainHousePanelButtonClick);
     }
 
     private void OnDisable()
     {
         _progressLoader.ProgressLoaded -= ApplyProgress;
+        _mainHousePanelButton.onClick.RemoveListener(OnMainHousePanelButtonClick);
     }
 
     private void ApplyProgress(PlayerProgress progress)
@@ -40,7 +51,7 @@ public class MainHouse : WorkButton
         _guardDamage = progress.MainHouseProgress.GuardDamage;
     }
 
-    protected override void OnButtonClick()
+    protected void OnMainHousePanelButtonClick()
     {
         _mainHouseStatsPanel.ShowPanel();
     }
