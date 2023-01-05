@@ -4,5 +4,5 @@ public class PlayerProgress
     public int LastLevelId;
     public CardProgress[] CardProgress;
     public int?[] CardIds;
-    public MainHouseProgress MainHouseProgress;
+    public int CastleLevel;
 }

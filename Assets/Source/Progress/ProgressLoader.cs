@@ -20,7 +20,7 @@ public class ProgressLoader : MonoBehaviour
             LastLevelId = 0,
             CardProgress = new CardProgress[0],
             CardIds = new int?[0],
-            MainHouseProgress = new MainHouseProgress()
+            CastleLevel = 1,
         };
 
         ProgressLoaded?.Invoke(_playerProgress);
