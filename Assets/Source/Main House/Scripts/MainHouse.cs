@@ -24,6 +24,8 @@ public class MainHouse : MonoBehaviour
     public int GuardHealth => _guardHealth;
     public int GuardDamage => _guardDamage;
 
+    public int UpgradeCost => (_level + 1) * 10;
+
     private void Awake()
     {
         _mainHousePanelButton = GetComponent<Button>();
@@ -41,6 +43,18 @@ public class MainHouse : MonoBehaviour
         _mainHousePanelButton.onClick.RemoveListener(OnMainHousePanelButtonClick);
     }
 
+    public void Upgrade()
+    {
+        _level++;
+        _health += 5;
+        _damage += 5;
+        _population += 10;
+        _guardHealth += 10;
+        _guardDamage += 5;
+
+        // TODO: save
+    }
+
     private void ApplyProgress(PlayerProgress progress)
     {
         _level = progress.MainHouseProgress.Level;
@@ -51,7 +65,7 @@ public class MainHouse : MonoBehaviour
         _guardDamage = progress.MainHouseProgress.GuardDamage;
     }
 
-    protected void OnMainHousePanelButtonClick()
+    private void OnMainHousePanelButtonClick()
     {
         _mainHouseStatsPanel.ShowPanel();
     }

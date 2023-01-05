@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class MainHouseStatsPanel : MonoBehaviour
 {
     [SerializeField] private MainHouse _mainHouse;
+    [SerializeField] private Balance _balance;
     [Space(10)]
     [SerializeField] private TMP_Text _levelText;
     [SerializeField] private TMP_Text _healthText;
@@ -32,6 +33,7 @@ public class MainHouseStatsPanel : MonoBehaviour
     {
         gameObject.SetActive(true);
         UpdateInfo();
+        UpdateUpgradeButton();
     }
 
     public void HidePanel()
@@ -51,7 +53,25 @@ public class MainHouseStatsPanel : MonoBehaviour
 
     private void OnUpgradeButtonClick()
     {
+        if (_balance.TrySpend(_mainHouse.UpgradeCost))
+        {
+            _mainHouse.Upgrade();
+            UpdateInfo();
+        }
 
+        UpdateUpgradeButton();
+    }
+
+    private void UpdateUpgradeButton()
+    {
+        if (_balance.HasEnoughMoney(_mainHouse.UpgradeCost))
+        {
+            _upgradeButton.interactable = true;
+        }
+        else
+        {
+            _upgradeButton.interactable = false;
+        }
     }
 
     private void OnCloseButtonClick()
