@@ -8,6 +8,8 @@ public class Balance : MonoBehaviour
 
     public int Money => _money;
 
+    public bool HasEnoughMoney(int value) => _money >= value;
+
     private void OnEnable()
     {
         _progressLoader.ProgressLoaded += OnProgressLoaded;

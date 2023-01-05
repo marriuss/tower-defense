@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
+
 
 public class CardStack : MonoBehaviour
 {
@@ -11,7 +13,10 @@ public class CardStack : MonoBehaviour
         if (amount <= 0)
             throw new ArgumentException("Amount of cards in stack cannot be non-positive.");
 
-        cardSet = CardSorter.SortCardsByRarity(cardSet, descending: false);
+        if (cardSet.Count == 0)
+            return;
+
+        cardSet = CardSorter.SortCardsByRarity(cardSet, descending: false).ToHashSet();
 
         int stackCount = 0;
         bool isStackFull = false;
