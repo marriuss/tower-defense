@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MainHouseButton : WorkButton
+public class CastleButton : WorkButton
 {
     [SerializeField] private CastleStatsUpgradePanel _mainHouseStatsPanel;
 

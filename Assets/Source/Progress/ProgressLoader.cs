@@ -16,7 +16,7 @@ public class ProgressLoader : MonoBehaviour
     {
         _playerProgress = new PlayerProgress()
         {
-            Balance = 0,
+            Money = 0,
             LastLevelId = 0,
             CardProgress = new CardProgress[0],
             CardIds = new int?[0],

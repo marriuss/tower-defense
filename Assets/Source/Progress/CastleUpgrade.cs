@@ -33,7 +33,7 @@ public class CastleUpgrade : MonoBehaviour
 
     private void OnProgressLoaded(PlayerProgress playerProgress)
     {
-        _castleStats = new CastleStats(playerProgress.CastleLevel);
-        _balance = new Balance(playerProgress.Balance);
+        _castleStats = playerProgress.CastleStats;
+        _balance = playerProgress.Balance;
     }
 }

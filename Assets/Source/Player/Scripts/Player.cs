@@ -29,6 +29,6 @@ public class Player : MonoBehaviour
 
     private void OnProgressLoaded(PlayerProgress progress)
     {
-        _balance.AddMoney(progress.Balance);
+        _balance.AddMoney(progress.Money);
     }
 }
