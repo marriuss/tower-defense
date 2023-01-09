@@ -2,10 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainHouseStatsPanel : MonoBehaviour
+public class CastleStatsUpgradePanel : MonoBehaviour
 {
-    [SerializeField] private MainHouse _mainHouse;
-    [SerializeField] private Balance _balance;
     [Space(10)]
     [SerializeField] private TMP_Text _levelText;
     [SerializeField] private TMP_Text _healthText;
@@ -13,9 +11,14 @@ public class MainHouseStatsPanel : MonoBehaviour
     [SerializeField] private TMP_Text _populationText;
     [SerializeField] private TMP_Text _guardHealthText;
     [SerializeField] private TMP_Text _guardDamageText;
+
     [Space(10)]
     [SerializeField] private Button _upgradeButton;
+    [SerializeField] private TMP_Text _upgradeButtonText;
     [SerializeField] private Button _closeButton;
+
+    [Space(10)]
+    [SerializeField] private CastleUpgrade _castleUpgrade;
 
     private void OnEnable()
     {
@@ -32,7 +35,7 @@ public class MainHouseStatsPanel : MonoBehaviour
     public void ShowPanel()
     {
         gameObject.SetActive(true);
-        UpdateInfo();
+        UpdateInfo(_castleUpgrade.CastleStats);
         UpdateUpgradeButton();
     }
 
@@ -41,37 +44,27 @@ public class MainHouseStatsPanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void UpdateInfo()
+    public void UpdateInfo(CastleStats castleStats)
     {
-        _levelText.text = _mainHouse.Level.ToString();
-        _healthText.text = _mainHouse.Health.ToString();
-        _damageText.text = _mainHouse.Damage.ToString();
-        _populationText.text = _mainHouse.Population.ToString();
-        _guardHealthText.text = _mainHouse.GuardHealth.ToString();
-        _guardDamageText.text = _mainHouse.GuardDamage.ToString();
+        _levelText.text = castleStats.Level.ToString();
+        _healthText.text = castleStats.Health.ToString();
+        _damageText.text = castleStats.Damage.ToString();
+        _populationText.text = castleStats.Population.ToString();
+        _guardHealthText.text = castleStats.GuardHealth.ToString();
+        _guardDamageText.text = castleStats.GuardDamage.ToString();
     }
 
     private void OnUpgradeButtonClick()
     {
-        if (_balance.TrySpend(_mainHouse.UpgradeCost))
-        {
-            _mainHouse.Upgrade();
-            UpdateInfo();
-        }
-
+        _castleUpgrade.TryUpgrade();
+        UpdateInfo(_castleUpgrade.CastleStats);
         UpdateUpgradeButton();
     }
 
     private void UpdateUpgradeButton()
     {
-        if (_balance.HasEnoughMoney(_mainHouse.UpgradeCost))
-        {
-            _upgradeButton.interactable = true;
-        }
-        else
-        {
-            _upgradeButton.interactable = false;
-        }
+        _upgradeButton.interactable = _castleUpgrade.CanUpgrade;
+        _upgradeButtonText.text = $"Upgrade ({_castleUpgrade.CastleStats.UpgradeCost})";
     }
 
     private void OnCloseButtonClick()

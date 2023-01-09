@@ -747,8 +747,9 @@ GameObject:
   - component: {fileID: 299631801}
   - component: {fileID: 299631800}
   - component: {fileID: 299631799}
+  - component: {fileID: 299631803}
   m_Layer: 5
-  m_Name: Main House
+  m_Name: Castle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -787,7 +788,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainHouseStatsPanel: {fileID: 428350503}
-  _progressLoader: {fileID: 1922261953}
 --- !u!114 &299631800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,6 +870,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299631797}
   m_CullTransparentMesh: 1
+--- !u!114 &299631803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299631797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ba9ea5bae673641bb2c2ac6d7c3735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _progressLoader: {fileID: 1922261953}
 --- !u!1001 &339491382
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1117,7 +1130,7 @@ GameObject:
   - component: {fileID: 428350501}
   - component: {fileID: 428350503}
   m_Layer: 5
-  m_Name: Main House Stats Panel
+  m_Name: Castle Stats Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1194,8 +1207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0edfda64a37a1f54fbbfb1748782d6d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainHouse: {fileID: 299631799}
-  _balance: {fileID: 954832456}
   _levelText: {fileID: 1939927182}
   _healthText: {fileID: 536216166}
   _damageText: {fileID: 1395134611}
@@ -1203,7 +1214,9 @@ MonoBehaviour:
   _guardHealthText: {fileID: 1869039229}
   _guardDamageText: {fileID: 413087369}
   _upgradeButton: {fileID: 665628301}
+  _upgradeButtonText: {fileID: 141273801}
   _closeButton: {fileID: 41030435}
+  _castleUpgrade: {fileID: 299631803}
 --- !u!1 &498460212
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,7 +2015,7 @@ RectTransform:
   - {fileID: 299631798}
   - {fileID: 428350500}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2263,7 +2276,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &787691504
 GameObject:
@@ -2355,51 +2368,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &954832453
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 954832454}
-  - component: {fileID: 954832456}
-  m_Layer: 0
-  m_Name: Balance
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &954832454
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954832453}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &954832456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954832453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af4d067fb02dd9644882254f5db72097, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _progressLoader: {fileID: 1922261953}
 --- !u!1 &1043522192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,7 +2640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Damage:'
+  m_text: 'Population:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3146,7 +3114,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869039227
 GameObject:
@@ -3324,7 +3292,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1922261953
 MonoBehaviour:

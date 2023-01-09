@@ -1,28 +1,16 @@
-using UnityEngine;
-
-public class Balance : MonoBehaviour
+public class Balance
 {
-    [SerializeField] private ProgressLoader _progressLoader;
+    private const int StartMoney = 0;
 
     private int _money;
 
-    public int Money => _money;
-
     public bool HasEnoughMoney(int value) => _money >= value;
 
-    private void OnEnable()
-    {
-        _progressLoader.ProgressLoaded += OnProgressLoaded;
-    }
+    public Balance() : this(StartMoney) { }
 
-    private void OnDisable()
+    public Balance(int money)
     {
-        _progressLoader.ProgressLoaded -= OnProgressLoaded;
-    }
-
-    private void OnProgressLoaded(PlayerProgress progress)
-    {
-        _money = progress.Balance;
+        _money = money;
     }
 
     public void AddMoney(int value)
