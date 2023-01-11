@@ -119,19 +119,7 @@ MonoBehaviour:
   _preInitializeSubGraphs: 0
   _updateMode: 0
   _graph: {fileID: 11400000, guid: 8a6fd8ec9ba5d754b91570699ad040b2, type: 2}
-  _blackboard: {fileID: 0}
---- !u!114 &6683360618641796045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4799308394634657268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 702def6756e75ab47b92be0972a010eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _blackboard: {fileID: 3007888166093629465}
 --- !u!114 &3007888166093629465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +133,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"target":{"_name":"target","_id":"95f889f4-01fc-41cb-b55c-17a72209ee27","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_name":"target","_id":"95f889f4-01fc-41cb-b55c-17a72209ee27","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+--- !u!114 &6683360618641796045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4799308394634657268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 702def6756e75ab47b92be0972a010eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

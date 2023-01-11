@@ -21,6 +21,20 @@ PrefabInstance:
       value: '{"_name":"target","_id":"eb6ccc10-481f-462b-9b98-38b54b6c3b89","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
       objectReference: {fileID: 0}
+    - target: {fileID: 3007888166093629465, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _serializedBlackboard
+      value: '{"_variables":{"target":{"_name":"target","_id":"5460a498-3d69-4b45-84bf-f24f11115370","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007888166093629465, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _serializedVariables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007888166093629465, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _serializedVariables.Array.data[0]._json
+      value: '{"_name":"target","_id":"5460a498-3d69-4b45-84bf-f24f11115370","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+      objectReference: {fileID: 0}
     - target: {fileID: 4799308394634657268, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
       propertyPath: m_Name
       value: RottenSkeleton

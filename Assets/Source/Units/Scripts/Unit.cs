@@ -16,7 +16,7 @@ public class Unit : MonoBehaviour, ITargetable
     public const int MinValue = 1;
     public const int MaxValue = 20;
 
-    public event UnityAction Hit;
+    public event UnityAction<Unit> Hit; 
 
     public UnitStats Stats => _stats;
     public Vector2 Position => transform.position;
@@ -32,9 +32,9 @@ public class Unit : MonoBehaviour, ITargetable
         _animationPlayer.PlayAttackAnimation();
     }
 
-    public void TakeHit(int damage)
+    public void TakeHit(Unit attacker)
     {
-        Hit?.Invoke();
+        Hit?.Invoke(attacker);
     }
 
     public void TurnSide(bool turningLeft)
