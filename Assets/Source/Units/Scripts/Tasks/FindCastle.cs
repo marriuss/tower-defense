@@ -5,7 +5,7 @@ namespace NodeCanvas.Tasks.Actions
 {
     public class FindCastle : ActionTask<Unit>
     {
-        [RequiredField] public BBParameter<ITargetable> TargetVariable;
+        public BBParameter<ITargetable> TargetVariable;
 
         protected override string OnInit()
         {
