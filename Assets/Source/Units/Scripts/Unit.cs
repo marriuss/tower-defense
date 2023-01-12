@@ -42,6 +42,21 @@ public class Unit : MonoBehaviour, ITargetable
         _spriteFlipper.TurnSide(turningLeft);   
     }
 
+    public void StartMoving()
+    {
+        _animationPlayer.PlayMoveAnimation();
+    }
+
+    public void StopMoving()
+    {
+        _animationPlayer.Stop();
+    }
+
+    public void MoveTo(Vector2 position)
+    {
+        transform.position = position;
+    }
+
     public int GetValue()
     {
         // TODO

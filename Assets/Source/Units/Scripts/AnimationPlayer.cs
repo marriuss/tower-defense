@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,5 +47,10 @@ public class AnimationPlayer : MonoBehaviour
     private void PlayAnimation(string animation)
     {
         _animator.Play(animation);
+    }
+
+    internal void Stop()
+    {
+       _animator.StopPlayback();
     }
 }
