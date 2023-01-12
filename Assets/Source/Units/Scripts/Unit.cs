@@ -12,24 +12,29 @@ public class Unit : MonoBehaviour, ITargetable
 
     private SpriteFlipper _spriteFlipper;
     private AnimationPlayer _animationPlayer;
+    private Health _health;
 
     public const int MinValue = 1;
     public const int MaxValue = 20;
 
-    public event UnityAction<Unit> Hit; 
+    public event UnityAction<Unit> Hit;
+    public event UnityAction Died;
 
     public UnitStats Stats => _stats;
     public Vector2 Position => transform.position;
+    public int Health => _health.Value;
 
     private void Awake()
     {
         _spriteFlipper = GetComponent<SpriteFlipper>();
         _animationPlayer = GetComponent<AnimationPlayer>();
+        _health = new Health(Stats.Health);
     }
-
+    
     public void Attack(ITargetable target)
     {
         _animationPlayer.PlayAttackAnimation();
+        target.TakeHit(this);
     }
 
     public void TakeHit(Unit attacker)
@@ -40,6 +45,21 @@ public class Unit : MonoBehaviour, ITargetable
     public void TurnSide(bool turningLeft)
     {
         _spriteFlipper.TurnSide(turningLeft);   
+    }
+
+    public void StartMoving()
+    {
+        _animationPlayer.PlayMoveAnimation();
+    }
+
+    public void Stop()
+    {
+        _animationPlayer.Stop();
+    }
+
+    public void MoveTo(Vector2 position)
+    {
+        transform.position = position;
     }
 
     public int GetValue()

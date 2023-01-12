@@ -140,15 +140,3 @@ MonoBehaviour:
   - _json: '{"_name":"target","_id":"95f889f4-01fc-41cb-b55c-17a72209ee27","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
---- !u!114 &6683360618641796045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4799308394634657268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 702def6756e75ab47b92be0972a010eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
