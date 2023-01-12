@@ -17,7 +17,8 @@ public class Unit : MonoBehaviour, ITargetable
     public const int MinValue = 1;
     public const int MaxValue = 20;
 
-    public event UnityAction<Unit> Hit; 
+    public event UnityAction<Unit> Hit;
+    public event UnityAction Died;
 
     public UnitStats Stats => _stats;
     public Vector2 Position => transform.position;
