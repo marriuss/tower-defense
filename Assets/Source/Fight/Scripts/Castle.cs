@@ -22,4 +22,9 @@ public class Castle : MonoBehaviour, ITargetable
         _castleStats = castleStats;
         _health.IncreaseValue(_castleStats.Health);
     }
+
+    public void TakeHit(Unit attacker)
+    {
+        
+    }
 }

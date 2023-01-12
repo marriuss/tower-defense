@@ -8,7 +8,7 @@ public class AnimationPlayer : MonoBehaviour
 {
     private const string IdleAnimation = "Idle";
     private const string MoveAnimation = "Move";
-    private const string AttackAnimation = "Attack";
+    private const string AttackTrigger = "Attack";
     private const string TakeHitAnimation = "TakeHit";
     private const string DeathAnimation = "Die";
 
@@ -31,7 +31,7 @@ public class AnimationPlayer : MonoBehaviour
 
     public void PlayAttackAnimation()
     {
-        PlayAnimation(AttackAnimation);
+        _animator.SetTrigger(AttackTrigger);
     }
 
     public void PlayTakeHitAnimation()

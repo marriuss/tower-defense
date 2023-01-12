@@ -30,10 +30,11 @@ public class Unit : MonoBehaviour, ITargetable
         _animationPlayer = GetComponent<AnimationPlayer>();
         _health = new Health(Stats.Health);
     }
-
+    
     public void Attack(ITargetable target)
     {
         _animationPlayer.PlayAttackAnimation();
+        target.TakeHit(this);
     }
 
     public void TakeHit(Unit attacker)
@@ -51,7 +52,7 @@ public class Unit : MonoBehaviour, ITargetable
         _animationPlayer.PlayMoveAnimation();
     }
 
-    public void StopMoving()
+    public void Stop()
     {
         _animationPlayer.Stop();
     }
