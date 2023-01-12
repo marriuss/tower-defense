@@ -1,15 +1,45 @@
+using NodeCanvas.Framework;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
+using System.Collections.Generic;
 
-public class Unit : MonoBehaviour
+[RequireComponent(typeof(SpriteFlipper))]
+[RequireComponent(typeof(AnimationPlayer))]
+public class Unit : MonoBehaviour, ITargetable
 {
     [SerializeField] private UnitStats _stats;
+
+    private SpriteFlipper _spriteFlipper;
+    private AnimationPlayer _animationPlayer;
 
     public const int MinValue = 1;
     public const int MaxValue = 20;
 
-    public void SetSide(bool leftSided)
+    public event UnityAction<Unit> Hit; 
+
+    public UnitStats Stats => _stats;
+    public Vector2 Position => transform.position;
+
+    private void Awake()
     {
-        // TODO
+        _spriteFlipper = GetComponent<SpriteFlipper>();
+        _animationPlayer = GetComponent<AnimationPlayer>();
+    }
+
+    public void Attack(ITargetable target)
+    {
+        _animationPlayer.PlayAttackAnimation();
+    }
+
+    public void TakeHit(Unit attacker)
+    {
+        Hit?.Invoke(attacker);
+    }
+
+    public void TurnSide(bool turningLeft)
+    {
+        _spriteFlipper.TurnSide(turningLeft);   
     }
 
     public int GetValue()
@@ -18,4 +48,3 @@ public class Unit : MonoBehaviour
         return 1;
     }
 }
-

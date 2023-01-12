@@ -65,6 +65,6 @@ public abstract class UnitSpawner : MonoBehaviour
         GridCell cell = new(row, column);
         Vector2 position = _battlefield.GetPosition(cell);
         Unit unit = Instantiate(unitPrefab, position, Quaternion.identity, transform);
-        unit.SetSide(_leftSided);
+        unit.TurnSide(!_leftSided);
     }
 }
