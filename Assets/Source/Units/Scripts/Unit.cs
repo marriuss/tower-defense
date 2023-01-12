@@ -12,6 +12,7 @@ public class Unit : MonoBehaviour, ITargetable
 
     private SpriteFlipper _spriteFlipper;
     private AnimationPlayer _animationPlayer;
+    private Health _health;
 
     public const int MinValue = 1;
     public const int MaxValue = 20;
@@ -20,11 +21,13 @@ public class Unit : MonoBehaviour, ITargetable
 
     public UnitStats Stats => _stats;
     public Vector2 Position => transform.position;
+    public int Health => _health.Value;
 
     private void Awake()
     {
         _spriteFlipper = GetComponent<SpriteFlipper>();
         _animationPlayer = GetComponent<AnimationPlayer>();
+        _health = new Health(Stats.Health);
     }
 
     public void Attack(ITargetable target)
