@@ -55,11 +55,11 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 28
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -156,12 +156,12 @@ TextureImporter:
       name: Attack1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 160
-        height: 111
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 58
+        y: 6
+        width: 44
+        height: 68
+      alignment: 9
+      pivot: {x: 0.53533536, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,12 +177,12 @@ TextureImporter:
       name: Attack1_1
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
-        width: 160
-        height: 111
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 221
+        y: 6
+        width: 34
+        height: 66
+      alignment: 9
+      pivot: {x: 0.6325365, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,12 +198,12 @@ TextureImporter:
       name: Attack1_2
       rect:
         serializedVersion: 2
-        x: 320
-        y: 0
-        width: 160
-        height: 111
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 379
+        y: 6
+        width: 92
+        height: 44
+      alignment: 9
+      pivot: {x: 0.2646196, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,12 +219,12 @@ TextureImporter:
       name: Attack1_3
       rect:
         serializedVersion: 2
-        x: 480
-        y: 0
-        width: 160
-        height: 111
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 541
+        y: 6
+        width: 39
+        height: 44
+      alignment: 9
+      pivot: {x: 0.5409311, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
