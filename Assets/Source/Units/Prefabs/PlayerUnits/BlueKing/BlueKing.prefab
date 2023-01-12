@@ -53,7 +53,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3493525643349246074, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: m_Name
-      value: PlayerUnit
+      value: BlueKing
       objectReference: {fileID: 0}
+    - target: {fileID: 5898168961723392654, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 314e981649f919d45ac587b81ec81f86, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
