@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(TargetsPool))]
 public abstract class UnitSpawner : MonoBehaviour
 {
     [SerializeField] private Battlefield _battlefield;
@@ -13,6 +15,13 @@ public abstract class UnitSpawner : MonoBehaviour
     private GridCell? _cell;
     private int _spawnAmountRange = MaxSpawnAmount - MinSpawnAmount;
     private float _unitValueRange = Unit.MaxValue - Unit.MinValue;
+    private List<Unit> _despawnedUnitsPool = new();
+    private TargetsPool _spawnedUnitsPool;
+
+    private void Awake()
+    {
+        _spawnedUnitsPool = GetComponent<TargetsPool>();
+    }
 
     protected void SpawnUnit(Unit unitPrefab)
     {
@@ -64,7 +73,31 @@ public abstract class UnitSpawner : MonoBehaviour
     {
         GridCell cell = new(row, column);
         Vector2 position = _battlefield.GetPosition(cell);
-        Unit unit = Instantiate(unitPrefab, position, Quaternion.identity, transform);
+
+        Unit unit = _despawnedUnitsPool.Find(unit => unit.Stats.Name == unitPrefab.Stats.Name);
+
+        if (unit == null)
+        {
+            unit = Instantiate(unitPrefab, position, Quaternion.identity, transform);
+        }
+        else
+        {
+            _despawnedUnitsPool.Remove(unit);
+            unit.MoveTo(position);
+        }
+
+        unit.Spawn();
+        _spawnedUnitsPool.AddObject(unit);
+        unit.Died += OnUnitDied;
         unit.TurnSide(!_leftSided);
+    }
+
+    private void OnUnitDied(ITargetable target)
+    {
+        Unit unit = target as Unit;
+        unit.Died -= OnUnitDied;
+        unit.Despawn();
+        _spawnedUnitsPool.RemoveObject(unit);
+        _despawnedUnitsPool.Add(unit);
     }
 }

@@ -6,19 +6,21 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(SpriteFlipper))]
 [RequireComponent(typeof(AnimationPlayer))]
+[RequireComponent(typeof(GraphOwner))]
 public abstract class Unit : MonoBehaviour, ITargetable
 {
     [SerializeField] private UnitStats _stats;
 
     private SpriteFlipper _spriteFlipper;
     private AnimationPlayer _animationPlayer;
+    private GraphOwner _graphOwner;
     private Health _health;
 
     public const int MinValue = 1;
     public const int MaxValue = 20;
 
     public event UnityAction<Unit> WasHit;
-    public event UnityAction Died;
+    public event UnityAction<ITargetable> Died;
 
     public UnitStats Stats => _stats;
     public Vector2 Position => transform.position;
@@ -28,7 +30,18 @@ public abstract class Unit : MonoBehaviour, ITargetable
     {
         _spriteFlipper = GetComponent<SpriteFlipper>();
         _animationPlayer = GetComponent<AnimationPlayer>();
+        _graphOwner = GetComponent<GraphOwner>();
         _health = new Health(Stats.Health);
+    }
+
+    public void Spawn()
+    {
+        _graphOwner.enabled = true;
+    }
+
+    public void Despawn()
+    {
+        _graphOwner.enabled = false;
     }
 
     public void Attack(ITargetable target)
@@ -81,5 +94,6 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     private void Die()
     {
+        Died?.Invoke(this);
     }
 }

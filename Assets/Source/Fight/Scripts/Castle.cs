@@ -6,7 +6,7 @@ public class Castle : MonoBehaviour, ITargetable
     private CastleStats _castleStats;
     private Health _health;
 
-    public event UnityAction Died;
+    public event UnityAction<ITargetable> Died;
 
     public Vector2 Position => transform.position;
 
