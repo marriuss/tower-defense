@@ -30,7 +30,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _animationPlayer = GetComponent<AnimationPlayer>();
         _health = new Health(Stats.Health);
     }
-    
+
     public void Attack(ITargetable target)
     {
         _animationPlayer.PlayAttackAnimation();
@@ -39,7 +39,18 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void TakeHit(Unit attacker)
     {
-        WasHit?.Invoke(attacker);
+        int damage = Stats.RecalculateDamage(attacker.Stats.Damage);
+        _health.DecreaseValue(damage);
+
+        if (Health == 0)
+        {
+            Die();  
+        }
+        else
+        {
+            _animationPlayer.PlayTakeHitAnimation();
+            WasHit?.Invoke(attacker);
+        }
     }
 
     public void TurnSide(bool turningLeft)
@@ -66,5 +77,9 @@ public abstract class Unit : MonoBehaviour, ITargetable
     {
         // TODO
         return 1;
+    }
+
+    private void Die()
+    {
     }
 }
