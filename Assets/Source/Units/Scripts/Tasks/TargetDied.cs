@@ -32,7 +32,7 @@ namespace NodeCanvas.Tasks.Conditions
             return _targetDied;
         }
 
-        private void OnTargetDied()
+        private void OnTargetDied(ITargetable _)
         {
             _targetDied = true;
         }

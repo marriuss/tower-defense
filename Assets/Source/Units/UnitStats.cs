@@ -7,6 +7,7 @@ public class UnitStats : ScriptableObject
 {
     private const int MaxArmor = 50;
 
+    [SerializeField] private string _name;
     [SerializeField] private int _health;
     [SerializeField, Range(0, MaxArmor)] private int _armor;
     [SerializeField] private int _damage;
@@ -14,6 +15,7 @@ public class UnitStats : ScriptableObject
     [SerializeField] private float _attackDelay;
     [SerializeField] private float _attackRange;
 
+    public string Name => _name;
     public int Health => _health;
     public int Armor => _armor;
     public int Damage => _damage;
