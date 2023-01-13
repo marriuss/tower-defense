@@ -17,7 +17,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
     public const int MinValue = 1;
     public const int MaxValue = 20;
 
-    public event UnityAction<Unit> Hit;
+    public event UnityAction<Unit> WasHit;
     public event UnityAction Died;
 
     public UnitStats Stats => _stats;
@@ -39,7 +39,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void TakeHit(Unit attacker)
     {
-        Hit?.Invoke(attacker);
+        WasHit?.Invoke(attacker);
     }
 
     public void TurnSide(bool turningLeft)
