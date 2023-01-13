@@ -6,15 +6,15 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private ProgressLoader _progressLoader;
 
-    private Deck _deck;
-    private Castle _castle;
-    private Balance _balance;
+    public Deck Deck { get; private set; }
+    public Castle Castle { get; private set; }
+    public Balance Balance { get; private set; }
 
     private void Awake()
     {
-        _deck = new Deck();
-        _castle = new Castle();
-        _balance = new Balance();
+        Deck = new Deck();
+        Castle = new Castle();
+        Balance = new Balance();
     }
 
     private void OnEnable()
@@ -29,6 +29,6 @@ public class Player : MonoBehaviour
 
     private void OnProgressLoaded(PlayerProgress progress)
     {
-        _balance.AddMoney(progress.Money);
+        Balance.AddMoney(progress.Money);
     }
 }

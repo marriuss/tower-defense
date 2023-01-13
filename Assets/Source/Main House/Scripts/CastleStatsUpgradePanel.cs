@@ -35,7 +35,7 @@ public class CastleStatsUpgradePanel : MonoBehaviour
     public void ShowPanel()
     {
         gameObject.SetActive(true);
-        UpdateInfo(_castleUpgrade.CastleStats);
+        UpdateInfo(_castleUpgrade.Castle);
         UpdateUpgradeButton();
     }
 
@@ -48,23 +48,19 @@ public class CastleStatsUpgradePanel : MonoBehaviour
     {
         _levelText.text = castleStats.Level.ToString();
         _healthText.text = castleStats.Health.ToString();
-        _damageText.text = castleStats.Damage.ToString();
-        _populationText.text = castleStats.Population.ToString();
-        _guardHealthText.text = castleStats.GuardHealth.ToString();
-        _guardDamageText.text = castleStats.GuardDamage.ToString();
     }
 
     private void OnUpgradeButtonClick()
     {
         _castleUpgrade.TryUpgrade();
-        UpdateInfo(_castleUpgrade.CastleStats);
+        UpdateInfo(_castleUpgrade.Castle);
         UpdateUpgradeButton();
     }
 
     private void UpdateUpgradeButton()
     {
         _upgradeButton.interactable = _castleUpgrade.CanUpgrade;
-        _upgradeButtonText.text = $"Upgrade ({_castleUpgrade.CastleStats.UpgradeCost})";
+        _upgradeButtonText.text = $"Upgrade ({_castleUpgrade.Castle.UpgradeCost})";
     }
 
     private void OnCloseButtonClick()
