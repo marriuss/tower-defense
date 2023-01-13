@@ -84,7 +84,8 @@ PrefabInstance:
       value: '{"_name":"_","_id":"5960c215-88b3-4398-a3fe-f25b1ca230de","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector3,
         UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2089955358174438263, guid: a2eabad11dde7154ba5c8bef04dc7cfd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2eabad11dde7154ba5c8bef04dc7cfd, type: 3}
 --- !u!1 &4799308394634657268 stripped
 GameObject:
@@ -140,3 +141,16 @@ MonoBehaviour:
   - _json: '{"_name":"target","_id":"95f889f4-01fc-41cb-b55c-17a72209ee27","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
+--- !u!114 &4382937294465314695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4799308394634657268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa23ed15d72a64e49aa926272814b56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stats: {fileID: 0}

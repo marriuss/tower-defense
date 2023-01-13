@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(SpriteFlipper))]
 [RequireComponent(typeof(AnimationPlayer))]
-public class Unit : MonoBehaviour, ITargetable
+public abstract class Unit : MonoBehaviour, ITargetable
 {
     [SerializeField] private UnitStats _stats;
 
