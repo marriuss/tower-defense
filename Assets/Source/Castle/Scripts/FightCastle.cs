@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Castle : MonoBehaviour, ITargetable
+public class FightCastle : MonoBehaviour, ITargetable
 {
-    private CastleStats _castleStats;
+    private CastleFightStats _castleStats;
     private Health _health;
 
     public event UnityAction<ITargetable> Died;
@@ -17,7 +17,7 @@ public class Castle : MonoBehaviour, ITargetable
         _health = new Health();
     }
 
-    public void ApplyProgress(CastleStats castleStats)
+    public void ApplyProgress(CastleFightStats castleStats)
     {
         _castleStats = castleStats;
         _health.IncreaseValue(_castleStats.Health);

@@ -7,13 +7,13 @@ public class Player : MonoBehaviour
     [SerializeField] private ProgressLoader _progressLoader;
 
     private Deck _deck;
-    private CastleStats _castleStats;
+    private Castle _castle;
     private Balance _balance;
 
     private void Awake()
     {
         _deck = new Deck();
-        _castleStats = new CastleStats();
+        _castle = new Castle();
         _balance = new Balance();
     }
 

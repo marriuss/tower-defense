@@ -6,9 +6,9 @@ public class FightInfo
 {
     public Deck Deck { get; private set; }
     public LevelInfo LevelInfo { get; private set; }
-    public CastleStats CastleStats { get; private set; }
+    public CastleFightStats CastleStats { get; private set; }
 
-    public FightInfo(Deck deck, LevelInfo levelInfo, CastleStats castleStats)
+    public FightInfo(Deck deck, LevelInfo levelInfo, CastleFightStats castleStats)
     {
         Deck = deck;
         LevelInfo = levelInfo;

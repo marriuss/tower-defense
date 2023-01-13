@@ -1,14 +1,14 @@
 using UnityEngine;
-
+ 
 public class CastleUpgrade : MonoBehaviour
 {
     [SerializeField] private ProgressLoader _progressLoader;
 
-    private CastleStats _castleStats;
+    private Castle _castleStats;
     private Balance _balance;
 
     public bool CanUpgrade => _balance.HasEnoughMoney(_castleStats.UpgradeCost);
-    public CastleStats CastleStats => _castleStats;
+    public Castle CastleStats => _castleStats;
 
     private void OnEnable()
     {
@@ -33,7 +33,7 @@ public class CastleUpgrade : MonoBehaviour
 
     private void OnProgressLoaded(PlayerProgress playerProgress)
     {
-        _castleStats = playerProgress.CastleStats;
+        _castleStats = playerProgress.CastleProgress;
         _balance = playerProgress.Balance;
     }
 }

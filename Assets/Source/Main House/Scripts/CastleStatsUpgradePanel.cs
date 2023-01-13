@@ -44,7 +44,7 @@ public class CastleStatsUpgradePanel : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void UpdateInfo(CastleStats castleStats)
+    public void UpdateInfo(Castle castleStats)
     {
         _levelText.text = castleStats.Level.ToString();
         _healthText.text = castleStats.Health.ToString();
