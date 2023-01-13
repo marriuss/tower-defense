@@ -14,14 +14,7 @@ public class ProgressLoader : MonoBehaviour
 
     private void LoadProgress()
     {
-        _playerProgress = new PlayerProgress()
-        {
-            Money = 0,
-            LastLevelId = 0,
-            CardProgress = new CardProgress[0],
-            CardIds = new int?[0],
-            CastleLevel = 1,
-        };
+        _playerProgress = new PlayerProgress();
 
         ProgressLoaded?.Invoke(_playerProgress);
     }
