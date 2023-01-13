@@ -3,7 +3,7 @@ using ParadoxNotion.Design;
 
 namespace NodeCanvas.Tasks.Actions
 {
-    public class FindCastle : ActionTask<Unit>
+    public class SelectTarget<T> : ActionTask<Unit> where T : ITargetable
     {
         public BBParameter<ITargetable> TargetVariable;
 
@@ -14,9 +14,9 @@ namespace NodeCanvas.Tasks.Actions
 
         protected override void OnExecute()
         {
-            Castle castle = CastleFinder.FindClosestCastle(agent.Position);
-            TargetVariable.value = castle;
-            EndAction(castle != null);
+            T target = TargetSelector.FindClosestTarget<T>(agent.Position);
+            TargetVariable.value = target;
+            EndAction(target != null);
         }
     }
 }

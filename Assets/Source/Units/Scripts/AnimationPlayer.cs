@@ -9,7 +9,7 @@ public class AnimationPlayer : MonoBehaviour
     private const string IdleAnimation = "Idle";
     private const string MoveAnimation = "Move";
     private const string AttackTrigger = "Attack";
-    private const string TakeHitAnimation = "TakeHit";
+    private const string TakeHitTrigger = "TakeHit";
     private const string DeathAnimation = "Die";
 
     private Animator _animator;
@@ -31,12 +31,12 @@ public class AnimationPlayer : MonoBehaviour
 
     public void PlayAttackAnimation()
     {
-        _animator.SetTrigger(AttackTrigger);
+        SetTrigger(AttackTrigger);
     }
 
     public void PlayTakeHitAnimation()
     {
-        PlayAnimation(TakeHitAnimation);
+        SetTrigger(TakeHitTrigger);
     }
 
     public void PlayDeathAnimation()
@@ -49,7 +49,12 @@ public class AnimationPlayer : MonoBehaviour
         _animator.Play(animation);
     }
 
-    internal void Stop()
+    private void SetTrigger(string trigger)
+    {
+        _animator.SetTrigger(trigger);
+    }
+
+    public void Stop()
     {
        _animator.StopPlayback();
     }

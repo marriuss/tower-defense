@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(SpriteFlipper))]
 [RequireComponent(typeof(AnimationPlayer))]
-public class Unit : MonoBehaviour, ITargetable
+public abstract class Unit : MonoBehaviour, ITargetable
 {
     [SerializeField] private UnitStats _stats;
 
@@ -17,7 +17,7 @@ public class Unit : MonoBehaviour, ITargetable
     public const int MinValue = 1;
     public const int MaxValue = 20;
 
-    public event UnityAction<Unit> Hit;
+    public event UnityAction<Unit> WasHit;
     public event UnityAction Died;
 
     public UnitStats Stats => _stats;
@@ -30,7 +30,7 @@ public class Unit : MonoBehaviour, ITargetable
         _animationPlayer = GetComponent<AnimationPlayer>();
         _health = new Health(Stats.Health);
     }
-    
+
     public void Attack(ITargetable target)
     {
         _animationPlayer.PlayAttackAnimation();
@@ -39,7 +39,18 @@ public class Unit : MonoBehaviour, ITargetable
 
     public void TakeHit(Unit attacker)
     {
-        Hit?.Invoke(attacker);
+        int damage = Stats.RecalculateDamage(attacker.Stats.Damage);
+        _health.DecreaseValue(damage);
+
+        if (Health == 0)
+        {
+            Die();  
+        }
+        else
+        {
+            _animationPlayer.PlayTakeHitAnimation();
+            WasHit?.Invoke(attacker);
+        }
     }
 
     public void TurnSide(bool turningLeft)
@@ -66,5 +77,9 @@ public class Unit : MonoBehaviour, ITargetable
     {
         // TODO
         return 1;
+    }
+
+    private void Die()
+    {
     }
 }

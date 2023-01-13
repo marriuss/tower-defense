@@ -17,12 +17,12 @@ namespace NodeCanvas.Tasks.Conditions
 
         protected override void OnEnable()
         {
-            agent.Hit += OnHit;
+            agent.WasHit += OnHit;
         }
 
         protected override void OnDisable()
         {
-            agent.Hit -= OnHit;
+            agent.WasHit -= OnHit;
         }
 
         protected override bool OnCheck()

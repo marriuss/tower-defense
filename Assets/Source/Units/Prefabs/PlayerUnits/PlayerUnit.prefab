@@ -55,7 +55,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2089955358174438263, guid: a2eabad11dde7154ba5c8bef04dc7cfd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a2eabad11dde7154ba5c8bef04dc7cfd, type: 3}
 --- !u!1 &3493525643349246074 stripped
 GameObject:
@@ -89,8 +90,8 @@ MonoBehaviour:
   _lockBoundGraphPrefabOverrides: 1
   _preInitializeSubGraphs: 0
   _updateMode: 0
-  _graph: {fileID: 11400000, guid: 5ce82f2052b23cf4db494b9a1658e04f, type: 2}
-  _blackboard: {fileID: 0}
+  _graph: {fileID: 11400000, guid: b3bab113530a37d45860300baa54ff3b, type: 2}
+  _blackboard: {fileID: 6525957692865573781}
 --- !u!114 &6525957692865573781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +105,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{}}'
+  _serializedBlackboard: '{"_variables":{"target":{"_name":"target","_id":"9b034356-f975-4f06-8842-7fdad2a1b718","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences: []
-  _serializedVariables: []
+  _serializedVariables:
+  - _json: '{"_name":"target","_id":"9b034356-f975-4f06-8842-7fdad2a1b718","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references: []
+--- !u!114 &7813836877977998122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3493525643349246074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fe53b3f6a1085468a2f5815f4dffa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stats: {fileID: 0}
