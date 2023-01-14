@@ -15,6 +15,8 @@ public class CameraMovement : MonoBehaviour
     private Rect _rectBounds;
     private bool _isDragging;
     private float _zPosition;
+    private float _halfCameraWidth;
+    private float _halfCameraHeight;
 
     private void Awake()
     {
@@ -22,6 +24,8 @@ public class CameraMovement : MonoBehaviour
         _actions = new CameraMovementActions();
         _pointerEventData = new PointerEventData(EventSystem.current);
         _zPosition = _camera.transform.position.z;
+        _halfCameraWidth = _camera.GetWidth() / 2;
+        _halfCameraHeight = _camera.GetHeight() / 2;
     }
 
     private void OnEnable()
@@ -45,8 +49,16 @@ public class CameraMovement : MonoBehaviour
             Vector2 currentPosition = _camera.ScreenToWorldPoint(_actions.ClickAndDrag.Position.ReadValue<Vector2>());
             Vector2 cameraPosition = _camera.transform.position;
             Vector2 movement = currentPosition - _startPosition;
+
             Vector3 newPosition = Vector3.MoveTowards(cameraPosition, cameraPosition - movement, _dragSpeed * Time.deltaTime);
             newPosition.z = _zPosition;
+
+            if (_rectBounds != null)
+            {
+                newPosition.x = Mathf.Clamp(newPosition.x, _rectBounds.xMin + _halfCameraWidth, _rectBounds.xMax - _halfCameraWidth);
+                newPosition.y = Mathf.Clamp(newPosition.y, _rectBounds.yMin + _halfCameraHeight, _rectBounds.yMax - _halfCameraHeight);
+            }
+
             _camera.transform.position = newPosition;
         }
     }

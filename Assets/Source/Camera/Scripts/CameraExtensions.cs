@@ -15,4 +15,8 @@ public static class CameraExtensions
 
         camera.orthographicSize = width * aspectRatio * 0.5f;
     }
+
+    public static float GetHeight(this Camera camera) => camera.orthographicSize * 2;
+
+    public static float GetWidth(this Camera camera) => camera.GetHeight() * camera.aspect;
 }
