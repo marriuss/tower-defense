@@ -8,6 +8,7 @@ public class FightInitializer : MonoBehaviour
     [SerializeField] private CardStack _cardStack;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private FightCastle _castle;
+    [SerializeField] private TowerSpawner _towerSpawner;
 
     public void Initialize(FightInfo fightInfo)
     {

@@ -1,30 +1,28 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class FightCastle : MonoBehaviour, ITargetable
+[RequireComponent(typeof(TargetsPool))]
+[RequireComponent(typeof(Tower))]
+public class FightCastle : MonoBehaviour
 {
+    [SerializeField] private TowerSpawner _towerSpawner;
+    [SerializeField] private Tower _towerPrefab;
+
     private CastleFightStats _castleStats;
-    private Health _health;
-
-    public event UnityAction<ITargetable> Died;
-
-    public Vector2 Position => transform.position;
-
-    public int Health => _health.Value;
+    private Tower _tower;
 
     private void Awake()
     {
-        _health = new Health();
+        _tower = GetComponent<Tower>();
     }
 
     public void ApplyProgress(CastleFightStats castleStats)
     {
         _castleStats = castleStats;
-        _health.IncreaseValue(_castleStats.Health);
-    }
+        _towerSpawner.AddMainTower(_tower);
+        int amount = _castleStats.AdditionalTowers;
 
-    public void TakeHit(Unit attacker)
-    {
-        
+        if (amount > 0)
+            _towerSpawner.Spawn(_towerPrefab, amount);
     }
 }
