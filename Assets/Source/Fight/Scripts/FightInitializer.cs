@@ -5,10 +5,17 @@ using System.Linq;
 
 public class FightInitializer : MonoBehaviour
 {
+    [SerializeField] private Battlefield _battlefield;
     [SerializeField] private CardStack _cardStack;
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private FightCastle _castle;
     [SerializeField] private TowerSpawner _towerSpawner;
+    [SerializeField] private CameraMovement _cameraMovement;
+
+    private void Awake()
+    {
+        InitializeCameraMovement();
+    }
 
     public void Initialize(FightInfo fightInfo)
     {
@@ -34,5 +41,10 @@ public class FightInitializer : MonoBehaviour
     private void InitializeCastle(CastleFightStats castleStats)
     {
         _castle.ApplyProgress(castleStats);
+    }
+
+    private void InitializeCameraMovement()
+    {
+        _cameraMovement.SetRectBounds(_battlefield.BattlefieldRect);
     }
 }
