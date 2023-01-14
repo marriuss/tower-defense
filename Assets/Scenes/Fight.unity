@@ -603,10 +603,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d2c98538e9a904ab0cedfc4fd9e761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _battlefield: {fileID: 1832104114}
   _cardStack: {fileID: 1843386251}
   _enemySpawner: {fileID: 1326594785}
   _castle: {fileID: 0}
   _towerSpawner: {fileID: 0}
+  _cameraMovement: {fileID: 2083147601}
 --- !u!4 &1220855251
 Transform:
   m_ObjectHideFlags: 0
@@ -1054,6 +1056,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb8a356bfe0a1e49b991f023a3bb73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dragSpeed: 50
 --- !u!114 &390141433469809724
 MonoBehaviour:
   m_ObjectHideFlags: 0

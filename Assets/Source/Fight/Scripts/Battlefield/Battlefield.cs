@@ -12,6 +12,7 @@ public class Battlefield : MonoBehaviour
     private float _cellWidth;
     private float _cellHeight;
 
+    public Rect BattlefieldRect => _battlefieldRect;
     public int Rows => _rows;
 
     private void OnDrawGizmos()
