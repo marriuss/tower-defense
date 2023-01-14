@@ -535,16 +535,6 @@ namespace CW.Common
 					canvas.gameObject.layer = LayerMask.NameToLayer("UI");
 
 					canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-
-					// Make event system?
-					if (EventSystem.current == null)
-					{
-#if ENABLE_INPUT_SYSTEM
-						new GameObject("EventSystem", typeof(EventSystem), typeof(UnityEngine.InputSystem.UI.InputSystemUIInputModule));
-#else
-						new GameObject("EventSystem", typeof(EventSystem), typeof(UnityEngine.EventSystems.StandaloneInputModule));
-#endif
-					}
 				}
 
 				parent = canvas.transform;
