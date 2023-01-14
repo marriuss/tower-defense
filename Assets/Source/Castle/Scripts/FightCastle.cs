@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(TargetsPool))]
 [RequireComponent(typeof(Tower))]
 public class FightCastle : MonoBehaviour
 {

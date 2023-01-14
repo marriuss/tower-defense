@@ -5,13 +5,6 @@ using UnityEngine;
 
 public class EnemySpawner : UnitSpawner
 {
-    [SerializeField] private Unit _testUnit;
-
-    private void Start()
-    {
-        Spawn(_testUnit);
-    }
-
     public void StartSpawn(float wavesDelay, float spawnDelay, List<Wave> waves)
     {
         StartCoroutine(SpawnUnits(wavesDelay, spawnDelay, waves));
