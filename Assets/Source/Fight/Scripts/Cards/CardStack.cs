@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
-
+using UnityEngine.Events;
 
 public class CardStack : MonoBehaviour
 {
     private Stack<FightingCard> _cards = new Stack<FightingCard>();
+
+    public event UnityAction StackGenerated;
 
     public void GenerateStack(HashSet<Card> cardSet, int amount)
     {
@@ -34,6 +36,8 @@ public class CardStack : MonoBehaviour
 
             isStackFull = stackCount == amount;
         }
+
+        StackGenerated?.Invoke();
     }
 
     public FightingCard GetTopCard()
