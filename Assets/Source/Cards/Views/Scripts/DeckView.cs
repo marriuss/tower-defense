@@ -7,6 +7,7 @@ public class DeckView : MonoBehaviour
 {
     [SerializeField] private FightCardView _cardViewPrefab;
     [SerializeField] private CardStack _cardStack;
+    [SerializeField] private DeckController _deckController;
 
     private const int TopCards = 5;
 
@@ -21,20 +22,31 @@ public class DeckView : MonoBehaviour
             cardView = Instantiate(_cardViewPrefab, transform);
             _cardViews.Add(cardView);
         }
+
+        RenderTopStackCards();
     }
 
     private void OnEnable()
     {
-        _cardStack.StackGenerated += OnCardStackGenerated;
+        foreach(FightCardView fightCardView in _cardViews)
+            fightCardView.Clicked += OnCardClicked;
     } 
 
     private void OnDisable()
     {
-        _cardStack.StackGenerated -= OnCardStackGenerated;
+        foreach (FightCardView fightCardView in _cardViews)
+            fightCardView.Clicked -= OnCardClicked;
     }
 
-    private void OnCardStackGenerated()
+    private void RenderTopStackCards()
     {
+        StartCoroutine(RenderWhenStackGenerated());
+    }
+
+    private IEnumerator RenderWhenStackGenerated()
+    {
+        yield return _cardStack.StackGenerated;
+
         FightingCard card;
 
         for (int i = 0; i < TopCards; i++)
@@ -42,5 +54,10 @@ public class DeckView : MonoBehaviour
             card = _cardStack.GetTopCard();
             _cardViews[i].Render(card);
         }
+    }
+
+    private void OnCardClicked(FightCardView cardView)
+    {
+        _deckController.UseCard(cardView.Card);
     }
 }

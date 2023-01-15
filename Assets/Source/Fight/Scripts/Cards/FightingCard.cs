@@ -7,6 +7,7 @@ public class FightingCard
     private Card _card;
 
     public Unit Unit => _card.CardInfo.Unit;
+    public int ManaCost => _card.CardInfo.Mana;
 
     public FightingCard(Card card)
     {

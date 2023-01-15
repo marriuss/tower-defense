@@ -35,13 +35,11 @@ public class ManaController : MonoBehaviour
             _startMana = _maxMana;
     }
 
-    public bool TrySpendMana(int amount)
-    {
-        if (amount < Mana)
-            return false;
+    public bool CanSpendMana(int value) => 0 <= value && value <= Mana;
 
+    public void SpendMana(int amount)
+    {
         _mana.DecreaseValue(amount);
-        return true;
     }
 
     private IEnumerator FillMana()
