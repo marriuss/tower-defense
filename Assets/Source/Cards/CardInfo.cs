@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardInfo : MonoBehaviour
+[CreateAssetMenu(fileName = "New CardInfo", menuName = "SO/CardInfo", order = 51)]
+public class CardInfo : ScriptableObject
 {
     [SerializeField] private int _id;
     [SerializeField] private Unit _unit;
