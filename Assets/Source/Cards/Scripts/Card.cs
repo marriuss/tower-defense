@@ -68,6 +68,6 @@ public class Card
 
     private void InvokeExperienceStatsChanges()
     {
-        ExperienceStatsChanged.Invoke();
+        ExperienceStatsChanged?.Invoke();
     }
 }

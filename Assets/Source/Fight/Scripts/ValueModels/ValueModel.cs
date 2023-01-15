@@ -4,35 +4,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health
+public class ValueModel
 {
-    private int _health;
+    private int _value;
 
     public int MaxValue { get; private set; }
     public int Value
     {
         get
         {
-            return _health;
+            return _value;
         }
         set
         {
-            value = Math.Clamp(value, 0, MaxValue);
-            _health = value;
+            value = Mathf.Clamp(value, 0, MaxValue);
+            _value = value;
         }
     }
 
     public event UnityAction ValueChanged;
 
-    public Health(int maxHealth)
+    public ValueModel(int startValue, int maxValue)
     {
-        ThrowExceptionIfNegative(maxHealth);
+        ThrowExceptionIfNegative(startValue);
+        ThrowExceptionIfNegative(maxValue);
 
-        MaxValue = maxHealth;
-        Value = maxHealth;
+        MaxValue = maxValue;
+        Value = startValue;
     }
 
-    public Health()
+    public ValueModel(int maxValue)
+    {
+        ThrowExceptionIfNegative(maxValue);
+
+        MaxValue = maxValue;
+        Value = maxValue;
+    }
+
+    public ValueModel()
     {
         MaxValue = 0;
         Value = 0;
@@ -63,11 +72,4 @@ public class Health
         if (value < 0)
             throw new NegativeArgumentException();
     }
-}
-
-public class NegativeArgumentException : Exception
-{
-    private const string ExceptionMessage = "Argument cannot be negative.";
-
-    public NegativeArgumentException() : base(ExceptionMessage) { }
 }
