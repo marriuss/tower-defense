@@ -30,8 +30,7 @@ public class TowerSpawner : TargetableObjectsSpawner
 
     private void AddToPool(Tower tower)
     {
-        _pool.AddObject(tower);
-        tower.Died += OnTowerDied;
+        StartCoroutine(AddWhenPoolInitialized(tower));
     }
 
     private void OnTowerDied(ITargetable targetableObject)
@@ -39,5 +38,13 @@ public class TowerSpawner : TargetableObjectsSpawner
         Tower tower = targetableObject as Tower;
         tower.Died -= OnTowerDied;
         _pool.RemoveObject(tower);
+    }
+
+    private IEnumerator AddWhenPoolInitialized(Tower tower)
+    {
+        yield return _pool != null;
+
+        _pool.AddObject(tower);
+        tower.Died += OnTowerDied;
     }
 }
