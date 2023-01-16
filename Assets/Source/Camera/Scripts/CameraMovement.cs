@@ -63,6 +63,17 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        if (_rectBounds != null)
+        {
+            Gizmos.color = new Color(0.0f, 0.0f, 1.0f);
+            Vector2 size = _rectBounds.size;
+            Vector2 center = _rectBounds.center;
+            Gizmos.DrawWireCube(center, size);
+        }    
+    }
+
     public void SetRectBounds(Rect rect)
     {
         _rectBounds = rect;

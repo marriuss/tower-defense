@@ -11,6 +11,7 @@ public class FightInitializer : MonoBehaviour
     [SerializeField] private FightCastle _castle;
     [SerializeField] private TowerSpawner _towerSpawner;
     [SerializeField] private CameraMovement _cameraMovement;
+    [SerializeField, Min(1)] private float _cameraBoundsExtensionScale;
 
     private void Awake()
     {
@@ -45,6 +46,14 @@ public class FightInitializer : MonoBehaviour
 
     private void InitializeCameraMovement()
     {
-        _cameraMovement.SetRectBounds(_battlefield.BattlefieldRect);
+        Rect battlefieldRect = _battlefield.BattlefieldRect;
+        battlefieldRect.Set(
+            battlefieldRect.x * _cameraBoundsExtensionScale,
+            battlefieldRect.y * _cameraBoundsExtensionScale,
+            battlefieldRect.width * _cameraBoundsExtensionScale,
+            battlefieldRect.height * _cameraBoundsExtensionScale
+            );
+
+        _cameraMovement.SetRectBounds(battlefieldRect);
     }
 }
