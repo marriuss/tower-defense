@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a75f7e218f19ac248b6216c7cd532696, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  _identifier: 0
-  _zone: 0
+  _identifier: 1
+  _zone: {fileID: 0}
   _waves: []
+  _cardStackCapacity: 0

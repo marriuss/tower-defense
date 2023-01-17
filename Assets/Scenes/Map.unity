@@ -123,6 +123,82 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &1438478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1438479}
+  - component: {fileID: 1438480}
+  - component: {fileID: 1438481}
+  m_Layer: 5
+  m_Name: Castle Stats Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1438479
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 428350500}
+  m_Father: {fileID: 654264683}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1438480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edfda64a37a1f54fbbfb1748782d6d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _openButton: {fileID: 299631800}
+  _closeButton: {fileID: 41030435}
+  _panelView: {fileID: 428350499}
+  _levelText: {fileID: 1939927182}
+  _healthText: {fileID: 536216166}
+  _damageText: {fileID: 1395134611}
+  _populationText: {fileID: 44426158}
+  _guardHealthText: {fileID: 1869039229}
+  _guardDamageText: {fileID: 413087369}
+  _upgradeButton: {fileID: 665628301}
+  _upgradeButtonText: {fileID: 141273801}
+  _castleUpgrade: {fileID: 1438481}
+--- !u!114 &1438481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1438478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ba9ea5bae673641bb2c2ac6d7c3735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 630410387}
 --- !u!1 &41030433
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,10 +822,8 @@ GameObject:
   - component: {fileID: 299631802}
   - component: {fileID: 299631801}
   - component: {fileID: 299631800}
-  - component: {fileID: 299631799}
-  - component: {fileID: 299631803}
   m_Layer: 5
-  m_Name: Castle
+  m_Name: Open Castle Stats Panel Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -775,19 +849,6 @@ RectTransform:
   m_AnchoredPosition: {x: -169, y: -21.768}
   m_SizeDelta: {x: 322.525, y: 194.854}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &299631799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299631797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d08ab1bbb4aa08c4c90e5485e3ee51bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mainHouseStatsPanel: {fileID: 428350503}
 --- !u!114 &299631800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,19 +931,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299631797}
   m_CullTransparentMesh: 1
---- !u!114 &299631803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 299631797}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ba9ea5bae673641bb2c2ac6d7c3735, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 0}
 --- !u!1 &409898599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1066,9 +1114,8 @@ GameObject:
   - component: {fileID: 428350500}
   - component: {fileID: 428350502}
   - component: {fileID: 428350501}
-  - component: {fileID: 428350503}
   m_Layer: 5
-  m_Name: Castle Stats Panel
+  m_Name: Panel View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1081,19 +1128,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428350499}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 141259534}
-  m_Father: {fileID: 654264683}
-  m_RootOrder: 2
+  m_Father: {fileID: 1438479}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 1821.4629, y: 979.17786}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &428350501
 MonoBehaviour:
@@ -1133,28 +1180,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 428350499}
   m_CullTransparentMesh: 1
---- !u!114 &428350503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 428350499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0edfda64a37a1f54fbbfb1748782d6d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelText: {fileID: 1939927182}
-  _healthText: {fileID: 536216166}
-  _damageText: {fileID: 1395134611}
-  _populationText: {fileID: 44426158}
-  _guardHealthText: {fileID: 1869039229}
-  _guardDamageText: {fileID: 413087369}
-  _upgradeButton: {fileID: 665628301}
-  _upgradeButtonText: {fileID: 141273801}
-  _closeButton: {fileID: 41030435}
-  _castleUpgrade: {fileID: 299631803}
 --- !u!1 &498460212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,7 +1920,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630410386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.84763, y: 8.4473915, z: -0.19269702}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1996,7 +2021,7 @@ RectTransform:
   m_Children:
   - {fileID: 573704771}
   - {fileID: 299631798}
-  - {fileID: 428350500}
+  - {fileID: 1438479}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2660,7 +2685,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
+  m_fontSize: 41.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CastleStatsUpgradePanel : MonoBehaviour
+public class CastleStatsUpgradePanel : Panel
 {
     [Space(10)]
     [SerializeField] private TMP_Text _levelText;
@@ -15,21 +15,18 @@ public class CastleStatsUpgradePanel : MonoBehaviour
     [Space(10)]
     [SerializeField] private Button _upgradeButton;
     [SerializeField] private TMP_Text _upgradeButtonText;
-    [SerializeField] private Button _closeButton;
 
     [Space(10)]
     [SerializeField] private CastleUpgrade _castleUpgrade;
 
-    private void OnEnable()
+    protected override void OnEnabled()
     {
         _upgradeButton.onClick.AddListener(OnUpgradeButtonClick);
-        _closeButton.onClick.AddListener(OnCloseButtonClick);
     }
 
-    private void OnDisable()
+    protected override void OnDisabled()
     {
         _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClick);
-        _closeButton.onClick.RemoveListener(OnCloseButtonClick);
     }
 
     public void ShowPanel()
@@ -37,11 +34,6 @@ public class CastleStatsUpgradePanel : MonoBehaviour
         gameObject.SetActive(true);
         UpdateInfo(_castleUpgrade.Castle);
         UpdateUpgradeButton();
-    }
-
-    public void HidePanel()
-    {
-        gameObject.SetActive(false);
     }
 
     public void UpdateInfo(Castle castleStats)
@@ -61,10 +53,5 @@ public class CastleStatsUpgradePanel : MonoBehaviour
     {
         _upgradeButton.interactable = _castleUpgrade.CanUpgrade;
         _upgradeButtonText.text = $"Upgrade ({_castleUpgrade.Castle.UpgradeCost})";
-    }
-
-    private void OnCloseButtonClick()
-    {
-        HidePanel();
     }
 }
