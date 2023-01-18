@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Lean.Localization;
 
 [RequireComponent(typeof(TMP_Text))]
 public class NumberOutOfNumberView : MonoBehaviour
@@ -15,6 +16,6 @@ public class NumberOutOfNumberView : MonoBehaviour
 
     public void SetNumbers(int firstNumber, int secondNumber)
     {
-        _textContainer.text = $"{firstNumber}/{secondNumber}";
+        _textContainer.text = $": {firstNumber}/{secondNumber}";
     }
 }
