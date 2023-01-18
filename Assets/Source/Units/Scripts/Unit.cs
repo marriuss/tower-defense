@@ -40,13 +40,15 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void Spawn()
     {
+        if (_graphOwner.isPaused)
+            _graphOwner.StartBehaviour();
+
         _spriteFader.FadeIn();
-        _graphOwner.enabled = true;
     }
 
     public void Despawn()
     {
-        _graphOwner.enabled = false;
+        _graphOwner.PauseBehaviour();
         _spriteFader.FadeOut();
     }
 
