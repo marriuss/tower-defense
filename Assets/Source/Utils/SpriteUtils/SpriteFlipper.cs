@@ -3,17 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class SpriteFlipper : MonoBehaviour
+public class SpriteFlipper : SpriteUtils
 {
     [SerializeField] private bool _turnedLeft;
-
-    private SpriteRenderer _spriteRenderer;
-
-    private void Awake()
-    {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
+    
     public void TurnSide(bool turningLeft)
     {
         if (_turnedLeft ^ turningLeft)
@@ -23,6 +16,6 @@ public class SpriteFlipper : MonoBehaviour
     public void Flip()
     {
         _turnedLeft = !_turnedLeft;
-        _spriteRenderer.flipX = !_spriteRenderer.flipX;
+        SpriteRenderer.flipX = !SpriteRenderer.flipX;
     }
 }

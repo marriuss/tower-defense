@@ -16,7 +16,7 @@ namespace NodeCanvas.Tasks.Actions
         {
             T target = TargetSelector.FindClosestTarget<T>(agent.Position);
             TargetVariable.value = target;
-            EndAction(target != null);
+            EndAction(!TargetVariable.isNoneOrNull);
         }
     }
 }

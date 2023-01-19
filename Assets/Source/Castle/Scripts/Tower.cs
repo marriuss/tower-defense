@@ -10,6 +10,7 @@ public class Tower : MonoBehaviour, ITargetable
     private Health _health;
 
     public int Health => _health.Value;
+    public bool Dead => _health.IsMin;
 
     public event UnityAction<ITargetable> Died;
 

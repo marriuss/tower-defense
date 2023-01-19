@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(SpriteFader))]
 [RequireComponent(typeof(SpriteFlipper))]
 [RequireComponent(typeof(AnimationPlayer))]
 [RequireComponent(typeof(GraphOwner))]
@@ -11,6 +12,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
 {
     [SerializeField] private UnitStats _stats;
 
+    private SpriteFader _spriteFader;
     private SpriteFlipper _spriteFlipper;
     private AnimationPlayer _animationPlayer;
     private GraphOwner _graphOwner;
@@ -24,10 +26,13 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public UnitStats Stats => _stats;
     public Vector2 Position => transform.position;
+
     public int Health => _health.Value;
+    public bool Dead => _health.IsMin;
 
     private void Awake()
     {
+        _spriteFader = GetComponent<SpriteFader>();
         _spriteFlipper = GetComponent<SpriteFlipper>();
         _animationPlayer = GetComponent<AnimationPlayer>();
         _graphOwner = GetComponent<GraphOwner>();
@@ -36,12 +41,19 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void Spawn()
     {
-        _graphOwner.enabled = true;
+        _health.IncreaseValue(Stats.Health);
+
+        if (_graphOwner.isPaused)
+            _graphOwner.StartBehaviour();
+
+        _spriteFader.FadeIn();
+        _animationPlayer.PlayIdleAnimation();
     }
 
     public void Despawn()
     {
-        _graphOwner.enabled = false;
+        _graphOwner.PauseBehaviour();
+        _spriteFader.FadeOut();
     }
 
     public void Attack(ITargetable target)
@@ -55,7 +67,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         int damage = Stats.RecalculateDamage(attacker.Stats.Damage);
         _health.DecreaseValue(damage);
 
-        if (Health == 0)
+        if (Dead)
         {
             Die();  
         }
@@ -78,7 +90,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void Stop()
     {
-        _animationPlayer.Stop();
+        _animationPlayer.PlayIdleAnimation();
     }
 
     public void MoveTo(Vector2 position)
@@ -94,6 +106,8 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     private void Die()
     {
+        _animationPlayer.PlayDeathAnimation();
         Died?.Invoke(this);
+        Despawn();
     }
 }
