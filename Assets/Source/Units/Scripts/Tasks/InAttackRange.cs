@@ -6,7 +6,7 @@ namespace NodeCanvas.Tasks.Conditions
 {
     public class InAttackRange : ConditionTask<Unit>
     {
-        [RequiredField] public BBParameter<ITargetable> Target;
+        [RequiredField] public BBParameter<ITargetable> TargetVariable;
         
         private float _attackRange;
 
@@ -18,7 +18,7 @@ namespace NodeCanvas.Tasks.Conditions
 
         protected override bool OnCheck()
         {
-            return Vector2.Distance(agent.Position, Target.value.Position) < _attackRange;
+            return Vector2.Distance(agent.Position, TargetVariable.value.Position) < _attackRange;
         }
     }
 }

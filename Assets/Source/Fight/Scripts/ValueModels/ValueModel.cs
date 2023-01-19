@@ -22,6 +22,8 @@ public class ValueModel
         }
     }
 
+    public bool IsMin => Value == 0;
+
     public event UnityAction ValueChanged;
 
     public ValueModel(int startValue, int maxValue)

@@ -28,6 +28,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
     public Vector2 Position => transform.position;
 
     public int Health => _health.Value;
+    public bool Dead => _health.IsMin;
 
     private void Awake()
     {
@@ -65,7 +66,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         int damage = Stats.RecalculateDamage(attacker.Stats.Damage);
         _health.DecreaseValue(damage);
 
-        if (Health == 0)
+        if (Dead)
         {
             Die();  
         }
