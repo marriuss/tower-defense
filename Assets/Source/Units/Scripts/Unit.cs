@@ -40,6 +40,8 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void Spawn()
     {
+        _health.IncreaseValue(Stats.Health);
+
         if (_graphOwner.isPaused)
             _graphOwner.StartBehaviour();
 
