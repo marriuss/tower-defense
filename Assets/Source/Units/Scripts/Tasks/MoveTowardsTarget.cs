@@ -33,7 +33,7 @@ namespace NodeCanvas.Tasks.Actions
 
         protected override void OnStop()
         {
-            agent.Stop();
+            agent.Idle();
         }
 
         protected override void OnPause()
