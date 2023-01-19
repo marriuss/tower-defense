@@ -47,7 +47,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
             _graphOwner.StartBehaviour();
 
         _spriteFader.FadeIn();
-        _animationPlayer.PlayIdleAnimation();
+        Idle();
     }
 
     public void Despawn()
@@ -88,7 +88,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _animationPlayer.PlayMoveAnimation();
     }
 
-    public void Stop()
+    public void Idle()
     {
         _animationPlayer.PlayIdleAnimation();
     }
