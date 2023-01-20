@@ -27,9 +27,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public UnitStats Stats => _stats;
     public Vector2 Position => transform.position;
-
-    public int Health => _health.Value;
-    public bool Dead => _health.IsMin;
+    public HealthState HealthState { get; private set; }
 
     private void Awake()
     {
@@ -38,6 +36,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _animationPlayer = GetComponent<AnimationPlayer>();
         _graphOwner = GetComponent<GraphOwner>();
         _health = new Health(Stats.Health);
+        HealthState = new HealthState(_health);
     }
 
     private void Update()
@@ -76,7 +75,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         int damage = Stats.RecalculateDamage(attacker.Stats.Damage);
         _health.DecreaseValue(damage);
 
-        if (Dead)
+        if (HealthState.IsDead)
         {
             Die();  
         }

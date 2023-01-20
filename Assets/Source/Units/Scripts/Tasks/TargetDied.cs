@@ -14,7 +14,7 @@ namespace NodeCanvas.Tasks.Conditions
 
         protected override bool OnCheck()
         {
-            return TargetVariable.value.Dead;
+            return TargetVariable.value.HealthState.IsDead;
         }
     }
 }
