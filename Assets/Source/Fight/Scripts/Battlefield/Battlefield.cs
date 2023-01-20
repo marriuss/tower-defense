@@ -38,7 +38,9 @@ public class Battlefield : MonoBehaviour
         _cellWidth = _battlefieldRect.size.x / _columns;
         _cellHeight = _battlefieldRect.size.y / _rows;
     }
-    
+
+    public static bool IsLefter(Vector2 position, Vector2 otherPosition) => position.x <= otherPosition.x;
+
     public GridCell GetCell(Vector2 position)
     {
         if (CheckInBattlefield(position) == false)
