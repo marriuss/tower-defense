@@ -6,13 +6,11 @@ using UnityEngine.Events;
 [RequireComponent(typeof(SpriteFader))]
 public class Tower : MonoBehaviour, ITargetable
 {
-    public Vector2 Position => transform.position;
-
     private SpriteFader _spiteFader;
     private Health _health;
 
-    public int Health => _health.Value;
-    public bool Dead => _health.IsMin;
+    public Vector2 Position => transform.position;
+    public HealthState HealthState { get; private set; }
 
     public event UnityAction<ITargetable> Died;
 
@@ -24,6 +22,7 @@ public class Tower : MonoBehaviour, ITargetable
     public void SetStats(TowerStats stats)
     {
         _health = new Health(stats.Health);
+        HealthState = new HealthState(_health);
     }
 
     public void TakeHit(Unit attacker)
@@ -31,7 +30,7 @@ public class Tower : MonoBehaviour, ITargetable
         int damage = attacker.Stats.Damage;
         _health.DecreaseValue(damage);
 
-        if (Dead)
+        if (HealthState.IsDead)
             Die();
     }
 
