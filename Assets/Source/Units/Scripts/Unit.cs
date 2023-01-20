@@ -17,6 +17,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
     private AnimationPlayer _animationPlayer;
     private GraphOwner _graphOwner;
     private Health _health;
+    private ITargetable _target;
 
     public const int MinValue = 1;
     public const int MaxValue = 20;
@@ -55,6 +56,8 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _graphOwner.PauseBehaviour();
         _spriteFader.FadeOut();
     }
+
+    public void SetTarget(ITargetable target) => _target = target;
 
     public void Attack(ITargetable target)
     {
