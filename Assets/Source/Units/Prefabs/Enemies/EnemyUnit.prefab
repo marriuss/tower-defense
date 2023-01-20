@@ -135,16 +135,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
   _serializedBlackboard: '{"_variables":{"target":{"_name":"target","_id":"95f889f4-01fc-41cb-b55c-17a72209ee27","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
-    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"Separator
-    (Double Click To Rename)":{"_value":{},"_name":"Separator (Double Click To Rename)","_id":"0ead0798-4022-46fb-a473-6994bf21f0d4","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
-    ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences: []
   _serializedVariables:
   - _json: '{"_name":"target","_id":"95f889f4-01fc-41cb-b55c-17a72209ee27","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
       Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
-    _references: []
-  - _json: '{"_value":{},"_name":"Separator (Double Click To Rename)","_id":"0ead0798-4022-46fb-a473-6994bf21f0d4","$type":"NodeCanvas.Framework.Variable`1[[NodeCanvas.Framework.VariableSeperator,
-      ParadoxNotion, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
     _references: []
 --- !u!114 &4382937294465314695
 MonoBehaviour:

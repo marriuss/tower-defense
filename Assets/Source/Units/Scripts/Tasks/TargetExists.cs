@@ -6,7 +6,6 @@ namespace NodeCanvas.Tasks.Conditions
 {
     public class TargetExists : ConditionTask<Unit>
     {
-
         public BBParameter<ITargetable> TargetVariable;
 
         protected override string OnInit()

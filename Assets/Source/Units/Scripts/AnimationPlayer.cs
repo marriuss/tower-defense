@@ -53,9 +53,4 @@ public class AnimationPlayer : MonoBehaviour
     {
         _animator.SetTrigger(trigger);
     }
-
-    public void Stop()
-    {
-       _animator.StopPlayback();
-    }
 }

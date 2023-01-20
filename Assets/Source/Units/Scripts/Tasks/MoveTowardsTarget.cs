@@ -8,32 +8,32 @@ namespace NodeCanvas.Tasks.Actions
     {
         [RequiredField] public BBParameter<ITargetable> TargetVariable;
 
-        private ITargetable _target;
         private float _speed;
 
         protected override string OnInit()
         {
-            _target = TargetVariable.value;
             _speed = agent.Stats.Speed;
-            agent.StartMoving();
             return null;
         }
 
         protected override void OnExecute()
-        {
+        { 
+            agent.StartMoving();
         }
 
         protected override void OnUpdate()
         {
-            if (agent.Position == _target.Position)
+            ITargetable target = TargetVariable.value;
+
+            if (agent.Position == target.Position)
                 EndAction(true);
 
-            agent.MoveTo(Vector2.MoveTowards(agent.Position, _target.Position, _speed * Time.deltaTime));
+            agent.MoveTo(Vector2.MoveTowards(agent.Position, target.Position, _speed * Time.deltaTime));
         }
 
         protected override void OnStop()
         {
-            agent.Stop();
+            agent.Idle();
         }
 
         protected override void OnPause()
