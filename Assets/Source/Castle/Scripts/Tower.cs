@@ -19,12 +19,11 @@ public class Tower : MonoBehaviour, ITargetable
     private void Awake()
     {
         _spiteFader = GetComponent<SpriteFader>();
-        _health = new Health();
     }
 
     public void SetStats(TowerStats stats)
     {
-        _health.IncreaseValue(stats.Health);
+        _health = new Health(stats.Health);
     }
 
     public void TakeHit(Unit attacker)
