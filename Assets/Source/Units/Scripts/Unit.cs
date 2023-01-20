@@ -40,6 +40,12 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _health = new Health(Stats.Health);
     }
 
+    private void Update()
+    {
+        if (_target != null)
+            _spriteFlipper.TurnSide(!Battlefield.IsLefter(Position, _target.Position));
+    }
+
     public void Spawn()
     {
         _health.IncreaseValue(Stats.Health);
