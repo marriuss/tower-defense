@@ -6,6 +6,7 @@ using UnityEngine;
 public class TowerSpawner : TargetableObjectsSpawner
 {
     private TargetsPool _pool;
+    private TowerStats _stats;
 
     private void Awake()
     {
@@ -17,14 +18,16 @@ public class TowerSpawner : TargetableObjectsSpawner
         AddToPool(mainTower);
     }
 
-    public void Spawn(Tower prefab, int amount)
+    public void Spawn(Tower prefab, int amount, TowerStats stats)
     {
+        _stats = stats;
         SpawnObjects(prefab, amount);
     }
 
     protected override void SpawnObject<T>(T prefab, Vector2 position)
     {
         Tower tower = Instantiate(prefab as Tower, position, Quaternion.identity, transform);
+        tower.SetStats(_stats);
         AddToPool(tower);
     }
 
