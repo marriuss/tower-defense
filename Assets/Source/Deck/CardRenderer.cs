@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class CardRenderer : MonoBehaviour
 {
+    [SerializeField] private CardBackground _cardBackground;
     [SerializeField] private TMP_Text _levelText;
     [SerializeField] private TMP_Text _nameText;
     [SerializeField] private TMP_Text _manaText;
@@ -18,5 +19,6 @@ public class CardRenderer : MonoBehaviour
         _icon.sprite = card.CardInfo.Icon;
         _experienceText.text =
             string.Format("{0}/{1}", card.ExperiencePoints, card.ExperiencePointsRequired);
+        _cardBackground.Init(card.CardInfo.Rarity);
     }
 }

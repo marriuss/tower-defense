@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-// TODO: Place card only if slot if free
-
 [RequireComponent(typeof(RectTransform))]
 public class CardSlot : MonoBehaviour, IDropHandler
 {
