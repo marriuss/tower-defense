@@ -22,6 +22,11 @@ public class Tower : MonoBehaviour, ITargetable
         _health = new Health();
     }
 
+    public void SetStats(TowerStats stats)
+    {
+        _health.IncreaseValue(stats.Health);
+    }
+
     public void TakeHit(Unit attacker)
     {
         int damage = attacker.Stats.Damage;

@@ -13,10 +13,15 @@ public class FightCastle : MonoBehaviour
     public void ApplyProgress(CastleFightStats castleStats)
     {
         _castleStats = castleStats;
+
+        TowerStats mainTowerStats = _castleStats.CalculateMainTowerStats();
+        _mainTower.SetStats(mainTowerStats);
         _towerSpawner.AddMainTower(_mainTower);
+
         int amount = _castleStats.AdditionalTowers;
+        TowerStats towerStats = _castleStats.CalculateTowerStats();
 
         if (amount > 0)
-            _towerSpawner.Spawn(_towerPrefab, amount);
+            _towerSpawner.Spawn(_towerPrefab, amount, towerStats);
     }
 }
