@@ -11,7 +11,6 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     private CanvasGroup _canvasGroup;
     private Canvas _canvas;
 
-    private Vector2 _startPosition;
     private Transform _startParentTransform;
     private bool _isPlaced;
 
@@ -28,11 +27,10 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        _startPosition = _rectTransform.anchoredPosition;
-        _isPlaced = false;
         _startParentTransform = transform.parent;
         transform.SetParent(_canvas.transform, true);
         _canvasGroup.blocksRaycasts = false;
+        _isPlaced = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -44,15 +42,22 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     {
         if (_isPlaced == false)
         {
-            _rectTransform.anchoredPosition = _startPosition;
+            ReturnToStartPlace();
         }
 
-        transform.SetParent(_startParentTransform, false);
         _canvasGroup.blocksRaycasts = true;
     }
 
-    public void Place()
+    private void ReturnToStartPlace()
     {
+        transform.SetParent(_startParentTransform, false);
+        _rectTransform.anchoredPosition = Vector2.zero;
+    }
+
+    public void Place(RectTransform slotRectTransform)
+    {
+        transform.SetParent(slotRectTransform, false);
+        _rectTransform.anchoredPosition = Vector2.zero;
         _isPlaced = true;
         Placed?.Invoke(this);
     }

@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 1810145322015120957}
   - component: {fileID: 943971374615058539}
   - component: {fileID: 617987378388362821}
+  - component: {fileID: 8568570715854689580}
   m_Layer: 5
   m_Name: Card View
   m_TagString: Untagged
@@ -301,6 +302,18 @@ MonoBehaviour:
   _manaText: {fileID: 617987378760413983}
   _experienceText: {fileID: 617987379194488310}
   _icon: {fileID: 617987379797581423}
+--- !u!114 &8568570715854689580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617987378388362817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e7ed706fd04ef4688584777d8ead36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &617987378760413977
 GameObject:
   m_ObjectHideFlags: 0
