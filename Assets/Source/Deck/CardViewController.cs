@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CardViewController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CardViewController : MonoBehaviour
 {
-    [SerializeField] private CardRenderer[] _cardRenderers;
+    [SerializeField] private CardRenderer _cardRenderer;
     [SerializeField] private Button _upgradeButton;
     [SerializeField] private CardDrag _cardDrag;
 
@@ -13,28 +12,7 @@ public class CardViewController : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void Init(Card card, Canvas canvas)
     {
         _card = card;
-        SetSelection(false);
-
-        for (int i = 0; i < _cardRenderers.Length; i++)
-        {
-            _cardRenderers[i].Init(_card);
-        }
-
+        _cardRenderer.Init(_card);
         _cardDrag.Init(canvas);
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        SetSelection(true);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        SetSelection(false);
-    }
-
-    private void SetSelection(bool isSelected)
-    {
-        _upgradeButton.gameObject.SetActive(isSelected);
     }
 }
