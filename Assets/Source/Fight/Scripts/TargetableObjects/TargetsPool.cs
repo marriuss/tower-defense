@@ -3,13 +3,15 @@ using System.Linq;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using System;
-    
+
 public class TargetsPool : MonoBehaviour
 {
     private List<ITargetable> _objects = new();
 
     public event UnityAction<ITargetable> AddedObject;
     public event UnityAction<ITargetable> RemovedObject;
+
+    public bool IsEmpty => _objects.Count == 0;
 
     public void AddObject(ITargetable targetableObject)
     {
