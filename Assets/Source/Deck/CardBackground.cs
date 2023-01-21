@@ -10,13 +10,9 @@ public class CardBackground : MonoBehaviour
 
     private Image _backgroundImage;
 
-    private void Awake()
-    {
-        _backgroundImage = GetComponent<Image>();
-    }
-
     public void Init(Rarity rarity)
     {
+        _backgroundImage = GetComponent<Image>();
         Sprite backgroundSprite;
 
         switch (rarity)

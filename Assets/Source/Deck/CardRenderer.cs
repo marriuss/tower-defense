@@ -11,10 +11,10 @@ public class CardRenderer : MonoBehaviour
     [SerializeField] private TMP_Text _experienceText;
     [SerializeField] private Image _icon;
 
-    public void Init(Card card)
+    public void Display(Card card)
     {
         _levelText.text = card.Level.ToString();
-        _nameText.text = card.CardInfo.name;
+        _nameText.text = card.CardInfo.Name;
         _manaText.text = card.CardInfo.Mana.ToString();
         _icon.sprite = card.CardInfo.Icon;
         _experienceText.text =

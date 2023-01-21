@@ -34,9 +34,11 @@ public class Card
         InvokeExperienceStatsChanges();
     }
 
+    public bool CanUpLevel => ExperiencePoints >= ExperiencePointsRequired && Level < MaxLevel;
+
     public bool TryUpLevel()
     {
-        bool canUpLevel = ExperiencePoints >= ExperiencePointsRequired && Level < MaxLevel;
+        bool canUpLevel = CanUpLevel;
 
         if (canUpLevel)
             UpLevel();

@@ -8,12 +8,14 @@ public class CardsPool : MonoBehaviour
 
     private List<Card> _cards;
 
+    public IReadOnlyList<Card> Cards => _cards;
+
     private void Awake()
     {
         _cards = new List<Card>();
     }
 
-    private void InitializeCardsPool(List<CardProgress> cardProgress)
+    public void InitializeCardsPool(List<CardProgress> cardProgress)
     {
         CardProgress progress;
         Card card;

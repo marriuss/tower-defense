@@ -1,10 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class CardUpgrade : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CardUpgradeButtonController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Button _upgradeButton;
+    [SerializeField] private GameObject _upgradeButton;
 
     private void Start()
     {
@@ -23,6 +22,6 @@ public class CardUpgrade : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void SetSelection(bool isSelected)
     {
-        _upgradeButton.gameObject.SetActive(isSelected);
+        _upgradeButton.SetActive(isSelected);
     }
 }

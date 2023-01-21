@@ -34,7 +34,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6888774596896279758}
-  - {fileID: 9074691712200979865}
   - {fileID: 8049177664047672501}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -141,6 +140,7 @@ MonoBehaviour:
   _cardRenderer: {fileID: 4358615363363665057}
   _upgradeButton: {fileID: 6437902598507680320}
   _cardDrag: {fileID: 8656448847818061120}
+  _cardUpgrade: {fileID: 7369384564381125577}
 --- !u!114 &8568570715854689580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,9 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baab4e4b22d307b4f8127e8e3b7b64ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _regularBackground: {fileID: 0}
-  _rareBackground: {fileID: 0}
-  _legendBackground: {fileID: 0}
+  _regularBackground: {fileID: 2106880055, guid: 71ad172f81917dc4c88b385499ba85c4, type: 3}
+  _rareBackground: {fileID: 285830086, guid: 71ad172f81917dc4c88b385499ba85c4, type: 3}
+  _legendBackground: {fileID: -2053461982, guid: 71ad172f81917dc4c88b385499ba85c4, type: 3}
 --- !u!1 &1583739422103693912
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,13 +561,14 @@ GameObject:
   - component: {fileID: 758112633455866159}
   - component: {fileID: 7742633015064816702}
   - component: {fileID: 6437902598507680320}
+  - component: {fileID: 7369384564381125577}
   m_Layer: 5
   m_Name: Upgrade Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9074691712200979865
 RectTransform:
   m_ObjectHideFlags: 0
@@ -581,8 +582,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7511098854244321417}
-  m_Father: {fileID: 617987378388362822}
-  m_RootOrder: 1
+  m_Father: {fileID: 8049177664047672501}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -671,6 +672,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7369384564381125577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3048352851012096768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300301f1f35147a4d804106ffb57dc55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3244403208757071468
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +834,7 @@ GameObject:
   - component: {fileID: 1269329698687138781}
   - component: {fileID: 8656448847818061120}
   - component: {fileID: 4358615363363665057}
+  - component: {fileID: 8008933795165021119}
   m_Layer: 5
   m_Name: Card Drag
   m_TagString: Untagged
@@ -846,8 +860,9 @@ RectTransform:
   - {fileID: 6796927593835346730}
   - {fileID: 4368955369595943251}
   - {fileID: 817611943506961917}
+  - {fileID: 9074691712200979865}
   m_Father: {fileID: 617987378388362822}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -978,6 +993,19 @@ MonoBehaviour:
   _manaText: {fileID: 6164008265985791261}
   _experienceText: {fileID: 555542154163029778}
   _icon: {fileID: 1668310882964546558}
+--- !u!114 &8008933795165021119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3318207431362976220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4fb81bce9342c74081e146793642217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _upgradeButton: {fileID: 3048352851012096768}
 --- !u!1 &4306037576114881158
 GameObject:
   m_ObjectHideFlags: 0
