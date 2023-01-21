@@ -11,6 +11,8 @@ public class EnemySpawner : UnitSpawner
     public int WaveUnits { get; private set; }
     public int CurrentUnit { get; private set; }
 
+    public event UnityAction StoppedSpawn;
+
     public void StartSpawn(float wavesDelay, float spawnDelay, List<Wave> waves)
     {
         StartCoroutine(SpawnUnits(wavesDelay, spawnDelay, waves));
@@ -40,6 +42,8 @@ public class EnemySpawner : UnitSpawner
                 yield return waitForSpawn;
             }
         }
+
+        StoppedSpawn?.Invoke();
     }
 
     private Stack<Unit> GenerateUnitStack(Wave wave)
