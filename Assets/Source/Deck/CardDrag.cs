@@ -5,13 +5,12 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(RectTransform), typeof(CanvasGroup))]
 public class CardDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    public event UnityAction<CardDrag> Placed;
+    public event UnityAction<CardDrag> Returned;
+    public event UnityAction<CardDrag> DragStarted;
 
     private RectTransform _rectTransform;
     private CanvasGroup _canvasGroup;
     private Canvas _canvas;
-
-    private Transform _startParentTransform;
     private bool _isPlaced;
 
     private void Awake()
@@ -25,12 +24,14 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         _canvas = canvas;
     }
 
+    public bool IsPlaced => _isPlaced;
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        _startParentTransform = transform.parent;
         transform.SetParent(_canvas.transform, true);
         _canvasGroup.blocksRaycasts = false;
         _isPlaced = false;
+        DragStarted?.Invoke(this);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -40,25 +41,23 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        _canvasGroup.blocksRaycasts = true;
+
         if (_isPlaced == false)
         {
-            ReturnToStartPlace();
+            Return();
         }
-
-        _canvasGroup.blocksRaycasts = true;
     }
 
-    private void ReturnToStartPlace()
+    public void Place(Transform slotTransform)
     {
-        transform.SetParent(_startParentTransform, false);
-        _rectTransform.anchoredPosition = Vector2.zero;
-    }
-
-    public void Place(RectTransform slotRectTransform)
-    {
-        transform.SetParent(slotRectTransform, false);
+        transform.SetParent(slotTransform, false);
         _rectTransform.anchoredPosition = Vector2.zero;
         _isPlaced = true;
-        Placed?.Invoke(this);
+    }
+
+    public void Return()
+    {
+        Returned?.Invoke(this);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2939663394588710157}
   - component: {fileID: 1810145322015120957}
   - component: {fileID: 943971374615058539}
-  - component: {fileID: 8568570715854689580}
+  - component: {fileID: 3038694010708525482}
   m_Layer: 5
   m_Name: Card View
   m_TagString: Untagged
@@ -141,7 +141,7 @@ MonoBehaviour:
   _upgradeButton: {fileID: 6437902598507680320}
   _cardDrag: {fileID: 8656448847818061120}
   _cardUpgrade: {fileID: 7369384564381125577}
---- !u!114 &8568570715854689580
+--- !u!114 &3038694010708525482
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 617987378388362817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62e7ed706fd04ef4688584777d8ead36, type: 3}
+  m_Script: {fileID: 11500000, guid: 271bc4d50c602c745875fd4fb80f8cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _cardDrag: {fileID: 8656448847818061120}

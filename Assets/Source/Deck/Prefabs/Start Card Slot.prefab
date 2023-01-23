@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 617987378388362820}
   - component: {fileID: 2939663394588710157}
   - component: {fileID: 1810145322015120957}
-  - component: {fileID: 3397423672374861689}
+  - component: {fileID: 497647040563941463}
   m_Layer: 5
-  m_Name: Card Slot
+  m_Name: Start Card Slot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3397423672374861689
+--- !u!114 &497647040563941463
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,9 +133,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 617987378388362817}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 859eeaf68f082124587b1f1484f4b26c, type: 3}
+  m_Script: {fileID: 11500000, guid: 271bc4d50c602c745875fd4fb80f8cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cardDrag: {fileID: 0}
 --- !u!1 &617987379030237121
 GameObject:
   m_ObjectHideFlags: 0
