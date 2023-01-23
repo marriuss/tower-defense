@@ -15,10 +15,22 @@ public class DefaultCardSlot : CardSlot
         _cardDrag = cardDrag;
         _cardDrag.Place(transform);
         _cardDrag.DragStarted += OnCradDragStarted;
+        _cardDrag.Returned += OnCradReturned;
     }
 
     private void OnCradDragStarted(CardDrag cardDrag)
     {
+        Free(cardDrag);
+    }
+
+    private void OnCradReturned(CardDrag cardDrag)
+    {
+        Free(cardDrag);
+    }
+
+    private void Free(CardDrag cardDrag)
+    {
+        cardDrag.Returned -= OnCradReturned;
         cardDrag.DragStarted -= OnCradDragStarted;
         _cardDrag = null;
     }
