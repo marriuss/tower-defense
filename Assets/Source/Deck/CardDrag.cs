@@ -11,6 +11,7 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
     private RectTransform _rectTransform;
     private CanvasGroup _canvasGroup;
     private Canvas _canvas;
+    private Card _card;
     private bool _isPlaced;
 
     private void Awake()
@@ -19,12 +20,13 @@ public class CardDrag : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         _canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void Init(Canvas canvas)
+    public void Init(Card card, Canvas canvas)
     {
+        _card = card;
         _canvas = canvas;
     }
 
-    public bool IsPlaced => _isPlaced;
+    public Card Card => _card;
 
     public void OnBeginDrag(PointerEventData eventData)
     {

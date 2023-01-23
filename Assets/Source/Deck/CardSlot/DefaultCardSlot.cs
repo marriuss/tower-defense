@@ -2,6 +2,7 @@ public class DefaultCardSlot : CardSlot
 {
     private CardDrag _cardDrag;
 
+    public Card Card => _cardDrag?.Card;
     private bool IsBusy => _cardDrag != null;
 
     protected override void OnCardDrop(CardDrag cardDrag)

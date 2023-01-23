@@ -13,7 +13,7 @@ public class CardViewController : MonoBehaviour
     public void Init(Card card, Canvas canvas)
     {
         _card = card;
-        _cardDrag.Init(canvas);
+        _cardDrag.Init(_card, canvas);
         _cardUpgrade.Init(_card);
         _cardRenderer.Display(_card);
 
