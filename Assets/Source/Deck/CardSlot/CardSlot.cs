@@ -13,5 +13,5 @@ public abstract class CardSlot : MonoBehaviour, IDropHandler
         }
     }
 
-    protected virtual void OnCardDrop(CardDrag cardDrag) { }
+    protected abstract void OnCardDrop(CardDrag cardDrag);
 }
