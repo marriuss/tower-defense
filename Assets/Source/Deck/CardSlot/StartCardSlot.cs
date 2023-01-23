@@ -14,6 +14,16 @@ public class StartCardSlot : CardSlot
         _cardDrag.Returned -= OnCardReturned;
     }
 
+    protected override void OnCardDrop(CardDrag cardDrag)
+    {
+        if (_cardDrag != cardDrag)
+        {
+            return;
+        }
+
+        cardDrag.Place(transform);
+    }
+
     private void OnCardReturned(CardDrag cardDrag)
     {
         if (_cardDrag != cardDrag)
