@@ -2796,7 +2796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemySpawner: {fileID: 1326594785}
   _bar: {fileID: 1418277688}
-  _text: {fileID: 0}
+  _text: {fileID: 2047738412}
 --- !u!1 &1825204529
 GameObject:
   m_ObjectHideFlags: 0
@@ -3170,6 +3170,7 @@ GameObject:
   - component: {fileID: 2047738409}
   - component: {fileID: 2047738411}
   - component: {fileID: 2047738410}
+  - component: {fileID: 2047738412}
   m_Layer: 5
   m_Name: Number
   m_TagString: Untagged
@@ -3294,6 +3295,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047738408}
   m_CullTransparentMesh: 1
+--- !u!114 &2047738412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047738408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89afb42611ce6514d9be6479e827b2ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2066721307
 GameObject:
   m_ObjectHideFlags: 0
