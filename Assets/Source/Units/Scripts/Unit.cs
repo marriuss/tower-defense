@@ -64,10 +64,12 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void SetTarget(ITargetable target) => _target = target;
 
-    public void Attack(ITargetable target)
+    public void AttackTarget()
     {
+        if (_target == null)
+            throw new ArgumentNullException("Target is currently null.");
+
         _animationPlayer.PlayAttackAnimation();
-        target.TakeHit(this);
     }
 
     public void TakeHit(Unit attacker)
@@ -117,5 +119,10 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _animationPlayer.PlayDeathAnimation();
         Died?.Invoke(this);
         Despawn();
+    }
+
+    private void ApplyDamageToTarget()
+    {
+        _target.TakeHit(this);
     }
 }
