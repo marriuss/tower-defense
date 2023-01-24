@@ -25,7 +25,12 @@ namespace NodeCanvas.Tasks.Conditions
 
         protected override bool OnCheck()
         {
-            return !TargetVariable.isNoneOrNull;
+            bool result = !TargetVariable.isNoneOrNull;
+
+            if (result)
+                result &= !TargetVariable.value.HealthState.IsDead;
+
+            return result;
         }
     }
 }
