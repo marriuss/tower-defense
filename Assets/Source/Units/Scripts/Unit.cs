@@ -22,7 +22,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
     public const int MinValue = 1;
     public const int MaxValue = 20;
 
-    public event UnityAction<Unit> WasHit;
+    public event Action<ITargetable> WasHit;
     public event UnityAction<ITargetable> Died;
 
     public UnitStats Stats => _stats;
