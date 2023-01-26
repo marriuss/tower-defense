@@ -26,9 +26,10 @@ public class HealthView : MonoBehaviour
     private void Update()
     {
         if (_healthState != null)
+        {
             _bar.SetValue(_healthState.Value);
-
-        _bar.gameObject.SetActive(!_healthState.IsDead);
+            _bar.gameObject.SetActive(!_healthState.IsDead);
+        }
     }
 
     private IEnumerator SetLimitsWhenInitialized()
