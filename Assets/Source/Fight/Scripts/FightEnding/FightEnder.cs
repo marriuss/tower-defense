@@ -10,6 +10,7 @@ public class FightEnder : MonoBehaviour
 
     public event UnityAction FightEnded;
 
+    public bool PlayerWon { get; private set; }
     public FightReward Reward { get; private set; }
 
     private void OnEnable()
@@ -24,6 +25,7 @@ public class FightEnder : MonoBehaviour
 
     private void OnFightEnded(bool playerWon)
     {
+        PlayerWon = playerWon;
         Reward = _rewarder.GetReward(playerWon);
         FightEnded?.Invoke();
     }

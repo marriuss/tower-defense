@@ -9,7 +9,12 @@ public class FightCastle : MonoBehaviour
 
     private CastleFightStats _castleStats;
 
-    public event UnityAction SpawnedTowers;
+    public bool TowersSpawned { get; private set; }
+
+    private void Start()
+    {
+        TowersSpawned = false;
+    }
 
     public void ApplyProgress(CastleFightStats castleStats)
     {
@@ -25,6 +30,6 @@ public class FightCastle : MonoBehaviour
         if (amount > 0)
             _towerSpawner.Spawn(_towerPrefab, amount, towerStats);
 
-        SpawnedTowers?.Invoke();
+        TowersSpawned = true;
     }
 }

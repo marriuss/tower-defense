@@ -10,8 +10,6 @@ public class FightStatusResolver : MonoBehaviour
     [SerializeField] private TargetsPool _towersPool;
     [SerializeField] private TargetsPool _enemyUnitsPool;
 
-    private bool _enemySpawnerStopped;
-    private bool _towersSpawned;
     private bool _fightEnded;
 
     public event UnityAction<bool> PlayerWon;
@@ -19,31 +17,17 @@ public class FightStatusResolver : MonoBehaviour
     private void Start()
     {
         _fightEnded = false;
-        _enemySpawnerStopped = false;
-        _towersSpawned = false;
-    }
-
-    private void OnEnable()
-    {
-        _enemySpawner.StoppedSpawn += OnEnemySpawnerStopped;
-        _castle.SpawnedTowers += OnTowersSpawned;
-    }
-
-    private void OnDisable()
-    {
-        _enemySpawner.StoppedSpawn -= OnEnemySpawnerStopped;
-        _castle.SpawnedTowers -= OnTowersSpawned;
     }
 
     private void Update()
     {
         if (_fightEnded == false)
         {
-            if (_enemySpawnerStopped && _enemyUnitsPool.IsEmpty)
+            if (_enemySpawner.EnemiesSpawned && _enemyUnitsPool.IsEmpty)
             {
                 EndFight(true);
             }
-            else if (_towersPool.IsEmpty && _towersSpawned)
+            else if (_towersPool.IsEmpty && _castle.TowersSpawned)
             {
                 EndFight(false);
             }
@@ -54,15 +38,5 @@ public class FightStatusResolver : MonoBehaviour
     {
         _fightEnded = true;
         PlayerWon?.Invoke(playerWon);
-    }
-
-    private void OnEnemySpawnerStopped()
-    {
-        _enemySpawnerStopped = true;
-    }
-
-    private void OnTowersSpawned()
-    {
-        _towersSpawned = true;
     }
 }
