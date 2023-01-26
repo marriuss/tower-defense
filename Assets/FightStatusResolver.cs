@@ -12,12 +12,13 @@ public class FightStatusResolver : MonoBehaviour
 
     private bool _enemySpawnerStopped;
     private bool _towersSpawned;
+    private bool _fightEnded;
 
-    public event UnityAction PlayerWon;
-    public event UnityAction PlayerLost;
+    public event UnityAction<bool> PlayerWon;
 
     private void Start()
     {
+        _fightEnded = false;
         _enemySpawnerStopped = false;
         _towersSpawned = false;
     }
@@ -36,14 +37,23 @@ public class FightStatusResolver : MonoBehaviour
 
     private void Update()
     {
-        if (_towersPool.IsEmpty && _towersSpawned)
+        if (_fightEnded == false)
         {
-            PlayerLost?.Invoke();
+            if (_enemySpawnerStopped && _enemyUnitsPool.IsEmpty)
+            {
+                EndFight(true);
+            }
+            else if (_towersPool.IsEmpty && _towersSpawned)
+            {
+                EndFight(false);
+            }
         }
-        else if (_enemySpawnerStopped && _enemyUnitsPool.IsEmpty)
-        {
-            PlayerWon?.Invoke();
-        }
+    }
+
+    private void EndFight(bool playerWon)
+    {
+        _fightEnded = true;
+        PlayerWon?.Invoke(playerWon);
     }
 
     private void OnEnemySpawnerStopped()
