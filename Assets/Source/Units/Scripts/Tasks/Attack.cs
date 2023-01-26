@@ -6,8 +6,6 @@ namespace NodeCanvas.Tasks.Actions
 {
     public class Attack : ActionTask<Unit>
     {
-        [RequiredField] public BBParameter<ITargetable> TargetVariable;
-
         private float _lastAttackTime;
 
         protected override string OnInit()
@@ -23,7 +21,7 @@ namespace NodeCanvas.Tasks.Actions
             if (_lastAttackTime + agent.Stats.AttackDelay <= time)
             {
                 _lastAttackTime = time;
-                agent.Attack(TargetVariable.value);
+                agent.AttackTarget();
             }
         }
     }
