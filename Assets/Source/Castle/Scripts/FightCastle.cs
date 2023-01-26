@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Tower))]
 public class FightCastle : MonoBehaviour
 {
     [SerializeField] private Tower _mainTower;
