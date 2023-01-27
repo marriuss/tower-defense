@@ -10,6 +10,7 @@ public class FightInitializer : MonoBehaviour
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private FightCastle _castle;
     [SerializeField] private TowerSpawner _towerSpawner;
+    [SerializeField] private RewardAccounter _rewardAccounter;
     [SerializeField] private CameraMovement _cameraMovement;
     [SerializeField, Min(1)] private float _cameraBoundsExtensionScale;
 
@@ -26,6 +27,7 @@ public class FightInitializer : MonoBehaviour
         InitializeCardStack(fightInfo.Deck, levelInfo.CardStackCapacity);
         InitializeEnemySpawner(zone, levelInfo.Waves);
         InitializeCastle(fightInfo.CastleStats);
+        InitializeReward(levelInfo.MoneyReward);
     }
 
     private void InitializeCardStack(Deck deck, int cardStackCapacity)
@@ -55,5 +57,10 @@ public class FightInitializer : MonoBehaviour
             );
 
         _cameraMovement.SetRectBounds(battlefieldRect);
+    }
+    
+    private void InitializeReward(int moneyReward)
+    {
+        _rewardAccounter.SetMoneyReward(moneyReward);
     }
 }

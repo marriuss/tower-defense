@@ -8,10 +8,12 @@ public class LevelInfo : ScriptableObject
     [SerializeField] private Zone _zone;
     [SerializeField] private Wave[] _waves;
     [SerializeField] private int _cardStackCapacity;
+    [SerializeField] private int _moneyReward;
 
     public int Id => _identifier;
     public Zone Zone => _zone;
     public Wave GetWave(int index) => _waves[index];
     public int CardStackCapacity => _cardStackCapacity;
+    public int MoneyReward => _moneyReward;
     public List<Wave> Waves => new(_waves);
 }

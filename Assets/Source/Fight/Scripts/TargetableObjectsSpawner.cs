@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class TargetableObjectsSpawner : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public abstract class TargetableObjectsSpawner : MonoBehaviour
     private GridCell Cell => _cell.Value;
 
     protected bool LeftSided => _leftSided;
+
+    public event UnityAction<ITargetable> SpawnedObject;
 
     protected void SpawnObjects<T>(T prefab, int amount) where T : ITargetable
     {
@@ -25,7 +28,7 @@ public abstract class TargetableObjectsSpawner : MonoBehaviour
         FillColumn(prefab, column, amount);
     }
 
-    protected abstract void SpawnObject<T>(T prefab, Vector2 position) where T : ITargetable;
+    protected abstract ITargetable SpawnObject<T>(T prefab, Vector2 position) where T : ITargetable;
 
     private void FillColumn<T>(T prefab, int column, int amount) where T : ITargetable
     {
@@ -61,6 +64,7 @@ public abstract class TargetableObjectsSpawner : MonoBehaviour
     {
         GridCell cell = new(row, column);
         Vector2 position = _battlefield.GetPosition(cell);
-        SpawnObject(prefab, position);
+        ITargetable spawnedObject = SpawnObject(prefab, position);
+        SpawnedObject?.Invoke(spawnedObject);
     }
 }
