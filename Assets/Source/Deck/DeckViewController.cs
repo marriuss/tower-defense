@@ -43,13 +43,6 @@ public class DeckViewController : MonoBehaviour
 
     private void Start()
     {
-        // TODO: remove
-        _cardsPool.InitializeCardsPool(new List<CardProgress>()
-        {
-            new CardProgress(0, 1, 2)
-        });
-        //
-
         _deck = _player.Deck;
         UpdateCards(_cardsPool, _deck);
     }
