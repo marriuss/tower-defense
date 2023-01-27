@@ -55,6 +55,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3787693403963377539, guid: a2eabad11dde7154ba5c8bef04dc7cfd, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787693403963377539, guid: a2eabad11dde7154ba5c8bef04dc7cfd, type: 3}
+      propertyPath: m_Color.g
+      value: 0.052382845
+      objectReference: {fileID: 0}
+    - target: {fileID: 3787693403963377539, guid: a2eabad11dde7154ba5c8bef04dc7cfd, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5372549
+      objectReference: {fileID: 0}
     - target: {fileID: 5890955108597971041, guid: a2eabad11dde7154ba5c8bef04dc7cfd, type: 3}
       propertyPath: _serializedBlackboard
       value: '{"_variables":{"target":{"_name":"target","_id":"343b27bf-601c-4a75-870a-188285334be7","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,

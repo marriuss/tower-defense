@@ -6,8 +6,7 @@ using UnityEngine.Events;
 public interface ITargetable
 {
     public Vector2 Position { get; }
-    public bool Dead { get; }
-    public int Health { get; }
+    public HealthState HealthState { get; }
     public event UnityAction<ITargetable> Died;
     public void TakeHit(Unit attacker);
 }

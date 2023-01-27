@@ -22,14 +22,12 @@ public abstract class Unit : MonoBehaviour, ITargetable
     public const int MinValue = 1;
     public const int MaxValue = 20;
 
-    public event UnityAction<Unit> WasHit;
+    public event Action<ITargetable> WasHit;
     public event UnityAction<ITargetable> Died;
 
     public UnitStats Stats => _stats;
     public Vector2 Position => transform.position;
-
-    public int Health => _health.Value;
-    public bool Dead => _health.IsMin;
+    public HealthState HealthState { get; private set; }
 
     private void Awake()
     {
@@ -38,6 +36,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _animationPlayer = GetComponent<AnimationPlayer>();
         _graphOwner = GetComponent<GraphOwner>();
         _health = new Health(Stats.Health);
+        HealthState = new HealthState(_health);
     }
 
     private void Update()
@@ -65,10 +64,12 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void SetTarget(ITargetable target) => _target = target;
 
-    public void Attack(ITargetable target)
+    public void AttackTarget()
     {
+        if (_target == null)
+            throw new ArgumentNullException("Target is currently null.");
+
         _animationPlayer.PlayAttackAnimation();
-        target.TakeHit(this);
     }
 
     public void TakeHit(Unit attacker)
@@ -76,7 +77,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         int damage = Stats.RecalculateDamage(attacker.Stats.Damage);
         _health.DecreaseValue(damage);
 
-        if (Dead)
+        if (HealthState.IsDead)
         {
             Die();  
         }
@@ -118,5 +119,10 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _animationPlayer.PlayDeathAnimation();
         Died?.Invoke(this);
         Despawn();
+    }
+
+    private void ApplyDamageToTarget()
+    {
+        _target.TakeHit(this);
     }
 }

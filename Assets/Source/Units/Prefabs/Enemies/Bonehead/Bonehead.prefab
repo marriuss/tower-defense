@@ -16,6 +16,10 @@ PrefabInstance:
       value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 1561751917273322940, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561751917273322940, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
       propertyPath: m_SpriteTilingProperty.border.w
       value: 1.0882353
       objectReference: {fileID: 0}
@@ -70,7 +74,40 @@ PrefabInstance:
     - target: {fileID: 2538745913161195264, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: e2e087f9fd561574d945a5fcaa00021b, type: 2}
+      objectReference: {fileID: 22100000, guid: 4c17ee3f3891b9241a35219a1ed6940f, type: 2}
+    - target: {fileID: 3007888166093629465, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _serializedBlackboard
+      value: '{"_variables":{"target":{"_name":"target","_id":"95f889f4-01fc-41cb-b55c-17a72209ee27","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007888166093629465, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _serializedVariables.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257903837324974325, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _parameters._dieSpeed
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257903837324974325, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _parameters._idleSpeed
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257903837324974325, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _parameters._moveSpeed
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257903837324974325, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _parameters._attackSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257903837324974325, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _parameters._takeHitSpeed
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382937294465314695, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 6bfff4571badc2743a88857f5fde98a2, type: 2}
     - target: {fileID: 4799308394634657268, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
       propertyPath: m_Name
       value: Bonehead
@@ -121,6 +158,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6787101510268465923, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9012369225420934513, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9012369225420934513, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9012369226303717424, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9012369226303717424, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9012369226303717424, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

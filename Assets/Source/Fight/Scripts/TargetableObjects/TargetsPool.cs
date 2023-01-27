@@ -3,13 +3,27 @@ using System.Linq;
 using UnityEngine.Events;
 using System.Collections.Generic;
 using System;
-    
+
 public class TargetsPool : MonoBehaviour
 {
-    private List<ITargetable> _objects = new();
+    [SerializeField] private TargetableObjectsSpawner _spawner;
+
+    public List<ITargetable> _objects = new();
 
     public event UnityAction<ITargetable> AddedObject;
     public event UnityAction<ITargetable> RemovedObject;
+
+    public bool IsEmpty => _objects.Count == 0;
+
+    private void OnEnable()
+    {
+        _spawner.SpawnedObject += OnObjectSpawned;
+    }
+
+    private void OnDisable()
+    {
+        _spawner.SpawnedObject -= OnObjectSpawned;
+    }
 
     public void AddObject(ITargetable targetableObject)
     {
@@ -17,6 +31,7 @@ public class TargetsPool : MonoBehaviour
         {
             _objects.Add(targetableObject);
             AddedObject?.Invoke(targetableObject);
+            targetableObject.Died += OnObjectDied;
         }
     }
 
@@ -26,6 +41,17 @@ public class TargetsPool : MonoBehaviour
         {
             _objects.Remove(targetableObject);
             RemovedObject?.Invoke(targetableObject);
+            targetableObject.Died -= OnObjectDied;
         }
+    }
+
+    private void OnObjectSpawned(ITargetable targetableObject)
+    {
+        AddObject(targetableObject);
+    }
+
+    private void OnObjectDied(ITargetable targetableObject)
+    {
+        RemoveObject(targetableObject);
     }
 }

@@ -10,6 +10,12 @@ public class EnemySpawner : UnitSpawner
     public int CurrentWave { get; private set; }
     public int WaveUnits { get; private set; }
     public int CurrentUnit { get; private set; }
+    public bool EnemiesSpawned { get; private set; }
+
+    private void Start()
+    {
+        EnemiesSpawned = false;
+    }
 
     public void StartSpawn(float wavesDelay, float spawnDelay, List<Wave> waves)
     {
@@ -40,6 +46,8 @@ public class EnemySpawner : UnitSpawner
                 yield return waitForSpawn;
             }
         }
+
+        EnemiesSpawned = true;
     }
 
     private Stack<Unit> GenerateUnitStack(Wave wave)
