@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 0f370ae0e2731324eaea6e13c99781b6, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 24cb064d90658df48bb1f9167cccdb95, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2237,6 +2237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a163802439ee543a6203d04caf6da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawner: {fileID: 1136622334}
 --- !u!1 &1220855249
 GameObject:
   m_ObjectHideFlags: 0
@@ -2450,6 +2451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a163802439ee543a6203d04caf6da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawner: {fileID: 1326594785}
 --- !u!1 &1333990112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2903,6 +2905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60a163802439ee543a6203d04caf6da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spawner: {fileID: 1550492840}
 --- !u!1 &1636333845
 GameObject:
   m_ObjectHideFlags: 0
@@ -4328,6 +4331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainTower: {fileID: 688325073}
+  _targetsPool: {fileID: 1136622335}
   _towerSpawner: {fileID: 1136622334}
   _towerPrefab: {fileID: -8346202917739967828, guid: 93280f05076fdb643ad3d99e28feab19, type: 3}
 --- !u!1001 &897958531096712336
