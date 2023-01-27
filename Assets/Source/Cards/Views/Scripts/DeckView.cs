@@ -7,7 +7,7 @@ public class DeckView : MonoBehaviour
 {
     [SerializeField] private FightCardView _cardViewPrefab;
     [SerializeField] private CardStack _cardStack;
-    [SerializeField] private DeckController _deckController;
+    [SerializeField] private DeckPanelController _deckController;
 
     private const int TopCards = 5;
 
