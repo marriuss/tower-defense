@@ -12,11 +12,14 @@ public class FightStatusResolver : MonoBehaviour
 
     private bool _fightEnded;
 
-    public event UnityAction<bool> PlayerWon;
+    public bool PlayerWon { get; private set; }
+
+    public event UnityAction FightStatusResolved;
 
     private void Start()
     {
         _fightEnded = false;
+        PlayerWon = false;
     }
 
     private void Update()
@@ -33,10 +36,11 @@ public class FightStatusResolver : MonoBehaviour
             }
         }
     }
-
+    
     private void EndFight(bool playerWon)
     {
+        PlayerWon = playerWon;
         _fightEnded = true;
-        PlayerWon?.Invoke(playerWon);
+        FightStatusResolved?.Invoke();
     }
 }
