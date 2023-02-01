@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using IJunior.TypedScenes;
 
-public class FightInitializer : MonoBehaviour
+public class FightInitializer : MonoBehaviour, ISceneLoadHandler<FightInfo>
 {
     [SerializeField] private Battlefield _battlefield;
     [SerializeField] private CardStack _cardStack;
@@ -17,6 +18,11 @@ public class FightInitializer : MonoBehaviour
     private void Awake()
     {
         InitializeCameraMovement();
+    }
+
+    public void OnSceneLoaded(FightInfo argument)
+    {
+        Initialize(argument);
     }
 
     public void Initialize(FightInfo fightInfo)
