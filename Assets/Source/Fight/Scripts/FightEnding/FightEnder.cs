@@ -10,23 +10,21 @@ public class FightEnder : MonoBehaviour
 
     public event UnityAction FightEnded;
 
-    public bool PlayerWon { get; private set; }
-    public FightReward Reward { get; private set; }
+    public bool PlayerWon => _fightStatusResolver.PlayerWon;
+    public FightReward Reward => _rewarder.GetReward(PlayerWon);
 
     private void OnEnable()
     {
-        _fightStatusResolver.PlayerWon += OnFightEnded;
+        _fightStatusResolver.FightStatusResolved += OnFightStatusResolved;
     }
 
     private void OnDisable()
     {
-        _fightStatusResolver.PlayerWon -= OnFightEnded;
+        _fightStatusResolver.FightStatusResolved -= OnFightStatusResolved;
     }
 
-    private void OnFightEnded(bool playerWon)
+    private void OnFightStatusResolved()
     {
-        PlayerWon = playerWon;
-        Reward = _rewarder.GetReward(playerWon);
         FightEnded?.Invoke();
     }
 }
