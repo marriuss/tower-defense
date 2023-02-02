@@ -9,12 +9,14 @@ public class Card
     private const int StartExperiencePointsRequired = 2;
     private const float RecurrentFormulaComponent = 0.15f;
 
-    public event UnityAction ExperienceStatsChanged;
-
+    public bool IsUnlocked { get; private set; }
     public int ExperiencePoints { get; private set; }
     public int ExperiencePointsRequired { get; private set; }
     public int Level { get; private set; }
     public CardInfo CardInfo { get; private set; }
+    public bool CanUpLevel => ExperiencePoints >= ExperiencePointsRequired && Level < MaxLevel;
+
+    public event UnityAction ExperienceStatsChanged;
 
     public Card(CardInfo cardInfo)
     {
@@ -23,6 +25,7 @@ public class Card
         ExperiencePoints = 0;
         ExperiencePointsRequired = StartExperiencePointsRequired;
         InvokeExperienceStatsChanges();
+        IsUnlocked = false;
     }
 
     public Card(CardInfo cardInfo, int level, int experiencePoints)
@@ -32,9 +35,21 @@ public class Card
         ExperiencePoints = experiencePoints;
         UpExperiencePointsRequiredToLevel(Level);
         InvokeExperienceStatsChanges();
+        IsUnlocked = true;
     }
 
-    public bool CanUpLevel => ExperiencePoints >= ExperiencePointsRequired && Level < MaxLevel;
+    public void Unlock()
+    {
+        IsUnlocked = true;
+    }
+
+    public void AddExperiencePoints(int experiencePoints)
+    {
+        if (experiencePoints < 0)
+            throw new NegativeArgumentException();
+
+        ExperiencePoints += experiencePoints;
+    }
 
     public bool TryUpLevel()
     {
