@@ -8,6 +8,8 @@ public class MenuGroup : MonoBehaviour
     private Stack<MenuView> _activeMenuViews;
     private CanvasGroup _canvasGroup;
 
+    private bool _menuStackEmpty => _activeMenuViews.Count == 0;
+
     private void Awake()
     {
         _activeMenuViews = new Stack<MenuView>();
@@ -19,9 +21,18 @@ public class MenuGroup : MonoBehaviour
         ChangeAppearance(false);
     }
 
+    public void CloseLastMenu()
+    {
+        if (_menuStackEmpty == false)
+        {
+            MenuView last = _activeMenuViews.Peek();
+            Close(last);
+        }
+    }
+
     public void Open(MenuView view)
     {
-        if (_activeMenuViews.Count == 0)
+        if (_menuStackEmpty)
         {
             ChangeAppearance(true);
         }
@@ -43,7 +54,7 @@ public class MenuGroup : MonoBehaviour
 
         view.Disappear();
 
-        if (_activeMenuViews.Count == 0)
+        if (_menuStackEmpty)
         {
             ChangeAppearance(false);
         }
@@ -57,7 +68,7 @@ public class MenuGroup : MonoBehaviour
     {
         MenuView view;
 
-        while (_activeMenuViews.Count > 0)
+        while (_menuStackEmpty == false)
         {
             view = _activeMenuViews.Pop();
             view.Disappear();
