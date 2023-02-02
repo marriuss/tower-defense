@@ -9,4 +9,9 @@ public class MapSceneLoader : MonoBehaviour
     {
         Map.Load(fightReward);
     }
+
+    public void LoadMapScene()
+    {
+        Map.Load(null);
+    }
 }
