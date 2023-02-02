@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class SettingsButton : WorkButton
 {
+    [SerializeField] private SettingsMenuController _controller;
+
     protected override void OnButtonClick()
     {
-        throw new System.NotImplementedException();
+        _controller.Open();
     }
 }
