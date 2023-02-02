@@ -55,7 +55,9 @@ MonoBehaviour:
   prefabs:
   - Root: {fileID: 102900000, guid: 04ae1c9eed3d5d44da9ab93e01f41f6c, type: 3}
     sources:
+    - {fileID: 5508161474883795248, guid: 626811fc43dd4a94da67fd84a1eff867, type: 3}
     - {fileID: 2828126610264446402, guid: 6d7ffe60ecfb11d4c810d9ad4bdb2e51, type: 3}
+    - {fileID: 3486423354389216204, guid: f0434502a2c31414b88a1f5c6f5c4265, type: 3}
     - {fileID: 5862057145331721195, guid: ef109ae573b1604499e2844fe563a118, type: 3}
     - {fileID: 216771678586237812, guid: 0dff1ba0e9231b248b32e48eaf461f9e, type: 3}
     - {fileID: 8584583746769923903, guid: 16fd04a65cf397944a1f1257bccf6637, type: 3}
