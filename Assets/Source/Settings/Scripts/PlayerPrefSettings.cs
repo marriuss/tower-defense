@@ -36,7 +36,7 @@ public class PlayerPrefSettings : MonoBehaviour
         PlayerPrefs.SetFloat(MusicSettings, musicLevel);
     }
 
-    public void SetSoundsLevel(float soundsLevel)
+    public void SaveSoundsSettings(float soundsLevel)
     {
         PlayerPrefs.SetFloat(SoundsSettings, soundsLevel);
     }
