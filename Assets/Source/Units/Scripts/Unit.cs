@@ -54,6 +54,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
             _graphOwner.StartBehaviour();
 
         _spriteFader.FadeIn();
+        _animationPlayer.Reset();
         Idle();
     }
 
