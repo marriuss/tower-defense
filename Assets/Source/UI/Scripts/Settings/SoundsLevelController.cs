@@ -7,7 +7,7 @@ public class SoundsLevelController : MonoBehaviour
 {
     [SerializeField] private Settings _settings;
     [SerializeField] private PlayerPrefSettings _playerPrefSettings;
-
+    
     private SliderView _view;
 
     private void Awake()
@@ -22,7 +22,7 @@ public class SoundsLevelController : MonoBehaviour
 
     private void Update()
     {
-        _settings.SetMusicLevel(_view.Value);
-        _playerPrefSettings.SaveMusicSettings(_settings.SoundsLevel);
+        _settings.SetSoundsLevel(_view.Value);
+        _playerPrefSettings.SaveSoundsSettings(_settings.SoundsLevel);
     }
 }
