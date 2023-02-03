@@ -18,6 +18,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
     private GraphOwner _graphOwner;
     private Health _health;
     private ITargetable _target;
+    private ITargetable _attackTarget;
 
     public const int MinValue = 1;
     public const int MaxValue = 20;
@@ -64,10 +65,12 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void SetTarget(ITargetable target) => _target = target;
 
-    public void AttackTarget()
+    public void AttackTarget(ITargetable target)
     {
-        if (_target == null)
-            throw new ArgumentNullException("Target is currently null.");
+        _attackTarget = target;
+
+        if (_attackTarget != _target)
+            return;
 
         _animationPlayer.PlayAttackAnimation();
     }
@@ -123,6 +126,6 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     private void ApplyDamageToTarget()
     {
-        _target.TakeHit(this);
+        _attackTarget.TakeHit(this);
     }
 }
