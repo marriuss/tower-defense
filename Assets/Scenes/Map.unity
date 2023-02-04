@@ -176,6 +176,10 @@ MonoBehaviour:
   _openButton: {fileID: 375648667}
   _closeButton: {fileID: 434514843}
   _panelView: {fileID: 1984058836}
+  _cardsPool: {fileID: 52539970}
+  _player: {fileID: 630410387}
+  _cardViewPrefab: {fileID: 7406246119813896727, guid: 7e6f4a3786733fe4095d109bc2f1a42b, type: 3}
+  _container: {fileID: 1628628382}
 --- !u!1 &1438478
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,8 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c93bc058dcc7e5469988d75c9a15f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardInfos:
-  - {fileID: 0}
+  _cardInfos: []
 --- !u!1 &101581062
 GameObject:
   m_ObjectHideFlags: 0
