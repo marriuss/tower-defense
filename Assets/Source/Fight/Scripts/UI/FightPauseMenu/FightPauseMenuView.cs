@@ -7,7 +7,7 @@ public class FightPauseMenuView : MenuView
 {
     [SerializeField] private SettingsButton _settingsButton;
     [SerializeField] private MenuExitButton _menuExitButton;
-    [SerializeField] private MapSceneLoadButton _mapSceneLoadButton;
+    [SerializeField] private AreYouSureGiveUpButton _giveUpButton;
     [SerializeField] private LocalizedText _text;
     [SerializeField] private LeanPhrase _pauseText;
 
@@ -18,6 +18,6 @@ public class FightPauseMenuView : MenuView
 
         _settingsButton.gameObject.SetActive(active);
         _menuExitButton.gameObject.SetActive(active);
-        _mapSceneLoadButton.gameObject.SetActive(active);
+        _giveUpButton.gameObject.SetActive(active);
     }
 }
