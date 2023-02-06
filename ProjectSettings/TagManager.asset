@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Battlefield
+    uniqueID: 1221913527
+    locked: 0
   - name: TargetableObjects
     uniqueID: 3415816949
     locked: 0
