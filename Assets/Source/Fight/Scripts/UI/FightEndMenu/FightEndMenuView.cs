@@ -1,10 +1,11 @@
-using System.Collections;
+      using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Lean.Localization;
 
 public class FightEndMenuView : MenuView
 {
+    [SerializeField] private MapSceneLoadButton _mapLoadButton;
     [SerializeField] private LocalizedText _localizedText;
     [SerializeField] private LeanPhrase _winText;
     [SerializeField] private LeanPhrase _loseText;
@@ -26,6 +27,7 @@ public class FightEndMenuView : MenuView
         if (active)
             _localizedText.SetPhrase(_playerWon ? _winText : _loseText);
 
+        _mapLoadButton.gameObject.SetActive(active);
         _localizedText.gameObject.SetActive(active);
     }
 }
