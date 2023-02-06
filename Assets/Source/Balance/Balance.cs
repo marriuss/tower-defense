@@ -1,17 +1,21 @@
+using UnityEngine.Events;
+
 public class Balance
 {
     private const int StartMoney = 0;
 
-    private int _money;
-
-    public bool HasEnoughMoney(int value) => _money >= value;
+    public int Money { get; private set; }
 
     public Balance() : this(StartMoney) { }
 
     public Balance(int money)
     {
-        _money = money;
+        Money = money;
     }
+
+    public event UnityAction<int> MoneyCountChanged;
+
+    public bool HasEnoughMoney(int value) => Money >= value;
 
     public void AddMoney(int value)
     {
@@ -20,17 +24,19 @@ public class Balance
             return;
         }
 
-        _money += value;
+        Money += value;
+        MoneyCountChanged?.Invoke(Money);
     }
 
     public bool TrySpend(int value)
     {
-        if (_money < value)
+        if (Money < value)
         {
             return false;
         }
 
-        _money -= value;
+        Money -= value;
+        MoneyCountChanged?.Invoke(Money);
         return true;
     }
 }
