@@ -8,6 +8,18 @@ public class GameAudio : MonoBehaviour
     [SerializeField] private AudioMixerController _musicMixer;
     [SerializeField] private AudioMixerController _soundsMixer;
 
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+        {
+            UnmuteMusic();
+        }
+        else
+        {
+            MuteMusic();
+        }
+    }
+
     public void SetMusicVolume(float volume)
     {
         _musicMixer.SetVolume(volume);

@@ -27,7 +27,7 @@ public class AudioMixerController : MonoBehaviour
     public void Mute()
     {
         _mute = true;
-        SetMixerVolume(0);
+        SetMixerVolume(MinVolume);
     }
 
     public void Unmute()
