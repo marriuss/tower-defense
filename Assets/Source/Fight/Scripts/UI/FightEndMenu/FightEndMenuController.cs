@@ -21,6 +21,7 @@ public class FightEndMenuController : MenuController
 
     private void OnFightEnded()
     {
+        _view.SetReward(_fightEnder.Reward);
         _view.SetPlayerStatus(_fightEnder.PlayerWon);
         MenuGroup.OpenRaycastTarget();
         StartCoroutine(OpenMenu(OpenDelay));
