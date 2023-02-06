@@ -12,6 +12,8 @@ public class MenuGroup : MonoBehaviour
 
     private bool _menuStackEmpty => _activeMenuViews.Count == 0;
 
+    public bool GameIsActive => _menuStackEmpty && _raycastTarget.isActiveAndEnabled == false; 
+
     private void Awake()
     {
         _activeMenuViews = new Stack<MenuView>();
