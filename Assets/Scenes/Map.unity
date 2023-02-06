@@ -178,7 +178,7 @@ MonoBehaviour:
   _panelView: {fileID: 1984058836}
   _cardsPool: {fileID: 52539970}
   _player: {fileID: 630410387}
-  _cardViewPrefab: {fileID: 7406246119813896727, guid: 7e6f4a3786733fe4095d109bc2f1a42b, type: 3}
+  _cardPurchasePrefab: {fileID: 5084789796977946113, guid: 7e6f4a3786733fe4095d109bc2f1a42b, type: 3}
   _container: {fileID: 1628628382}
 --- !u!1 &1438478
 GameObject:

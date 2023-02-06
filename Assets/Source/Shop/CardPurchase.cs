@@ -7,39 +7,62 @@ public class CardPurchase : MonoBehaviour
 {
     public event UnityAction<CardPurchase> CardPurchased;
 
+    [SerializeField] private CardRenderer _cardRenderer;
     [SerializeField] private TMP_Text _costText;
     [SerializeField] private GameObject _foreground;
+    [SerializeField] private Button _purchaseButton;
 
     private int _cost;
-    private Button _button;
+    private Balance _balance;
+    private Card _card;
 
-    private void OnDestroy()
+    private void OnEnable()
     {
-        _button.onClick.RemoveListener(OnButtonClicked);
+        _purchaseButton.onClick.AddListener(OnButtonClicked);
     }
 
-    public void Init(int cost, Balance balance, bool isUnlocked)
+    private void OnDisable()
     {
-        if (_button == null)
-        {
-            _button = GetComponent<Button>();
-            _button.onClick.AddListener(OnButtonClicked);
-        }
+        _purchaseButton.onClick.RemoveListener(OnButtonClicked);
+    }
 
-        if (isUnlocked)
+    public void Init(Card card, Balance balance)
+    {
+        _balance = balance;
+        _card = card;
+        _cardRenderer.Display(_card);
+        _cost = CardCost.GetCardCost(_card);
+        _costText.text = _cost.ToString();
+        UpdateView();
+    }
+
+    public void UpdateView()
+    {
+        _purchaseButton.interactable = _balance.HasEnoughMoney(_cost);
+
+        if (_card.IsUnlocked)
         {
-            _foreground.SetActive(true);
-            _button.gameObject.SetActive(false);
+            SetLock(true);
             return;
         }
 
-        _cost = cost;
-        _button.interactable = balance.HasEnoughMoney(_cost);
-        _costText.text = _cost.ToString();
+        SetLock(false);
+    }
+
+    private void SetLock(bool isLock)
+    {
+        _foreground.SetActive(isLock);
+        _purchaseButton.gameObject.SetActive(!isLock);
     }
 
     public void OnButtonClicked()
     {
+        if (_balance.TrySpend(_cost) == false)
+        {
+            return;
+        }
+
+        _card.Unlock();
         CardPurchased?.Invoke(this);
     }
 }

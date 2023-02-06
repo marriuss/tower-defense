@@ -5,39 +5,43 @@ public class ShopPanel : Panel
 {
     [SerializeField] private CardsPool _cardsPool;
     [SerializeField] private Player _player;
-    [SerializeField] private ShopCardView _cardViewPrefab;
+    [SerializeField] private CardPurchase _cardPurchasePrefab;
     [SerializeField] private Transform _container;
 
-    private List<ShopCardView> _cardViews;
-
-    private void OnDestroy()
-    {
-        for (int i = 0; i < _cardViews?.Count; i++)
-        {
-            _cardViews[i].CardPurchased -= OnCardPurchased;
-        }
-    }
+    private Dictionary<CardPurchase, Card> _cardPurchases;
 
     private void Start()
     {
-        _cardViews = new List<ShopCardView>();
+        _cardPurchases = new Dictionary<CardPurchase, Card>();
 
         for (int i = 0; i < _cardsPool.Cards.Count; i++)
         {
-            ShopCardView cardView = Instantiate(_cardViewPrefab, _container);
-            _cardViews.Add(cardView);
-            cardView.Init(_cardsPool.Cards[i], _player.Balance);
-            cardView.CardPurchased += OnCardPurchased;
+            Card card = _cardsPool.Cards[i];
+            CreateCardPurchase(card);
         }
     }
 
-    private void OnCardPurchased(Card card)
+    private void CreateCardPurchase(Card card)
     {
-        card.Unlock();
+        CardPurchase cardPurchase = Instantiate(_cardPurchasePrefab, _container);
+        _cardPurchases.Add(cardPurchase, card);
+        cardPurchase.Init(card, _player.Balance);
+        cardPurchase.CardPurchased += OnCardPurchased;
+    }
 
-        for (int i = 0; i < _cardViews.Count; i++)
+    private void OnDisable()
+    {
+        foreach (var cardPurchase in _cardPurchases.Keys)
         {
-            _cardViews[i].Init(_cardsPool.Cards[i], _player.Balance);
+            cardPurchase.CardPurchased -= OnCardPurchased;
+        }
+    }
+
+    private void OnCardPurchased(CardPurchase cardPurchaseCaller)
+    {
+        foreach (var cardPurchase in _cardPurchases.Keys)
+        {
+            cardPurchase.UpdateView();
         }
     }
 }
