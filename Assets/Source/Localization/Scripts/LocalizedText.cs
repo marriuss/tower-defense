@@ -17,6 +17,6 @@ public class LocalizedText : MonoBehaviour
     public void SetPhrase(LeanPhrase phrase)
     {
         LeanTranslation translation = LeanLocalization.GetTranslation(phrase.gameObject.name);
-        _lean.UpdateTranslation(translation);
+        _lean.TranslationName = translation.Name;
     }
 }

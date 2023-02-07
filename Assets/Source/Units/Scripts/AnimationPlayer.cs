@@ -12,6 +12,7 @@ public class AnimationPlayer : MonoBehaviour
     private const string AttackTrigger = "Attack";
     private const string TakeHitTrigger = "TakeHit";
     private const string DieTrigger = "Die";
+    private const string AliveCondition = "Alive";
 
     private Animator _animator;
 
@@ -32,6 +33,11 @@ public class AnimationPlayer : MonoBehaviour
             if (value > 0)
                 SetFloat(parameter, value);
         }
+    }
+
+    public void Reset()
+    {
+        SetBool(AliveCondition, true);
     }
 
     public void PlayIdleAnimation()
@@ -56,6 +62,7 @@ public class AnimationPlayer : MonoBehaviour
 
     public void PlayDeathAnimation()
     {
+        SetBool(AliveCondition, false);
         PlayAnimation(DieTrigger);
     }
 

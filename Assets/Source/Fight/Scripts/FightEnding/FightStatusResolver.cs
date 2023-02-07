@@ -37,6 +37,11 @@ public class FightStatusResolver : MonoBehaviour
         }
     }
     
+    public void MakePlayerLose()
+    {
+        EndFight(false);
+    }
+
     private void EndFight(bool playerWon)
     {
         PlayerWon = playerWon;

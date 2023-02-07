@@ -5,10 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(CanvasGroup))]
 public class MenuGroup : MonoBehaviour
 {
+    [SerializeField] private RaycastTarget _raycastTarget;
+
     private Stack<MenuView> _activeMenuViews;
     private CanvasGroup _canvasGroup;
 
     private bool _menuStackEmpty => _activeMenuViews.Count == 0;
+
+    public bool GameIsActive => _menuStackEmpty && _raycastTarget.isActiveAndEnabled == false; 
 
     private void Awake()
     {
@@ -19,6 +23,12 @@ public class MenuGroup : MonoBehaviour
     private void Start()
     {
         ChangeAppearance(false);
+    }
+
+    public void OpenRaycastTarget()
+    {
+        if (_menuStackEmpty)
+            SetRaycastTarget(true);
     }
 
     public void CloseLastMenu()
@@ -32,6 +42,9 @@ public class MenuGroup : MonoBehaviour
 
     public void Open(MenuView view)
     {
+        if (_raycastTarget.isActiveAndEnabled)
+            SetRaycastTarget(false);
+
         if (_menuStackEmpty)
         {
             ChangeAppearance(true);
@@ -83,5 +96,11 @@ public class MenuGroup : MonoBehaviour
         _canvasGroup.alpha = isVisible ? 1 : 0;
         _canvasGroup.blocksRaycasts = isVisible;
         _canvasGroup.interactable = isVisible;
+    }
+
+    private void SetRaycastTarget(bool active)
+    {
+        _raycastTarget.gameObject.SetActive(active);
+        _raycastTarget.enabled = active;
     }
 }
