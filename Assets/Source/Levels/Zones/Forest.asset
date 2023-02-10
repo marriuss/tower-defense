@@ -13,5 +13,18 @@ MonoBehaviour:
   m_Name: Forest
   m_EditorClassIdentifier: 
   _name: Forest
-  _wavesDelay: 0
-  _spawnDelay: 0
+  _wavesDelay: 3
+  _spawnDelay: 2
+  _palette:
+    _defaultTile: {fileID: 11400000, guid: 73d3ce1a1823af344bc880b42a184677, type: 2}
+    _additionalTiles:
+    - {fileID: 11400000, guid: 8cf5e7a5f95e6ff43b768f1bbadac544, type: 2}
+    - {fileID: 11400000, guid: 102754dab04584043b80d39af720e588, type: 2}
+    - {fileID: 11400000, guid: c413717eab63b274ca24b9d67c1578b3, type: 2}
+    _backgroundElements:
+    - {fileID: -2117021258, guid: 183fe9917aa816c4bba3ba8658ede96a, type: 3}
+    - {fileID: -1257033952, guid: 183fe9917aa816c4bba3ba8658ede96a, type: 3}
+    - {fileID: -212825465, guid: 183fe9917aa816c4bba3ba8658ede96a, type: 3}
+    - {fileID: -161793414, guid: 183fe9917aa816c4bba3ba8658ede96a, type: 3}
+    - {fileID: 740611276, guid: 183fe9917aa816c4bba3ba8658ede96a, type: 3}
+    - {fileID: 1758137090, guid: 183fe9917aa816c4bba3ba8658ede96a, type: 3}
