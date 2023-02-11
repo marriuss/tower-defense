@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FightEndMenuController : MenuController
 {
+    [SerializeField] private FightRewardApplier _fightRewardApplier;
     [SerializeField] private FightEnder _fightEnder;
     [SerializeField] private FightEndMenuView _view;
 
@@ -21,7 +22,9 @@ public class FightEndMenuController : MenuController
 
     private void OnFightEnded()
     {
-        _view.SetReward(_fightEnder.Reward);
+        FightReward reward = _fightEnder.Reward;
+        _fightRewardApplier.ApplyReward(reward);
+        _view.SetReward(reward);
         _view.SetPlayerStatus(_fightEnder.PlayerWon);
         MenuGroup.OpenRaycastTarget();
         StartCoroutine(OpenMenu(OpenDelay));

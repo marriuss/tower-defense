@@ -5,12 +5,10 @@ using UnityEngine;
 public class MapSceneLoadButton : WorkButton
 {
     [SerializeField] private MapSceneLoader _loader;
-    [SerializeField] private FightEnder _fightEnder;
 
     protected override void OnButtonClick()
     {
-        FightReward fightReward = _fightEnder.Reward;
-        _loader.LoadMapScene(fightReward);
+        _loader.LoadMapScene();
         SetInteractable(false);
     }
 }

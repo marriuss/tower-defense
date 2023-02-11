@@ -1,27 +1,12 @@
-using IJunior.TypedScenes;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class FightRewardApplier : MonoBehaviour, ISceneLoadHandler<FightReward>
+public class FightRewardApplier : MonoBehaviour
 {
     [SerializeField] private Player _player;
 
-    public void OnSceneLoaded(FightReward argument)
+    public void ApplyReward(FightReward argument)
     {
-        if (argument == null)
-            return;
-
-        ApplyMoneyReward(argument.Money);
-        ApplyExperienceReward(argument.CardExperiencePoints);
-    }
-
-    private void ApplyMoneyReward(int money)
-    {
-        _player.Balance.AddMoney(money);
-    }
-
-    private void ApplyExperienceReward(int cardExperiencePoints)
-    {
-        _player.Deck.ApplyExperiencePoints(cardExperiencePoints);
+        _player.Balance.AddMoney(argument.Money);
+        _player.Deck.ApplyExperiencePoints(argument.CardExperiencePoints);
     }
 }

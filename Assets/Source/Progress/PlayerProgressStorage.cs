@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Agava.YandexGames;
+using System;
 
 public class PlayerProgressStorage : MonoBehaviour
 {
@@ -66,23 +67,26 @@ public class PlayerProgressStorage : MonoBehaviour
         Castle castle = new Castle(castleLevel);
 
         CardProgress[] openCardsProgress = playerProgress.OpenCardsProgress;
-        Card card;
-        int? deckIndex;
-
         List<DeckItem> deckItems = new List<DeckItem>();
 
-        foreach (CardProgress cardProgress in openCardsProgress)
+        if (openCardsProgress != null)
         {
-            card = _cardsPool.FindCardById(cardProgress.Id);
+            Card card;
+            int? deckIndex;
 
-            if (card != null)
+            foreach (CardProgress cardProgress in openCardsProgress)
             {
-                card.ApplyProgress(cardProgress.Level, cardProgress.ExperiencePoints);
+                card = _cardsPool.FindCardById(cardProgress.Id);
 
-                deckIndex = cardProgress.DeckIndex;
+                if (card != null)
+                {
+                    card.ApplyProgress(cardProgress.Level, cardProgress.ExperiencePoints);
 
-                if (deckIndex != null)
-                    deckItems.Add(new DeckItem(card, deckIndex.Value));
+                    deckIndex = cardProgress.DeckIndex;
+
+                    if (deckIndex != null)
+                        deckItems.Add(new DeckItem(card, deckIndex.Value));
+                }
             }
         }
 
@@ -93,26 +97,45 @@ public class PlayerProgressStorage : MonoBehaviour
 
     private void OnBalanceChanged(int _)
     {
-        currentData.Money = GetNewMoney();
-        SaveCurrentData();
+        SaveDataOnChange(() =>
+        {
+            currentData.Money = GetNewMoney();
+        });
     }
 
     private void OnCastleStatsChanged()
     {
-        currentData.CastleLevel = GetNewCastleLevel();
-        SaveCurrentData();
+        SaveDataOnChange(() =>
+        {
+            currentData.CastleLevel = GetNewCastleLevel();
+        });
     }
 
     private void OnCardsChanged()
     {
-        currentData.OpenCardsProgress = GetNewCardsProgress();
-        SaveCurrentData();
+        SaveDataOnChange(() =>
+        {
+            currentData.OpenCardsProgress = GetNewCardsProgress();
+        });
     }
 
     private void OnLastLevelChanged()
     {
         currentData.LastLevelId = GetNewLastLevelId();
         SaveCurrentData();
+    }
+
+    private void SaveDataOnChange(Action dataChangingAction)
+    {
+        if (currentData != null)
+        {
+            dataChangingAction();
+            SaveCurrentData();
+        }
+        else
+        {
+            SaveNewData();
+        }
     }
 
     private void SaveCurrentData()
