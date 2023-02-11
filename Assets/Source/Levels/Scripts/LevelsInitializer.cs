@@ -13,8 +13,6 @@ public class LevelsInitializer : MonoBehaviour
 
     private void OnEnable()
     {
-        _progressLoader.ProgressLoaded += OnProgressLoaded;
-
         foreach (var levelButton in _levelButtons)
         {
             levelButton.ButtonClicked += OnLevelButtonClicked;
@@ -23,8 +21,6 @@ public class LevelsInitializer : MonoBehaviour
 
     private void OnDisable()
     {
-        _progressLoader.ProgressLoaded -= OnProgressLoaded;
-
         foreach (var levelButton in _levelButtons)
         {
             levelButton.ButtonClicked -= OnLevelButtonClicked;

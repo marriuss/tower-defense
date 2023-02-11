@@ -7,6 +7,7 @@ using System.Linq;
 public class PlayerProgressStorage : MonoBehaviour
 {
     [SerializeField] private Player _player;
+    [SerializeField] private CardsPool _cardsPool;
 
     private const string JsonDataKey = "PlayerProgress";
 
@@ -48,11 +49,31 @@ public class PlayerProgressStorage : MonoBehaviour
         PlayerProgress playerProgress = GetPlayerDataFromJson(jsonPlayerData);
 
         int money = playerProgress.Money;
-        int castleLevel = playerProgress.CastleLevel;
-
         Balance balance = new Balance(money);
-        Deck deck = new Deck();
+
+        int castleLevel = playerProgress.CastleLevel;
         Castle castle = new Castle(castleLevel);
+
+        Deck deck = new Deck();
+        CardProgress[] openCardsProgress = playerProgress.OpenCardsProgress;
+        Card card;
+        int? deckIndex;
+
+        foreach (CardProgress cardProgress in openCardsProgress)
+        {
+            card = _cardsPool.FindCardById(cardProgress.Id);
+
+            if (card != null)
+            {
+                card.ApplyProgress(cardProgress.Level, cardProgress.ExperiencePoints);
+
+                deckIndex = cardProgress.DeckIndex;
+
+                if (deckIndex != null)
+                    deck.PlaceCard(card, deckIndex.Value);
+
+            }
+        }
 
         _player.Initialize(deck, balance, castle);
     }
@@ -76,7 +97,24 @@ public class PlayerProgressStorage : MonoBehaviour
         int money = _player.Balance.Money;
         int castleLevel = _player.Castle.Level;
 
-        return new PlayerProgress();
+        Deck deck = _player.Deck;
+        IReadOnlyList<Card> unlockedCards = _cardsPool.UnlockedCards;
+        int unlockedCardsCount = unlockedCards.Count;
+        CardProgress[] cardsProgress = new CardProgress[unlockedCardsCount];
+        Card card;
+
+        for (int i = 0; i < unlockedCardsCount; i++)
+        {
+            card = unlockedCards[i];
+            cardsProgress[i] = new CardProgress(
+                card.CardInfo.Id,
+                card.Level,
+                card.ExperiencePoints,
+                deck.GetCardIndex(card)
+                );
+        }
+
+        return new PlayerProgress(money, 1, cardsProgress, castleLevel);
     }
 
     private void SaveJsonData(string jsonData)

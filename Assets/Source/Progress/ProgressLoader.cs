@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class ProgressLoader : MonoBehaviour
 {
-    public UnityAction<PlayerProgress> ProgressLoaded;
+    public UnityAction ProgressLoaded;
 
     private PlayerProgress _playerProgress;
 
@@ -14,8 +14,6 @@ public class ProgressLoader : MonoBehaviour
 
     private void LoadProgress()
     {
-        _playerProgress = new PlayerProgress();
-
-        ProgressLoaded?.Invoke(_playerProgress);
+        ProgressLoaded?.Invoke();
     }
 }

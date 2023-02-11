@@ -17,16 +17,6 @@ public class Deck
             _cards.Add(null);
     }
 
-    public Deck(List<Card> cards)
-    {
-        _cards = cards;
-    }
-
-    public void SetCards(List<Card> cards)
-    {
-        _cards = cards;
-    }
-
     public Card PlaceCard(Card card, int index)
     {
         if (0 > index || index >= Capacity)
@@ -35,5 +25,15 @@ public class Deck
         Card replacedCard = _cards[index];
         _cards[index] = card;
         return replacedCard;
+    }
+
+    public int? GetCardIndex(Card card)
+    {
+        int? index = _cards.IndexOf(card);
+
+        if (index == -1)
+            index = null;
+
+        return index;
     }
 }
