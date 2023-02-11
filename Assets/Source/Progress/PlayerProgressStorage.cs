@@ -54,10 +54,11 @@ public class PlayerProgressStorage : MonoBehaviour
         int castleLevel = playerProgress.CastleLevel;
         Castle castle = new Castle(castleLevel);
 
-        Deck deck = new Deck();
         CardProgress[] openCardsProgress = playerProgress.OpenCardsProgress;
         Card card;
         int? deckIndex;
+
+        List<DeckItem> deckItems = new List<DeckItem>();
 
         foreach (CardProgress cardProgress in openCardsProgress)
         {
@@ -70,10 +71,11 @@ public class PlayerProgressStorage : MonoBehaviour
                 deckIndex = cardProgress.DeckIndex;
 
                 if (deckIndex != null)
-                    deck.PlaceCard(card, deckIndex.Value);
-
+                    deckItems.Add(new DeckItem(card, deckIndex.Value));
             }
         }
+
+        Deck deck = new Deck(deckItems);
 
         _player.Initialize(deck, balance, castle);
     }

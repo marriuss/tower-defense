@@ -7,7 +7,6 @@ public class LevelsInitializer : MonoBehaviour
     public UnityAction<LevelButton> CurrentLevelChanged;
 
     [SerializeField] private LevelButton[] _levelButtons;
-    [SerializeField] private ProgressLoader _progressLoader;
 
     private int _lastLevelId;
 

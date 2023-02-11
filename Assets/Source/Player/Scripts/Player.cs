@@ -15,6 +15,20 @@ public class Player : ScriptableObject
     
     public event UnityAction DataChanged;
 
+    private void OnEnable()
+    {
+        _deck.CardsChanged += OnDataChanged;
+        _castle.StatsChanged += OnDataChanged;
+        _balance.MoneyCountChanged += (int money) => OnDataChanged();
+    }
+
+    private void OnDisable()
+    {
+        _deck.CardsChanged -= OnDataChanged;
+        _castle.StatsChanged -= OnDataChanged;
+        _balance.MoneyCountChanged -= (int money) => OnDataChanged();
+    }
+
     public void Initialize(Deck deck, Balance balance, Castle castle)
     {
         _deck = deck;
@@ -22,7 +36,7 @@ public class Player : ScriptableObject
         _castle = castle;
     }
 
-    private void InvokeDataChange()
+    private void OnDataChanged()
     {
         DataChanged?.Invoke();
     }
