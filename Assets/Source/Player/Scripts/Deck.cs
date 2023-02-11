@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
 
+[Serializable]
 public class Deck
 {
     private List<Card> _cards;
@@ -37,10 +38,10 @@ public class Deck
 
     public void ApplyExperiencePoints(int cardExperiencePoints)
     {
-        foreach (Card card in _cards)
+        for (int i = 0; i < Capacity; i++)
         {
-            if (card != null)
-                card.AddExperiencePoints(cardExperiencePoints);
+            if (IsPlaceEmpty(i) == false)
+                _cards[i].AddExperiencePoints(cardExperiencePoints);
         }
 
         CardsChanged?.Invoke();
@@ -56,9 +57,15 @@ public class Deck
         return index;
     }
 
+    public bool IsPlaceEmpty(int index)
+    {
+        Card card = _cards[index];
+        return card == null || card.CardInfo == null;
+    }
+
     private void InitializeCardsList()
     {
-        _cards = new List<Card>(Capacity);
+        _cards = new List<Card>();
 
         for (int i = 0; i < Capacity; i++)
             _cards.Add(null);

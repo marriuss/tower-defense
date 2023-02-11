@@ -62,14 +62,16 @@ public class DeckViewController : MonoBehaviour
 
     private void PlaceDeckCards(Deck deck)
     {
-        for (int i = 0; i < deck.Cards.Count; i++)
+        List<Card> cards = deck.Cards;
+
+        for (int i = 0; i < cards.Count; i++)
         {
-            if (deck.Cards[i] == null)
+            if (deck.IsPlaceEmpty(i))
             {
                 continue;
             }
 
-            CardView cardView = CreateCardView(deck.Cards[i], _canvas.transform);
+            CardView cardView = CreateCardView(cards[i], _canvas.transform);
             cardView.NeedCheckForReturn += OnCardNeedCheckForReturn;
             _cardViews.Add(cardView);
             _deckSlots[i].PlaceCard(cardView);

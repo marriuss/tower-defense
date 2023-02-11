@@ -9,12 +9,6 @@ public class RewardAccounter : MonoBehaviour
     public int Money { get; private set; }
     public int TotalExperiencePoints { get; private set; }
 
-    private void Start()
-    {
-        Money = 0;
-        TotalExperiencePoints = 0;
-    }
-
     private void OnEnable()
     {
         _enemiesPool.RemovedObject += OnEnemyRemoved;

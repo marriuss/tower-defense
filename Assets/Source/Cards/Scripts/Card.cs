@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
+[Serializable]
 public class Card
 {
     private const int MinLevel = 1;

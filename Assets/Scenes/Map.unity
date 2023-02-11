@@ -6910,7 +6910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4df75b56de8478f4eac7fcd00730be4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 11400000, guid: 89262875b71ef4f44b8b28e47057f8d0, type: 2}
   _balanceText: {fileID: 699224700}
 --- !u!222 &2056983419
 CanvasRenderer:

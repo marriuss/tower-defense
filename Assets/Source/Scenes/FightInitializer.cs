@@ -51,7 +51,7 @@ public class FightInitializer : MonoBehaviour, ISceneLoadHandler<FightInfo>
 
     private void InitializeCardStack(Deck deck, int cardStackCapacity)
     {
-        HashSet<Card> cardSet = deck.Cards.Where(card => card != null).ToHashSet();
+        HashSet<Card> cardSet = deck.Cards.Where(card => card is not null).ToHashSet();
         _cardStack.GenerateStack(cardSet, cardStackCapacity);
     }
 

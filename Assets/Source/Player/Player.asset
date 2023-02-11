@@ -12,11 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29b60bed5691f54e86a1cf8f834460b, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  _progressLoader: {fileID: 0}
   _deck:
-    rid: -2
+    rid: 480809006824423466
+  _castle:
+    rid: 480809006824423467
+  _balance:
+    rid: 480809006824423468
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 480809006824423466
+      type: {class: Deck, ns: , asm: Assembly-CSharp}
+    - rid: 480809006824423467
+      type: {class: Castle, ns: , asm: Assembly-CSharp}
+    - rid: 480809006824423468
+      type: {class: Balance, ns: , asm: Assembly-CSharp}
