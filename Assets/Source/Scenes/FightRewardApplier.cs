@@ -8,22 +8,26 @@ public class FightRewardApplier : MonoBehaviour, ISceneLoadHandler<FightReward>
 
     public void OnSceneLoaded(FightReward argument)
     {
-        ApplyMoneyReward(argument);
-        ApplyExperienceReward(argument);
+        if (argument == null)
+            return;
+
+        ApplyMoneyReward(argument.Money);
+        ApplyExperienceReward(argument.CardExperiencePoints);
     }
 
-    private void ApplyMoneyReward(FightReward reward)
+    private void ApplyMoneyReward(int money)
     {
-        _player.Balance.AddMoney(reward.Money);
+        _player.Balance.AddMoney(money);
     }
 
-    private void ApplyExperienceReward(FightReward reward)
+    private void ApplyExperienceReward(int cardExperiencePoints)
     {
         List<Card> cards = _player.Deck.Cards;
 
-        for (int i = 0; i < cards.Count; i++)
+        foreach (Card card in cards)
         {
-            cards[i].AddExperiencePoints(reward.CardExperiencePoints);
+            if (card != null)
+                card.AddExperiencePoints(cardExperiencePoints);
         }
     }
 }
