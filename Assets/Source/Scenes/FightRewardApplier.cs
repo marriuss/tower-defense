@@ -22,12 +22,6 @@ public class FightRewardApplier : MonoBehaviour, ISceneLoadHandler<FightReward>
 
     private void ApplyExperienceReward(int cardExperiencePoints)
     {
-        List<Card> cards = _player.Deck.Cards;
-
-        foreach (Card card in cards)
-        {
-            if (card != null)
-                card.AddExperiencePoints(cardExperiencePoints);
-        }
+        _player.Deck.ApplyExperiencePoints(cardExperiencePoints);
     }
 }

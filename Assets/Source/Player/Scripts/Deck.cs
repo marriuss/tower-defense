@@ -35,6 +35,17 @@ public class Deck
         return replacedCard;
     }
 
+    public void ApplyExperiencePoints(int cardExperiencePoints)
+    {
+        foreach (Card card in _cards)
+        {
+            if (card != null)
+                card.AddExperiencePoints(cardExperiencePoints);
+        }
+
+        CardsChanged?.Invoke();
+    }
+
     public int? GetCardIndex(Card card)
     {
         int? index = _cards.IndexOf(card);
