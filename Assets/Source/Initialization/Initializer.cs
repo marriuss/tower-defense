@@ -7,6 +7,7 @@ using Agava.YandexGames;
 public class Initializer : MonoBehaviour
 {
     [SerializeField] private LanguageIdentifier _languageIdentifier;
+    [SerializeField] private PlayerProgressStorage _playerProgressStorage;
     [SerializeField] private PlayerPrefSettings _playerPrefSettings;
     [SerializeField] private Settings _settings;
     [SerializeField] private MapSceneLoader _mapSceneLoader;
@@ -27,11 +28,21 @@ public class Initializer : MonoBehaviour
             languageCode = YandexGamesSdk.Environment.i18n.lang;
 #endif
 
+        LoadSettings(languageCode);
+        _playerProgressStorage.LoadData();
+
+        _mapSceneLoader.LoadMapScene();
+
+        yield return null;
+    }
+
+    private void LoadSettings(string languageCode)
+    {
         _settings.SetLanguage(_languageIdentifier.IdentifyLanguageByCode(languageCode));
         _playerPrefSettings.SaveLanguageSettings(_settings.Language.TranslationCode);
 
         float? musicLevel = _playerPrefSettings.TryLoadMusicSettings();
-        
+
         if (musicLevel != null)
             _settings.SetMusicLevel(musicLevel.Value);
 
@@ -39,9 +50,5 @@ public class Initializer : MonoBehaviour
 
         if (soundsLevel != null)
             _settings.SetSoundsLevel(soundsLevel.Value);
-
-        _mapSceneLoader.LoadMapScene();
-
-        yield return null;
     }
 }

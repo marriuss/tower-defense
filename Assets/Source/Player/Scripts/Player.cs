@@ -1,32 +1,29 @@
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.Events;
 
-public class Player : MonoBehaviour
+[CreateAssetMenu(fileName ="Player", menuName ="Player", order =51)]
+public class Player : ScriptableObject
 {
-    [SerializeField] private ProgressLoader _progressLoader;
+    [SerializeField] private Deck _deck = new Deck();
+    [SerializeField] private Castle _castle = new Castle();
+    [SerializeField] private Balance _balance = new Balance();
 
-    public Deck Deck { get; private set; }
-    public Castle Castle { get; private set; }
-    public Balance Balance { get; private set; }
+    public Deck Deck => _deck;
+    public Castle Castle => _castle;
+    public Balance Balance => _balance;
+    
+    public event UnityAction DataChanged;
 
-    private void Awake()
+    public void Initialize(Deck deck, Balance balance, Castle castle)
     {
-        Deck = new Deck();
-        Castle = new Castle();
-        Balance = new Balance();
+        _deck = deck;
+        _balance = balance;
+        _castle = castle;
     }
 
-    private void OnEnable()
+    private void InvokeDataChange()
     {
-        _progressLoader.ProgressLoaded += OnProgressLoaded;
-    }
-
-    private void OnDisable()
-    {
-        _progressLoader.ProgressLoaded -= OnProgressLoaded;
-    }
-
-    private void OnProgressLoaded(PlayerProgress progress)
-    {
-        Balance.AddMoney(progress.Money);
+        DataChanged?.Invoke();
     }
 }

@@ -12,14 +12,23 @@ public class Castle
 
     public Castle(int level)
     {
-        Level = level;
         _castleUpgrade = new CastleUpgradeCalculator();
-        InitStats(_castleUpgrade);
+        ApplyLevelStats(level);
+    }
+
+    public void SetLevel(int level)
+    {
+        ApplyLevelStats(level);
     }
 
     public void Upgrade()
     {
-        Level++;
+        ApplyLevelStats(Level + 1);
+    }
+
+    private void ApplyLevelStats(int level)
+    {
+        Level = level;
         InitStats(_castleUpgrade);
     }
 

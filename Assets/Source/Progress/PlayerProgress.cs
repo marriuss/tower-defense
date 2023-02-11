@@ -5,16 +5,14 @@ public class PlayerProgress
     public CardProgress[] CardsProgress;
     public int?[] CardIds;
     public int CastleLevel;
-    public CastleProgress CastleProgress;
 
-    public PlayerProgress(int money, int lastLevelId, CardProgress[] cardsProgress, int?[] cardIds, int castleLevel, CastleProgress castleProgress)
+    public PlayerProgress(int money, int lastLevelId, CardProgress[] cardsProgress, int?[] cardIds, int castleLevel)
     {
         Money = money;
         LastLevelId = lastLevelId;
         CardsProgress = cardsProgress;
         CardIds = cardIds;
         CastleLevel = castleLevel;
-        CastleProgress = castleProgress;
     }
 
     public PlayerProgress()
@@ -24,6 +22,5 @@ public class PlayerProgress
         CardsProgress = new CardProgress[0];
         CardIds = new int?[0];
         CastleLevel = 1;
-        CastleProgress = new CastleProgress();
     }
 }
