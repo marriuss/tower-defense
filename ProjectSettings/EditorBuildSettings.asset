@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Cainos/Pixel Art Icon Pack - RPG/Scene/SC_Pixel_Art_Icon_Pack___RPG.unity
+    guid: 80f283a544947e84e847079945622c4a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8f5e46be2cd176f438115944419e4fcd, type: 2}
