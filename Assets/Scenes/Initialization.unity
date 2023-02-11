@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 11400000, guid: 89262875b71ef4f44b8b28e47057f8d0, type: 2}
+  _cardsPool: {fileID: 11400000, guid: 32bfd7b916eb33547b18b783c3bc6799, type: 2}
 --- !u!4 &285174631
 Transform:
   m_ObjectHideFlags: 0

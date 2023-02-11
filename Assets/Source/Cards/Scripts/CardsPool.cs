@@ -1,30 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class CardsPool : MonoBehaviour
+[CreateAssetMenu(fileName ="CardsPool", menuName ="CardsPool", order =51)]
+public class CardsPool : ScriptableObject
 {
     [SerializeField] private List<CardInfo> _cardInfos;
-
-    private List<Card> _cards;
+    [SerializeField] private List<Card> _cards = new List<Card>();
 
     public IReadOnlyList<Card> Cards => _cards;
+    public IReadOnlyList<Card> UnlockedCards => _cards.Where(card => card.IsUnlocked).ToList();
 
     private void Awake()
     {
-        _cards = new List<Card>();
+        foreach (CardInfo cardInfo in _cardInfos)
+            _cards.Add(new Card(cardInfo));
     }
 
-    public void InitializeCardsPool(List<CardProgress> cardProgress)
+    public Card FindCardById(int id)
     {
-        CardProgress progress;
-        Card card;
-
-        foreach (CardInfo cardInfo in _cardInfos)
-        {
-            progress = cardProgress.Find(progress => progress.Id == cardInfo.Id);
-            card = progress != null ? new Card(cardInfo, progress.Level, progress.ExperiencePoints) : new Card(cardInfo);
-            _cards.Add(card);
-        }
+        return _cards.Find(card => card.CardInfo.Id == id);
     }
 }

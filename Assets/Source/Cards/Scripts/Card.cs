@@ -6,6 +6,7 @@ public class Card
 {
     private const int MinLevel = 1;
     private const int MaxLevel = 10;
+    private const int StartExperiencePoints = 0;
     private const int StartExperiencePointsRequired = 2;
     private const float RecurrentFormulaComponent = 0.15f;
 
@@ -21,21 +22,12 @@ public class Card
     public Card(CardInfo cardInfo)
     {
         CardInfo = cardInfo;
-        Level = 1;
-        ExperiencePoints = 0;
-        ExperiencePointsRequired = StartExperiencePointsRequired;
-        InvokeExperienceStatsChanges();
-        IsUnlocked = false;
+        SetStats(MinLevel, StartExperiencePoints, false);
     }
 
-    public Card(CardInfo cardInfo, int level, int experiencePoints)
+    public void ApplyProgress(int level, int experiencePoints)
     {
-        CardInfo = cardInfo;
-        Level = level;
-        ExperiencePoints = experiencePoints;
-        UpExperiencePointsRequiredToLevel(Level);
-        InvokeExperienceStatsChanges();
-        IsUnlocked = true;
+        SetStats(level, experiencePoints, true);
     }
 
     public void Unlock()
@@ -59,6 +51,15 @@ public class Card
             UpLevel();
 
         return canUpLevel;
+    }
+
+    private void SetStats(int level, int experiencePoints, bool isUnlocked)
+    {
+        Level = level;
+        ExperiencePoints = experiencePoints;
+        UpExperiencePointsRequiredToLevel(Level);
+        InvokeExperienceStatsChanges();
+        IsUnlocked = isUnlocked;
     }
 
     private void UpLevel()
