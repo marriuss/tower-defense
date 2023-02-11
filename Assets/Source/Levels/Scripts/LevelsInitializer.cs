@@ -4,11 +4,10 @@ using UnityEngine.Events;
 
 public class LevelsInitializer : MonoBehaviour
 {
-    public UnityAction<LevelButton> CurrentLevelChanged;
-
+    [SerializeField] private LevelsPool _levelsPool;
     [SerializeField] private LevelButton[] _levelButtons;
 
-    private int _lastLevelId;
+    public UnityAction<LevelButton> CurrentLevelChanged;
 
     private void OnEnable()
     {
@@ -26,10 +25,12 @@ public class LevelsInitializer : MonoBehaviour
         }
     }
 
-    private void OnProgressLoaded(PlayerProgress progress)
+    private void Start()
     {
-        _lastLevelId = progress.LastLevelId;
-        CurrentLevelChanged?.Invoke(_levelButtons.First(l => l.LevelInfo.Id == _lastLevelId));
+        LevelButton button = _levelButtons.FirstOrDefault(l => l.LevelInfo.Id == _levelsPool.LastLevelId);
+
+        if (button != null)
+            CurrentLevelChanged?.Invoke(button);
     }
 
     private void OnLevelButtonClicked(LevelButton levelButton)

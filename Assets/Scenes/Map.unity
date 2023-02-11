@@ -252,7 +252,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1438478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ba9ea5bae673641bb2c2ac6d7c3735, type: 3}
+  m_Script: {fileID: 11500000, guid: bb80baaff30030847bf8e6fb396cbecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 11400000, guid: 89262875b71ef4f44b8b28e47057f8d0, type: 2}
@@ -3690,9 +3690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534f8d4934cc9bb488df7dcaecb0b922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelsPool: {fileID: 11400000, guid: 622e24107372c6c46934a67dd32bce0f, type: 2}
   _levelButtons:
   - {fileID: 1893103645}
-  _progressLoader: {fileID: 0}
 --- !u!1001 &787997234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5870,6 +5870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 11400000, guid: 89262875b71ef4f44b8b28e47057f8d0, type: 2}
   _cardsPool: {fileID: 11400000, guid: 32bfd7b916eb33547b18b783c3bc6799, type: 2}
+  _levelsPool: {fileID: 11400000, guid: 622e24107372c6c46934a67dd32bce0f, type: 2}
 --- !u!4 &1641189498
 Transform:
   m_ObjectHideFlags: 0
