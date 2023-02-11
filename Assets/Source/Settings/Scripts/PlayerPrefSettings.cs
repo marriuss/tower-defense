@@ -28,17 +28,17 @@ public class PlayerPrefSettings : MonoBehaviour
 
     public void SaveLanguageSettings(string languageCode)
     {
-        PlayerPrefs.SetString(LanguageSettings, languageCode);
+        SaveSettings(PlayerPrefs.SetString, LanguageSettings, languageCode);
     }
 
     public void SaveMusicSettings(float musicLevel)
     {
-        PlayerPrefs.SetFloat(MusicSettings, musicLevel);
+        SaveSettings(PlayerPrefs.SetFloat, MusicSettings, musicLevel);
     }
 
     public void SaveSoundsSettings(float soundsLevel)
     {
-        PlayerPrefs.SetFloat(SoundsSettings, soundsLevel);
+        SaveSettings(PlayerPrefs.SetFloat, SoundsSettings, soundsLevel);
     }
 
     private T TryLoadSettings<T>(string key, Func<T> action)
@@ -51,5 +51,11 @@ public class PlayerPrefSettings : MonoBehaviour
         }
 
         return result;
+    }
+
+    private void SaveSettings<T>(Action<string, T> action, string key, T value)
+    {
+        action.Invoke(key, value);
+        PlayerPrefs.Save();
     }
 }
