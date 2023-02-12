@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Lean.Localization;
 
 [CreateAssetMenu(fileName ="New UnitStats", menuName ="SO/UnitStats", order =51)]
 public class UnitStats : ScriptableObject
@@ -14,7 +15,7 @@ public class UnitStats : ScriptableObject
     [SerializeField] private float _speed;
     [SerializeField] private float _attackDelay;
     [SerializeField] private float _attackRange;
-
+     
     public string Name => _name;
     public int Health => _health;
     public int Armor => _armor;

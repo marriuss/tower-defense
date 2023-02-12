@@ -6678,7 +6678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a545212b1a3814d972118a8d406208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardViewPrefab: {fileID: 1201234546208726526, guid: 886a7d95fd78d904f9920f7b3720d512, type: 3}
+  _cardViewPrefab: {fileID: 7635281920878616427, guid: 886a7d95fd78d904f9920f7b3720d512, type: 3}
   _cardStack: {fileID: 1843386251}
   _deckController: {fileID: 2104891550}
 --- !u!1 &1434108994
@@ -8003,7 +8003,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wave
+  m_text: "\u0412\u043E\u043B\u043D\u0430"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd0f1d10fbc853d4b92697ee2b89c247, type: 2}
   m_sharedMaterial: {fileID: 4162579934630920526, guid: bd0f1d10fbc853d4b92697ee2b89c247, type: 2}

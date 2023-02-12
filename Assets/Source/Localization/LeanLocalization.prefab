@@ -48,13 +48,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: English
   detectLanguage: 0
   defaultLanguage: English
   saveLoad: 1
   prefabs:
   - Root: {fileID: 102900000, guid: af528c85b788cd6458ac257583251309, type: 3}
     sources:
+    - {fileID: 9015017128740623462, guid: 5b07bf5fb0c0ac74d86366badd1f2405, type: 3}
     - {fileID: 5508161474883795248, guid: 626811fc43dd4a94da67fd84a1eff867, type: 3}
     - {fileID: 2404055024474572875, guid: 6b9005ae88adc1e439b1dde7bafd47ce, type: 3}
     - {fileID: 5211068315762484305, guid: 5db3415591ba97d4aac8a2a626c16f09, type: 3}
