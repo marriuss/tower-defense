@@ -20,5 +20,5 @@ MonoBehaviour:
       _unitPrefab: {fileID: 565550310095632876, guid: 1a3ae7a74277b5647b15e2743b41bf3d, type: 3}
     - _unitsCount: 2
       _unitPrefab: {fileID: 565550310095632876, guid: 1a3ae7a74277b5647b15e2743b41bf3d, type: 3}
-  _cardStackCapacity: 5
+  _cardStackCapacity: 10
   _moneyReward: 100

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeckController : MonoBehaviour
+public class CardStackController : MonoBehaviour
 {
     [SerializeField] private ManaController _manaController;
     [SerializeField] private PlayerUnitSpawner _spawner;

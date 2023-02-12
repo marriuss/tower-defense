@@ -6,9 +6,12 @@ using UnityEngine.Events;
 
 public class CardStack : MonoBehaviour
 {
-    public bool StackGenerated { get; private set; }
-    
     private Stack<FightingCard> _cards = new Stack<FightingCard>();
+
+    public bool StackGenerated { get; private set; }
+    public int UniqueCardsAmount { get; private set; }
+    public int StackCapacity { get; private set; }
+    public int StackCount => _cards.Count;
 
     private void Start()
     {
@@ -17,11 +20,18 @@ public class CardStack : MonoBehaviour
 
     public void GenerateStack(HashSet<Card> cardSet, int amount)
     {
-        if (amount <= 0)
-            throw new ArgumentException("Amount of cards in stack cannot be non-positive.");
+        UniqueCardsAmount = cardSet.Count;
+        StackCapacity = amount;
 
-        if (cardSet.Count == 0)
+        if (UniqueCardsAmount == 0)
             return;
+
+        if (StackCapacity == 0)
+            return;
+
+        if (StackCapacity < 0)
+            throw new NegativeArgumentException();
+
 
         cardSet = CardSorter.SortCardsByRarity(cardSet, descending: false).ToHashSet();
 
