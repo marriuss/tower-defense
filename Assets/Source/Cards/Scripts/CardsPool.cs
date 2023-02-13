@@ -14,7 +14,12 @@ public class CardsPool : ScriptableObject
 
     public Card FindCardById(int id)
     {
-        return _cards.Find(card => card.CardInfo.Id == id);
+        return _cards.FirstOrDefault(card => card.CardInfo.Id == id);
+    }
+
+    public Card FindCardByCardInfo(CardInfo cardInfo)
+    {
+        return _cards.FirstOrDefault(card => card.CardInfo == cardInfo);
     }
 
     private void OnValidate()

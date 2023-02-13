@@ -11,6 +11,7 @@ public class Initializer : MonoBehaviour
     [SerializeField] private PlayerPrefSettings _playerPrefSettings;
     [SerializeField] private Settings _settings;
     [SerializeField] private MapSceneLoader _mapSceneLoader;
+    [SerializeField] private List<CardInfo> _defaultCards;
 
     private void Awake()
     {
@@ -29,8 +30,7 @@ public class Initializer : MonoBehaviour
 #endif
 
         LoadSettings(languageCode);
-        _playerProgressStorage.LoadData();
-
+        LoadPlayer();
         _mapSceneLoader.LoadMapScene();
 
         yield return null;
@@ -50,5 +50,10 @@ public class Initializer : MonoBehaviour
 
         if (soundsLevel != null)
             _settings.SetSoundsLevel(soundsLevel.Value);
+    }
+
+    private void LoadPlayer()
+    {
+        _playerProgressStorage.LoadData(_defaultCards);
     }
 }
