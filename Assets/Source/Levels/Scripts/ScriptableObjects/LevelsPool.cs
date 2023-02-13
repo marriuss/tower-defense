@@ -1,16 +1,17 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName ="LevelsPool", menuName ="LevelsPool", order =51)]
+[CreateAssetMenu(fileName = "LevelsPool", menuName = "LevelsPool", order = 51)]
 public class LevelsPool : ScriptableObject
 {
     [SerializeField] private List<LevelInfo> _levels;
     [SerializeField, Min(0)] private int _lastLevelId;
 
     public int LastLevelId => _lastLevelId;
+    public LevelInfo LastLevel => _levels.FirstOrDefault(l => l.Id == LastLevelId);
     public IReadOnlyList<LevelInfo> Levels => _levels;
 
     public event UnityAction LastLevelChanged;
