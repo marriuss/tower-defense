@@ -15,25 +15,10 @@ public class PlayerProgressStorage : MonoBehaviour
     private static string lastSavedJsonData;
     private static PlayerProgress currentData;
 
-    private void OnEnable()
-    {
-        _player.Balance.MoneyCountChanged += OnBalanceChanged;
-        _player.Castle.StatsChanged += OnCastleStatsChanged;
-        _player.Deck.CardsChanged += OnCardsChanged;
-        _levelsPool.LastLevelChanged += OnLastLevelChanged;
-    }
-
-    private void OnDisable()
-    {
-        _player.Balance.MoneyCountChanged -= OnBalanceChanged;
-        _player.Castle.StatsChanged -= OnCastleStatsChanged;
-        _player.Deck.CardsChanged -= OnCardsChanged;
-        _levelsPool.LastLevelChanged -= OnLastLevelChanged;
-    }
-
-    public void LoadData()
+    public void LoadData(List<CardInfo> defaultCards)
     {
         bool usePrefs = true;
+        bool hasSavings = false;
 
 #if UNITY_WEBGL && !UNITY_EDITOR
     if (YandexGamesSdk.IsInitialized)
@@ -41,13 +26,68 @@ public class PlayerProgressStorage : MonoBehaviour
         if (PlayerAccount.IsAuthorized)
         {
             usePrefs = false;
+            hasSavings = true;
             PlayerAccount.GetPlayerData(onSuccessCallback: LoadJsonData);
         }
     }
 #endif
 
         if (usePrefs && PlayerPrefs.HasKey(JsonDataKey))
+        {
+            hasSavings = true;
             LoadJsonData(PlayerPrefs.GetString(JsonDataKey));
+        }
+
+        if (hasSavings == false)
+        {
+            int i = 0;
+            List<DeckItem> deckItems = new List<DeckItem>();
+
+            foreach (CardInfo cardInfo in defaultCards)
+            {
+                Card card = _cardsPool.FindCardByCardInfo(cardInfo);
+                deckItems.Add(new DeckItem(card, i));
+                i++;
+            }
+
+            Deck deck = new Deck(deckItems);
+            Balance balance = new Balance();
+            Castle castle = new Castle();
+
+            _player.Initialize(deck, balance, castle);
+        }
+    }
+
+    public void SaveBalance()
+    {
+        SaveDataOnChange(() =>
+        {
+            currentData.Money = GetNewMoney();
+        });
+    }
+
+    public void SaveCastleStats()
+    {
+        SaveDataOnChange(() =>
+        {
+            currentData.CastleLevel = GetNewCastleLevel();
+        });
+    }
+
+    public void SaveCardsProgress()
+    {
+        SaveDataOnChange(() =>
+        {
+            currentData.OpenCardsProgress = GetNewCardsProgress();
+        });
+    }
+
+    public void SaveLastLevelId()
+    {
+        SaveDataOnChange(() =>
+        {
+            currentData.LastLevelId = GetNewLastLevelId();
+        });
     }
 
     private PlayerProgress GetPlayerDataFromJson(string jsonData)
@@ -93,36 +133,6 @@ public class PlayerProgressStorage : MonoBehaviour
         Deck deck = new Deck(deckItems);
         _player.Initialize(deck, balance, castle);
         _levelsPool.Initialize(playerProgress.LastLevelId);
-    }
-
-    private void OnBalanceChanged(int _)
-    {
-        SaveDataOnChange(() =>
-        {
-            currentData.Money = GetNewMoney();
-        });
-    }
-
-    private void OnCastleStatsChanged()
-    {
-        SaveDataOnChange(() =>
-        {
-            currentData.CastleLevel = GetNewCastleLevel();
-        });
-    }
-
-    private void OnCardsChanged()
-    {
-        SaveDataOnChange(() =>
-        {
-            currentData.OpenCardsProgress = GetNewCardsProgress();
-        });
-    }
-
-    private void OnLastLevelChanged()
-    {
-        currentData.LastLevelId = GetNewLastLevelId();
-        SaveCurrentData();
     }
 
     private void SaveDataOnChange(Action dataChangingAction)
