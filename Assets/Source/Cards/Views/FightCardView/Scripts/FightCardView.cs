@@ -29,7 +29,7 @@ public class FightCardView : WorkButton
         else
         {
             Card = null;
-            Disappear();
+            Destroy(gameObject);
         }
     }
 
