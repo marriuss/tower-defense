@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49266756cdeac7547970c8653a7affc9, type: 3}
+  m_Name: WarriorCard
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 3846430014133758679, guid: 7fc82e0277b8555469ca0c4aa85a1140, type: 3}
+  _rarity: 0
+  _mana: 0
+  _name: {fileID: 2230899225009884824, guid: 1703dd9bd304d5f4b8ede168b688ef40, type: 3}
+  _icon: {fileID: 6934013284892070054, guid: 436f7e3fce8b2fb4a86074ec1b14efdf, type: 3}

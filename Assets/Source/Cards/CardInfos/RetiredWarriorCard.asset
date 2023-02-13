@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49266756cdeac7547970c8653a7affc9, type: 3}
+  m_Name: RetiredWarriorCard
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 2942839807515907599, guid: 579c2fca8ec5f914ca4e408fa13ea40a, type: 3}
+  _rarity: 0
+  _mana: 0
+  _name: {fileID: 5511499044727465929, guid: 6d21947c77d8f9149bbad336f4d28973, type: 3}
+  _icon: {fileID: 486325072, guid: e76ba54d0ba86fa40a3e016e7fdccb41, type: 3}

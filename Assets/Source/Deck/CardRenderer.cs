@@ -14,7 +14,7 @@ public class CardRenderer : MonoBehaviour
     public void Display(Card card)
     {
         _levelText.text = card.Level.ToString();
-        _nameText.text = card.CardInfo.Name;
+        _nameText.text = card.CardInfo.Name.ToString();
         _manaText.text = card.CardInfo.Mana.ToString();
         _icon.sprite = card.CardInfo.Icon;
         _experienceText.text =

@@ -2957,8 +2957,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 32
+  m_VerticalAlignment: 8192
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -6599,7 +6599,7 @@ GameObject:
   - component: {fileID: 1430100231}
   - component: {fileID: 1430100233}
   m_Layer: 5
-  m_Name: DeckView
+  m_Name: CardStackView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6678,9 +6678,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a545212b1a3814d972118a8d406208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cardViewPrefab: {fileID: 1201234546208726526, guid: 886a7d95fd78d904f9920f7b3720d512, type: 3}
+  _cardViewPrefab: {fileID: 7635281920878616427, guid: 886a7d95fd78d904f9920f7b3720d512, type: 3}
   _cardStack: {fileID: 1843386251}
-  _deckController: {fileID: 2104891550}
+  _controller: {fileID: 2104891550}
+  _topCardViewPrefab: {fileID: 4716479904395993774, guid: 1288e8e0b0ec6b243a8dc3f777f23ab8, type: 3}
 --- !u!1 &1434108994
 GameObject:
   m_ObjectHideFlags: 0
@@ -10411,7 +10412,7 @@ GameObject:
   - component: {fileID: 2104891549}
   - component: {fileID: 2104891550}
   m_Layer: 0
-  m_Name: DeckController
+  m_Name: CardStackController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

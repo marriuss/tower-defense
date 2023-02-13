@@ -53,7 +53,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3493525643349246074, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: m_Name
-      value: PlayerUnit
+      value: Samurai
       objectReference: {fileID: 0}
+    - target: {fileID: 7443776761431582770, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443776761431582770, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443776761431582770, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 7443776761431582770, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7736109352385071573, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 7736109352385071573, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_Size.y
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 7736109352385071573, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6934013284892070054, guid: c50b517797d93614aac4ca58aaf97355, type: 3}
+    - target: {fileID: 7736109352385071573, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813836877977998122, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: _stats
+      value: 
+      objectReference: {fileID: 11400000, guid: bac394253817d13459851840777ca959, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
