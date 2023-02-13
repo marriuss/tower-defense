@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: Russian
   detectLanguage: 0
-  defaultLanguage: English
+  defaultLanguage: Turkish
   saveLoad: 1
   prefabs:
   - Root: {fileID: 102900000, guid: af528c85b788cd6458ac257583251309, type: 3}
@@ -67,17 +67,14 @@ MonoBehaviour:
     - {fileID: 2163709233590658642, guid: 3545f7c8df754c14ca869044807f3365, type: 3}
     - {fileID: 8585415344369484685, guid: 9b07709d8460b834e9db5fbaeb35f164, type: 3}
     - {fileID: 2230899225009884824, guid: 1703dd9bd304d5f4b8ede168b688ef40, type: 3}
-    - {fileID: 5508161474883795248, guid: 626811fc43dd4a94da67fd84a1eff867, type: 3}
-    - {fileID: 2404055024474572875, guid: 6b9005ae88adc1e439b1dde7bafd47ce, type: 3}
-    - {fileID: 5211068315762484305, guid: 5db3415591ba97d4aac8a2a626c16f09, type: 3}
-    - {fileID: 6339270152759082341, guid: 73cc59e7e1f1c3e48a96e07ab22b513a, type: 3}
     - {fileID: 1358709650476131604, guid: acef8a2630154c547b890b268c077563, type: 3}
+    - {fileID: 5508161474883795248, guid: 626811fc43dd4a94da67fd84a1eff867, type: 3}
+    - {fileID: 5211068315762484305, guid: 5db3415591ba97d4aac8a2a626c16f09, type: 3}
     - {fileID: 5010860969784110235, guid: b68cba8028e084a45b53f8eefc1d68cd, type: 3}
     - {fileID: 2828126610264446402, guid: 6d7ffe60ecfb11d4c810d9ad4bdb2e51, type: 3}
     - {fileID: 6819731375699055928, guid: 9d57bc47e8ce8df4babb029a5f0d8e52, type: 3}
     - {fileID: 9095796161788570735, guid: f856cdff8c995ff46bb9c9d7dc4ae3fa, type: 3}
     - {fileID: 3783598934632149420, guid: ecff1119644d37448a109c8092cfa137, type: 3}
-    - {fileID: 6082617452115173276, guid: 378613f0ec713fc4693a976df4601714, type: 3}
     - {fileID: 3486423354389216204, guid: f0434502a2c31414b88a1f5c6f5c4265, type: 3}
     - {fileID: 5163996112028174370, guid: 6ecb3a7a91c81b94b8ec78d7a963ee5a, type: 3}
     - {fileID: 5570388586317558617, guid: b4423a95444fbcf46ae02c82aee24321, type: 3}

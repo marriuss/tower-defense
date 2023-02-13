@@ -4,17 +4,13 @@ public class CastleUpgradeCalculator
 {
     private const int StartCost = 10;
     private const int StartHealth = 5;
-    private const int StartDamage = 10;
-    private const int StartPopulation = 100;
-    private const int StartGuardHealth = 10;
-    private const int StartGuardDamage = 10;
+    private const int StartAdditionalTowersAmount = 0;
+    private const float StartTowerHealthFraction = 0.1f;
 
     private const float CostMultiplier = 5f;
     private const float HealthMultiplier = 5f;
-    private const float DamageMultiplier = 3f;
-    private const float PopulationMultiplier = 25f;
-    private const float GuardHealthMultiplier = 5f;
-    private const float GuardDamageMultiplier = 5f;
+    private const float AdditionalTowersAmountMultyplier = 0.0025f;
+    private const float TowerHealthFractionMultyplier = 0.0002f;
 
     public int GetUpgradeCostByLevel(int level)
     {
@@ -26,33 +22,37 @@ public class CastleUpgradeCalculator
         return GetReccurentValue(StartHealth, HealthMultiplier, level);
     }
 
-    public int GetDamageByLevel(int level)
+    public int GetAdditionalTowersAmountByLevel(int level)
     {
-        return GetReccurentValue(StartDamage, DamageMultiplier, level);
+        return Mathf.Clamp(
+            GetReccurentValue(StartAdditionalTowersAmount, AdditionalTowersAmountMultyplier, level), 0, 5);
     }
 
-    public int GetPopulationByLevel(int level)
+    public float GetTowerHealthFractionByLevel(int level)
     {
-        return GetReccurentValue(StartPopulation, PopulationMultiplier, level);
-    }
-
-    public int GetGuardHealthByLevel(int level)
-    {
-        return GetReccurentValue(StartGuardHealth, GuardHealthMultiplier, level);
-    }
-
-    public int GetGuardDamageByLevel(int level)
-    {
-        return GetReccurentValue(StartGuardDamage, GuardDamageMultiplier, level);
+        return Mathf.Clamp(
+            GetReccurentValue(StartTowerHealthFraction, TowerHealthFractionMultyplier, level), 0, 1);
     }
 
     private int GetReccurentValue(int startValue, float multiplier, int stepsCount)
     {
-        int result = 0;
+        float result = 0;
 
         for (int i = 0; i < stepsCount; i++)
         {
-            result += (int)Mathf.Floor(i * multiplier + startValue);
+            result += i * multiplier + startValue;
+        }
+
+        return Mathf.RoundToInt(result);
+    }
+
+    private float GetReccurentValue(float startValue, float multiplier, int stepsCount)
+    {
+        float result = startValue;
+
+        for (int i = 0; i < stepsCount; i++)
+        {
+            result += i * multiplier;
         }
 
         return result;
