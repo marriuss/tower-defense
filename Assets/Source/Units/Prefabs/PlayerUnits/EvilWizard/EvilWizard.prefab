@@ -55,6 +55,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: EvilWizard
       objectReference: {fileID: 0}
+    - target: {fileID: 5329713727794341243, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: _parameters._dieSpeed
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329713727794341243, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: _parameters._idleSpeed
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329713727794341243, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: _parameters._moveSpeed
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329713727794341243, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: _parameters._attackSpeed
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5329713727794341243, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: _parameters._takeHitSpeed
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5898168961723392654, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: m_Controller
       value: 
