@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RetiredWarrior
       objectReference: {fileID: 0}
+    - target: {fileID: 5898168961723392654, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: f00c3f41be79c8e46a08161f1a1b1072, type: 2}
     - target: {fileID: 7443776761431582770, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 0.90625
