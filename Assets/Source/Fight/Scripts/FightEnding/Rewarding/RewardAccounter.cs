@@ -5,9 +5,13 @@ using UnityEngine;
 public class RewardAccounter : MonoBehaviour
 {
     [SerializeField] private TargetsPool _enemiesPool;
-    
-    public int Money { get; private set; }
-    public int TotalExperiencePoints { get; private set; }
+    [SerializeField] private CardStack _cardStack;
+
+    private int _money;
+    private int _totalExperiencePoints;
+    private int _cardExperiencePoints;
+
+    private int _uniqueCards => _cardStack.UniqueCardsAmount;
 
     private void OnEnable()
     {
@@ -21,13 +25,20 @@ public class RewardAccounter : MonoBehaviour
 
     public void SetMoneyReward(int money)
     {
-        Money = money;
+        _money = money;
+    }
+
+    public FightReward GetReward(bool playerWon)
+    {
+        int money = playerWon ? _money : 0;
+        return new FightReward(money, _cardExperiencePoints);
     }
 
     private void OnEnemyRemoved(ITargetable targetableObject) 
     {
         EnemyUnit enemy = targetableObject as EnemyUnit;
-        TotalExperiencePoints += CalculateExperiencePoints(enemy);
+        _totalExperiencePoints += CalculateExperiencePoints(enemy);
+        _cardExperiencePoints = _uniqueCards == 0 ? 0 : _totalExperiencePoints / _uniqueCards;
     }
 
     private int CalculateExperiencePoints(Unit unit)

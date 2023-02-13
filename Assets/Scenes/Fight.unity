@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fightStatusResolver: {fileID: 1103727933}
-  _rewarder: {fileID: 579180764}
+  _rewardAccounter: {fileID: 579180762}
 --- !u!1 &219157623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,9 +2780,8 @@ GameObject:
   m_Component:
   - component: {fileID: 579180763}
   - component: {fileID: 579180762}
-  - component: {fileID: 579180764}
   m_Layer: 0
-  m_Name: Rewarder
+  m_Name: RewardAccounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2801,6 +2800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemiesPool: {fileID: 1326594786}
+  _cardStack: {fileID: 1843386251}
 --- !u!4 &579180763
 Transform:
   m_ObjectHideFlags: 0
@@ -2816,18 +2816,6 @@ Transform:
   m_Father: {fileID: 209948944}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &579180764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579180761}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29e81a947e407234dbbdc55c9de63846, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &581466419
 GameObject:
   m_ObjectHideFlags: 0
