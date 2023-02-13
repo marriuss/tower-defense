@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightBandit
       objectReference: {fileID: 0}
+    - target: {fileID: 5898168961723392654, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 3da15c3c51c193844ac926d763561494, type: 2}
     - target: {fileID: 6394578396388700332, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: _turnedLeft
       value: 1
