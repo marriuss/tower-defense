@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49266756cdeac7547970c8653a7affc9, type: 3}
+  m_Name: SamuraiCard
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 1501793845815047645, guid: fd437807d5a1c524080cf7bd22d6395e, type: 3}
+  _rarity: 0
+  _mana: 0
+  _name: {fileID: 709370319222820259, guid: 4c286552d9730ed4db0da02dcdcb1772, type: 3}
+  _icon: {fileID: 0}
