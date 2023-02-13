@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(FullscreenAds))]
@@ -7,16 +5,16 @@ public class FullscreenAdsShower : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _cooldown;
 
+    private static int _adsShowed = 0;
+
     private FullscreenAds _fullscreenAds;
-    private int _adsShowed;
 
     private void Awake()
     {
-        _adsShowed = 0;
         _fullscreenAds = GetComponent<FullscreenAds>();
     }
 
-    public void ShowFullscreenAds()
+    private void Start()
     {
         if (_adsShowed == _cooldown)
         {
