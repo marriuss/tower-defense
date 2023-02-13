@@ -55,6 +55,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Samurai
       objectReference: {fileID: 0}
+    - target: {fileID: 5898168961723392654, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: 9424a207673910b45aecd55d8d0efac1, type: 2}
+    - target: {fileID: 6032194468165097887, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7443776761431582770, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 0.41
@@ -65,11 +73,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7443776761431582770, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.41
+      value: 1.28125
       objectReference: {fileID: 0}
     - target: {fileID: 7443776761431582770, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.53
+      value: 1.65625
       objectReference: {fileID: 0}
     - target: {fileID: 7736109352385071573, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: m_Size.x

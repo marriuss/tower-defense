@@ -7,9 +7,49 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1561751917273322940, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.03125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561751917273322940, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561751917273322940, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.03125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561751917273322940, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854850729853727835, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_Size.x
+      value: 1.03125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854850729853727835, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_Size.y
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854850729853727835, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1508265308, guid: f84c06efa9991bd49b5553f54f400348, type: 3}
+    - target: {fileID: 1854850729853727835, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538745913161195264, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: a9ad4d4b3381c144d9bbd7d30c54da77, type: 2}
+    - target: {fileID: 4382937294465314695, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8e5785e819b99f247839aa13994aed93, type: 2}
     - target: {fileID: 4799308394634657268, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
       propertyPath: m_Name
-      value: EnemyUnit
+      value: Goblin
       objectReference: {fileID: 0}
     - target: {fileID: 6787101510268465923, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
       propertyPath: m_RootOrder

@@ -10,12 +10,11 @@ public abstract class UnitSpawner : TargetableObjectsSpawner
     private const int MaxSpawnAmount = 5;
 
     private int _spawnAmountRange = MaxSpawnAmount - MinSpawnAmount;
-    private float _unitValueRange = Unit.MaxValue - Unit.MinValue;
     private List<Unit> _despawnedUnitsPool = new();
 
     protected void Spawn(Unit unitPrefab)
     {
-        int amount = CalculateSpawnAmount(unitPrefab.GetValue());
+        int amount = CalculateSpawnAmount(unitPrefab.Stats.Value);
         SpawnObjects(unitPrefab, amount);
     }
 
@@ -41,7 +40,7 @@ public abstract class UnitSpawner : TargetableObjectsSpawner
         return unit;
     }
 
-    private int CalculateSpawnAmount(int unitValue) => Mathf.RoundToInt(_spawnAmountRange * (Unit.MaxValue - unitValue) / _unitValueRange + MinSpawnAmount);
+    private int CalculateSpawnAmount(int unitValue) => Mathf.RoundToInt(_spawnAmountRange * (UnitStats.MaxValue - unitValue) / UnitStats.ValueRange + MinSpawnAmount);
 
     private void OnUnitDied(ITargetable target)
     {

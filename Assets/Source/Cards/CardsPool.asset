@@ -7,10 +7,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c93bc058dcc7e5469988d75c9a15f29, type: 3}
   m_Name: CardsPool
   m_EditorClassIdentifier: 
   _cardInfos:
   - {fileID: 11400000, guid: 872859f76901e28489fb342c11b06c82, type: 2}
+  - {fileID: 11400000, guid: 2f0f56cf13458c64d82cc782d6b5eee6, type: 2}
+  - {fileID: 11400000, guid: 9ddd019a87f0ac641b6829b99850bb6c, type: 2}
+  - {fileID: 11400000, guid: d50d2c40310dd514ab96ffb671870002, type: 2}
+  - {fileID: 11400000, guid: a0ea40e89828aad458d23d028d644c5f, type: 2}
+  - {fileID: 11400000, guid: 6bfeac20e977cd14c8c9fc85f94f1675, type: 2}
+  - {fileID: 11400000, guid: 4ba8d959271f55f4c9044a4666fcc6d9, type: 2}
+  - {fileID: 11400000, guid: 91179d99e9a21d442ae699ab6d0c0b31, type: 2}
+  - {fileID: 11400000, guid: 454583711fbc4f24e9e2f938db5f9c3c, type: 2}
+  - {fileID: 11400000, guid: 072299db14fae8d41a17d8c645a96e1b, type: 2}
+  - {fileID: 11400000, guid: e9f34f6707b34cb4b85134f42e9023c4, type: 2}
+  - {fileID: 11400000, guid: d7b6f5a74e82f954c8789f9e2ccdb69d, type: 2}
+  _cards: []

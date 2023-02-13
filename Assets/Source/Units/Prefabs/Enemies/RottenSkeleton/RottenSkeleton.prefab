@@ -7,6 +7,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1561751917273322940, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.40625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561751917273322940, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1.59375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561751917273322940, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1.40625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561751917273322940, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.59375
+      objectReference: {fileID: 0}
     - target: {fileID: 1748005162216223378, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
       propertyPath: _serializedBlackboard
       value: '{"_variables":{"target":{"_name":"target","_id":"eb6ccc10-481f-462b-9b98-38b54b6c3b89","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
@@ -21,6 +37,26 @@ PrefabInstance:
       value: '{"_name":"target","_id":"eb6ccc10-481f-462b-9b98-38b54b6c3b89","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
         UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
       objectReference: {fileID: 0}
+    - target: {fileID: 1854850729853727835, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_Size.x
+      value: 1.40625
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854850729853727835, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_Size.y
+      value: 1.59375
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854850729853727835, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 298040637, guid: 5f19f67e94a2e2f4ba57d2b338387c11, type: 3}
+    - target: {fileID: 1854850729853727835, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2538745913161195264, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: a4310de6894c1934597856a23fa8e0c5, type: 2}
     - target: {fileID: 3007888166093629465, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
       propertyPath: _serializedBlackboard
       value: '{"_variables":{"target":{"_name":"target","_id":"5460a498-3d69-4b45-84bf-f24f11115370","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
@@ -35,6 +71,10 @@ PrefabInstance:
       value: '{"_name":"target","_id":"5460a498-3d69-4b45-84bf-f24f11115370","$type":"NodeCanvas.Framework.Variable`1[[ITargetable,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
       objectReference: {fileID: 0}
+    - target: {fileID: 4382937294465314695, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
+      propertyPath: _stats
+      value: 
+      objectReference: {fileID: 11400000, guid: d5f8d2b3c9ca5af41b9dbff00969539d, type: 2}
     - target: {fileID: 4799308394634657268, guid: 862d8dcba87518046a9ae29a53f191cf, type: 3}
       propertyPath: m_Name
       value: RottenSkeleton

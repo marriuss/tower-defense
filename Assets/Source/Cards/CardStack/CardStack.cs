@@ -18,10 +18,10 @@ public class CardStack : MonoBehaviour
         StackGenerated = false;
     }
 
-    public void GenerateStack(HashSet<Card> cardSet, int amount)
+    public void GenerateStack(HashSet<Card> cardSet, int cardAmount)
     {
         UniqueCardsAmount = cardSet.Count;
-        StackCapacity = amount;
+        StackCapacity = cardAmount;
 
         if (UniqueCardsAmount == 0)
             return;
@@ -32,26 +32,16 @@ public class CardStack : MonoBehaviour
         if (StackCapacity < 0)
             throw new NegativeArgumentException();
 
+        List<FightingCard> cardsList = new List<FightingCard>();
 
-        cardSet = CardSorter.SortCardsByRarity(cardSet, descending: false).ToHashSet();
-
-        int stackCount = 0;
-        bool isStackFull = false;
-
-        while (isStackFull == false)
+        for (int i = 0; i < cardAmount; i++)
         {
             foreach (Card card in cardSet)
-            {
-                if (stackCount == amount)
-                    break;
-
-                AddCard(card);
-                stackCount++;
-            }
-
-            isStackFull = stackCount == amount;
+                cardsList.Add(new FightingCard(card));
         }
 
+        cardsList = Utils.Shuffle(cardsList).ToList();
+        _cards = new Stack<FightingCard>(cardsList);
         StackGenerated = true;
     }
 
@@ -61,10 +51,5 @@ public class CardStack : MonoBehaviour
             return null;
 
         return _cards.Pop();
-    }
-
-    private void AddCard(Card card)
-    {
-        _cards.Push(new FightingCard(card));
     }
 }

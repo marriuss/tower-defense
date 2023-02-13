@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af82781ca3273846b86a473dce5834b, type: 3}
   m_Name: RogueArcher
   m_EditorClassIdentifier: 
-  _health: 0
-  _damage: 0
-  _speed: 0
-  _attackRate: 0
-  _attackRange: 0
+  _name: 
+  _health: 20
+  _armor: 2
+  _damage: 15
+  _speed: 2
+  _attackDelay: 1.2
+  _attackRange: 10
