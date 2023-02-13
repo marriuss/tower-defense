@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RedKingCard
   m_EditorClassIdentifier: 
   _unit: {fileID: 5091540970953900837, guid: 7d30a5f29e082e54c80191268f20c587, type: 3}
-  _rarity: 0
-  _mana: 0
+  _rarity: 1
+  _mana: 10
   _name: {fileID: 3645514918724243388, guid: fc57decb7fe8ec5478a93022db2545ad, type: 3}
   _icon: {fileID: 3156989228384878200, guid: 57ef3161f1ccd7c47b367de162a694b5, type: 3}

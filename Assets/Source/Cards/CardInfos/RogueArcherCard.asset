@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RogueArcherCard
   m_EditorClassIdentifier: 
   _unit: {fileID: 7134426931972294920, guid: d9aca71640bda33469424972906f58f9, type: 3}
-  _rarity: 0
-  _mana: 0
+  _rarity: 1
+  _mana: 8
   _name: {fileID: 4869195121536588141, guid: 95b3e39defb9e7f48b73af1d0d977bf5, type: 3}
   _icon: {fileID: 1259093829, guid: 9351e6ac189df5a409a44e7b19fb1308, type: 3}

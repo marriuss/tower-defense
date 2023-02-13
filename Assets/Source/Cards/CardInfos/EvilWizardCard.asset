@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EvilWizardCard
   m_EditorClassIdentifier: 
   _unit: {fileID: 758739704076001585, guid: a6288fb4b3573c14f91365efb1dbfd39, type: 3}
-  _rarity: 0
-  _mana: 0
+  _rarity: 2
+  _mana: 15
   _name: {fileID: 4661900954585440814, guid: a248f8f811a06174ba376cf237905ed4, type: 3}
   _icon: {fileID: 4723107735738678597, guid: 6fc66c021eec74942b4e71a3fde4dc04, type: 3}

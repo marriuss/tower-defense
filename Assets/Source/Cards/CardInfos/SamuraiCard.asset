@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SamuraiCard
   m_EditorClassIdentifier: 
   _unit: {fileID: 1501793845815047645, guid: fd437807d5a1c524080cf7bd22d6395e, type: 3}
-  _rarity: 0
-  _mana: 0
+  _rarity: 2
+  _mana: 20
   _name: {fileID: 709370319222820259, guid: 4c286552d9730ed4db0da02dcdcb1772, type: 3}
   _icon: {fileID: 7441861488978599509, guid: aec5070f5cb24b24e9fbdf06b0d1faf8, type: 3}

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unit: {fileID: 6698811878038997260, guid: 52bf7eefcf0ed5c4389337a794184478, type: 3}
   _rarity: 0
-  _mana: 0
+  _mana: 6
   _name: {fileID: 8585415344369484685, guid: 9b07709d8460b834e9db5fbaeb35f164, type: 3}
   _icon: {fileID: -3236675104909177313, guid: 062ff2c41cc5dea498b9a742356c0c25, type: 3}
