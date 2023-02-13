@@ -8,6 +8,8 @@ public class LevelsInitializer : MonoBehaviour
     public const string WinterZoneName = "Winter";
 
     [SerializeField] private LevelsPool _levelsPool;
+    [SerializeField] private FightSceneLoader _fightSceneLoader;
+    [SerializeField] private Player _player;
     [SerializeField] private LevelEntry _forestLevelEntry;
     // TODO: add entries for each zone
 
@@ -52,6 +54,10 @@ public class LevelsInitializer : MonoBehaviour
 
     private void OnLevelEntryClicked(LevelEntry levelEntry)
     {
-        // TODO: open level
+        var castle = _player.Castle;
+        var castleFightStats = new CastleFightStats(
+            castle.Health, castle.AdditionalTowersAmount, castle.TowerHealthFraction);
+        var fightInfo = new FightInfo(_player.Deck, _currentLevelInfo, castleFightStats);
+        _fightSceneLoader.LoadFightScene(fightInfo);
     }
 }

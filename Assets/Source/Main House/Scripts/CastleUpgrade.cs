@@ -7,7 +7,7 @@ public class CastleUpgrade : MonoBehaviour
     private Balance _balance;
 
     public Castle Castle { get; private set; }
-    public bool CanUpgrade => _balance.HasEnoughMoney(Castle.UpgradeCost);
+    public bool CanUpgrade => _balance.HasEnoughMoney(Castle.UpgradeCost) && Castle.CanUpgrade;
 
     private void Awake()
     {

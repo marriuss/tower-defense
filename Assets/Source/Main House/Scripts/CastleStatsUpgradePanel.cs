@@ -7,10 +7,8 @@ public class CastleStatsUpgradePanel : Panel
     [Space(10)]
     [SerializeField] private TMP_Text _levelText;
     [SerializeField] private TMP_Text _healthText;
-    [SerializeField] private TMP_Text _damageText;
-    [SerializeField] private TMP_Text _populationText;
-    [SerializeField] private TMP_Text _guardHealthText;
-    [SerializeField] private TMP_Text _guardDamageText;
+    [SerializeField] private TMP_Text _additionalTowersText;
+    [SerializeField] private TMP_Text _towerHealthFractionText;
 
     [Space(10)]
     [SerializeField] private Button _upgradeButton;
@@ -40,6 +38,8 @@ public class CastleStatsUpgradePanel : Panel
     {
         _levelText.text = castleStats.Level.ToString();
         _healthText.text = castleStats.Health.ToString();
+        _additionalTowersText.text = castleStats.AdditionalTowersAmount.ToString();
+        _towerHealthFractionText.text = string.Format("%.2f", castleStats.TowerHealthFraction);
     }
 
     private void OnUpgradeButtonClick()
