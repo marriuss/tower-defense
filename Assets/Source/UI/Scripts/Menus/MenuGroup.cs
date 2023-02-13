@@ -31,6 +31,11 @@ public class MenuGroup : MonoBehaviour
             SetRaycastTarget(true);
     }
 
+    public void CloseRaycastTarget()
+    {
+        SetRaycastTarget(false);
+    }
+
     public void CloseLastMenu()
     {
         if (_menuStackEmpty == false)
@@ -43,7 +48,7 @@ public class MenuGroup : MonoBehaviour
     public void Open(MenuView view)
     {
         if (_raycastTarget.isActiveAndEnabled)
-            SetRaycastTarget(false);
+            CloseRaycastTarget();
 
         if (_menuStackEmpty)
         {
