@@ -6,12 +6,12 @@ using UnityEngine.Events;
 public class FightEnder : MonoBehaviour
 {
     [SerializeField] private FightStatusResolver _fightStatusResolver;
-    [SerializeField] private Rewarder _rewarder;
+    [SerializeField] private RewardAccounter _rewardAccounter;
 
     public event UnityAction FightEnded;
 
     public bool PlayerWon => _fightStatusResolver.PlayerWon;
-    public FightReward Reward => _rewarder.GetReward(PlayerWon);
+    public FightReward Reward => _rewardAccounter.GetReward(PlayerWon);
 
     private void OnEnable()
     {
