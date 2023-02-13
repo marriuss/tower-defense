@@ -109,12 +109,6 @@ public abstract class Unit : MonoBehaviour, ITargetable
         transform.position = position;
     }
 
-    public int GetValue()
-    {
-        // TODO
-        return 1;
-    }
-
     private void Die()
     {
         _animationPlayer.PlayDeathAnimation();

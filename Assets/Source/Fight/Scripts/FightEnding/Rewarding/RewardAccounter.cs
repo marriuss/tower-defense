@@ -37,13 +37,7 @@ public class RewardAccounter : MonoBehaviour
     private void OnEnemyRemoved(ITargetable targetableObject) 
     {
         EnemyUnit enemy = targetableObject as EnemyUnit;
-        _totalExperiencePoints += CalculateExperiencePoints(enemy);
+        _totalExperiencePoints += enemy.Stats.Value;
         _cardExperiencePoints = _uniqueCards == 0 ? 0 : _totalExperiencePoints / _uniqueCards;
-    }
-
-    private int CalculateExperiencePoints(Unit unit)
-    {
-        // TODO
-        return 1;
     }
 }
