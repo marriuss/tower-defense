@@ -50,15 +50,11 @@ public class CardStackView : MonoBehaviour
 
     private IEnumerator RenderWhenStackGenerated()
     {
-        yield return _cardStack.StackGenerated;
-
-        FightingCard card;
+        if (_cardStack.StackGenerated == false)
+            yield return null;
 
         for (int i = 0; i < TopCards; i++)
-        {
-            card = _cardStack.GetTopCard();
-            _cardViews[i].Render(card);
-        }
+            AssignCard(_cardViews[i], _cardStack.GetTopCard());
 
         AssignTopCard();
     }
@@ -70,17 +66,29 @@ public class CardStackView : MonoBehaviour
         AssignTopCard();
     }
 
+    private void AssignCard(FightCardView cardView, FightingCard card)
+    {
+        if (card != null)
+        {
+            cardView.Render(card);
+        }
+        else
+        {
+            cardView.gameObject.SetActive(false);
+        }
+    }
+
     private void AssignTopCard()
     {
         _topCard = _cardStack.GetTopCard();
 
-        if (_topCard == null)
+        if (_topCard != null)
         {
-            _topCardView.gameObject.SetActive(false);
+            _topCardView.Render(_cardStack.StackCount + 1, _cardStack.StackCapacity, _topCard.Rarity);
         }
         else
         {
-            _topCardView.Render(_cardStack.StackCount + 1, _cardStack.StackCapacity, _topCard.Rarity);
+            _topCardView.gameObject.SetActive(false);
         }
     }
 }

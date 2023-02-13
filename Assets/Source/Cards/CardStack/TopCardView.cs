@@ -27,5 +27,4 @@ public class TopCardView : MonoBehaviour
         if (sprite != null)
             _image.sprite = sprite;
     }
-
 }
