@@ -7,5 +7,15 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Pikeleton
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: 88bf66f2899fe4644a8a9b366d190482, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 32f09cfaa6cd39f498cafb1d3f6945ed, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5a1b0518efd4202459a7be101407c77b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3a36a9347f0c94748a8e80f48df4ce11, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 12ba20839d1191441b1d3a1b66dda402, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d2d5249ea180a1747bb6bd87795872e3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7eea666e12c6414488aabedfe06edc13, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8bbbbb044ddb7bc4c99eb820764e19a3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2ecf1076744270443a10c4ca1e626f70, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 62ff93772c17bbb41ae4d3bc868d4f64, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 171c6128d0df20a49a23790bd8b189c0, type: 2}
