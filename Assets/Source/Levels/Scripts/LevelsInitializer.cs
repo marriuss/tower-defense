@@ -1,39 +1,56 @@
-using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class LevelsInitializer : MonoBehaviour
 {
-    [SerializeField] private LevelsPool _levelsPool;
-    [SerializeField] private LevelButton[] _levelButtons;
+    public const string ForestZoneName = "Forest";
+    public const string DesertZoneNmae = "Desert";
+    public const string JungleZoneName = "Jungle";
+    public const string WinterZoneName = "Winter";
 
-    public UnityAction<LevelButton> CurrentLevelChanged;
+    [SerializeField] private LevelsPool _levelsPool;
+    [SerializeField] private LevelEntry _forestLevelEntry;
+    // TODO: add entries for each zone
+
+    private LevelInfo _currentLevelInfo;
 
     private void OnEnable()
     {
-        foreach (var levelButton in _levelButtons)
-        {
-            levelButton.ButtonClicked += OnLevelButtonClicked;
-        }
+        _forestLevelEntry.Clicked += OnLevelEntryClicked;
     }
 
     private void OnDisable()
     {
-        foreach (var levelButton in _levelButtons)
-        {
-            levelButton.ButtonClicked -= OnLevelButtonClicked;
-        }
+        _forestLevelEntry.Clicked -= OnLevelEntryClicked;
     }
 
     private void Start()
     {
-        LevelButton button = _levelButtons.FirstOrDefault(l => l.LevelInfo.Id == _levelsPool.LastLevelId);
+        DisableAllEntries();
+        _currentLevelInfo = _levelsPool.LastLevel;
 
-        if (button != null)
-            CurrentLevelChanged?.Invoke(button);
+        if (_currentLevelInfo == null)
+        {
+            Debug.LogError("Can't get current level from pool");
+            return;
+        }
+
+        switch (_currentLevelInfo.Zone.Name)
+        {
+            case ForestZoneName:
+                _forestLevelEntry.gameObject.SetActive(true);
+                break;
+            default:
+                Debug.LogError("Can't find entry for level by zone name");
+                break;
+        }
     }
 
-    private void OnLevelButtonClicked(LevelButton levelButton)
+    private void DisableAllEntries()
+    {
+        _forestLevelEntry.gameObject.SetActive(false);
+    }
+
+    private void OnLevelEntryClicked(LevelEntry levelEntry)
     {
         // TODO: open level
     }
