@@ -20,9 +20,6 @@ public abstract class Unit : MonoBehaviour, ITargetable
     private ITargetable _target;
     private ITargetable _attackTarget;
 
-    public const int MinValue = 1;
-    public const int MaxValue = 20;
-
     public event Action<ITargetable> WasHit;
     public event UnityAction<ITargetable> Died;
 

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BlueKing
   m_EditorClassIdentifier: 
   _name: 
-  _health: 10
-  _armor: 4
-  _damage: 4
-  _speed: 3
-  _attackDelay: 1
-  _attackRange: 1.4
+  _health: 20
+  _armor: 10
+  _damage: 30
+  _speed: 2
+  _attackDelay: 0.5
+  _attackRange: 2
