@@ -7,6 +7,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1149456467495219455, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149456467495219455, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3229448460057104013, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -59,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 22100000, guid: f00c3f41be79c8e46a08161f1a1b1072, type: 2}
+    - target: {fileID: 6032194468165097887, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7443776761431582770, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 0.90625

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af82781ca3273846b86a473dce5834b, type: 3}
   m_Name: Pikeleton
   m_EditorClassIdentifier: 
-  _health: 0
-  _damage: 0
-  _speed: 0
-  _attackRate: 0
-  _attackRange: 0
+  _name: 
+  _health: 15
+  _armor: 30
+  _damage: 30
+  _speed: 0.7
+  _attackDelay: 1.5
+  _attackRange: 3
