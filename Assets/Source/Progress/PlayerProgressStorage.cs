@@ -208,7 +208,7 @@ public class PlayerProgressStorage : MonoBehaviour
         {
             card = unlockedCards[i];
             cardsProgress[i] = new CardProgress(
-                card.CardInfo.Id,
+                _cardsPool.GetCardId(card.CardInfo),
                 card.Level,
                 card.ExperiencePoints,
                 deck.GetCardIndex(card)

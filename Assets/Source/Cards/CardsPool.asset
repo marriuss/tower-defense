@@ -25,4 +25,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 072299db14fae8d41a17d8c645a96e1b, type: 2}
   - {fileID: 11400000, guid: e9f34f6707b34cb4b85134f42e9023c4, type: 2}
   - {fileID: 11400000, guid: d7b6f5a74e82f954c8789f9e2ccdb69d, type: 2}
+  _jsonFile: {fileID: 4900000, guid: cce0d948ac27fed478e8d53790fe402f, type: 3}
   _cards: []
