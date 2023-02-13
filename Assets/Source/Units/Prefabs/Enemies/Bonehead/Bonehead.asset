@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Bonehead
   m_EditorClassIdentifier: 
   _name: 
-  _health: 10
-  _armor: 18
-  _damage: 1
+  _health: 15
+  _armor: 10
+  _damage: 10
   _speed: 1
   _attackDelay: 1
   _attackRange: 1
