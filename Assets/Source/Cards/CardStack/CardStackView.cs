@@ -43,6 +43,31 @@ public class CardStackView : MonoBehaviour
             fightCardView.Clicked -= OnCardClicked;
     }
 
+    private void Update()
+    {
+        FightingCard card;
+        bool usable;
+
+        foreach(FightCardView cardView in _cardViews)
+        {
+            if (cardView.isActiveAndEnabled)
+            {
+                card = cardView.Card;
+
+                if (card != null)
+                {
+                    usable = _controller.CanUse(card);
+                }
+                else
+                {
+                    usable = false;
+                }
+
+                cardView.SetUsable(usable);
+            }
+        }
+    }
+
     private void RenderTopStackCards()
     {
         StartCoroutine(RenderWhenStackGenerated());

@@ -7,6 +7,8 @@ public class CardStackController : MonoBehaviour
     [SerializeField] private ManaController _manaController;
     [SerializeField] private PlayerUnitSpawner _spawner;
 
+    public bool CanUse(FightingCard card) => _manaController == null ? false : _manaController.CanSpendMana(card.ManaCost);
+
     public void UseCard(FightingCard card)
     {
         int mana = card.ManaCost;
