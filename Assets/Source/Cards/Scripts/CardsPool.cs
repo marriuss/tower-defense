@@ -17,6 +17,7 @@ public class CardsPool : ScriptableObject
 
     public IReadOnlyList<Card> Cards => _cards;
     public IReadOnlyList<Card> UnlockedCards => _cards.Where(card => card.IsUnlocked).ToList();
+    public IReadOnlyList<Card> LockedCards => _cards.Except(UnlockedCards).ToList();
 
     public int GetCardId(CardInfo cardInfo) => _cardIds.ContainsKey(cardInfo) ? _cardIds[cardInfo] : -1; 
 
