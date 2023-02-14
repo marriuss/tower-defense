@@ -16,21 +16,26 @@ public class FightCardView : WorkButton
 
     private void Start()
     {
-        Disappear();
+        SetInteractable(false);
     }
 
     public void Render(FightingCard card)
     {
+        Card = card;
+
         if (card != null)
         {
-            Card = card;
             RenderUnitCard(Card);
         }
         else
         {
-            Card = null;
             Destroy(gameObject);
         }
+    }
+
+    public void SetUsable(bool usable)
+    {
+        SetInteractable(usable);
     }
 
     protected override void OnButtonClick()
@@ -42,11 +47,5 @@ public class FightCardView : WorkButton
     {
         _icon.sprite = card.Icon;
         _manaView.Render(card.ManaCost, card.Rarity);
-        SetInteractable(true);
-    }
-
-    private void Disappear()
-    {
-        SetInteractable(false);
     }
 }
