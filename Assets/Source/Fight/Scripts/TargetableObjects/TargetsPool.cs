@@ -8,7 +8,7 @@ public class TargetsPool : MonoBehaviour
 {
     [SerializeField] private TargetableObjectsSpawner _spawner;
 
-    public List<ITargetable> _objects = new();
+    private List<ITargetable> _objects = new();
 
     public event UnityAction<ITargetable> AddedObject;
     public event UnityAction<ITargetable> RemovedObject;

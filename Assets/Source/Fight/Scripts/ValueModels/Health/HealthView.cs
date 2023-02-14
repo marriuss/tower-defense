@@ -18,7 +18,6 @@ public class HealthView : MonoBehaviour
     {
         if (_target != null)
         {
-            _healthState = _target.HealthState;
             StartCoroutine(SetLimitsWhenInitialized());
         }
     }
@@ -34,8 +33,10 @@ public class HealthView : MonoBehaviour
 
     private IEnumerator SetLimitsWhenInitialized()
     {
-        yield return _healthState != null;
+        while (_target.HealthState == null)
+            yield return null;
 
+        _healthState = _target.HealthState;
         _bar.SetLimits(new RangeInt(0, _healthState.MaxValue));
     }
 }

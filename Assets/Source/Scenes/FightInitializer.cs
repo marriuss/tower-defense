@@ -18,8 +18,34 @@ public class FightInitializer : MonoBehaviour, ISceneLoadHandler<FightInfo>
     [SerializeField, Min(1)] private float _cameraBoundsExtensionScale;
 
     private Rect _boundsRect;
+    private bool _initialized = false;
 
-    private void Awake()
+    private void Start()
+    {
+        _initialized = true;
+    }
+
+    public void OnSceneLoaded(FightInfo argument)
+    {
+        StartCoroutine(WaitForInitialization(argument));
+    }
+
+    public void Initialize(FightInfo fightInfo)
+    {
+        InitializeBounds();
+        InitializeCameraMovement(_boundsRect);
+
+        LevelInfo levelInfo = fightInfo.LevelInfo;
+        Zone zone = levelInfo.Zone;
+
+        InitializeCastle(fightInfo.CastleStats);
+        InitializeEnemySpawner(zone, levelInfo.Waves);
+        InitializeCardStack(fightInfo.Deck, levelInfo.CardStackCapacity);
+        InitializeReward(levelInfo.MoneyReward);
+        InitializeLevelPalette(_boundsRect, zone.Palette.DefaultTile, zone.Palette.BattlefieldTiles);
+    }
+
+    private void InitializeBounds()
     {
         _boundsRect = _battlefield.BattlefieldRect;
         _boundsRect.Set(
@@ -28,25 +54,6 @@ public class FightInitializer : MonoBehaviour, ISceneLoadHandler<FightInfo>
             _boundsRect.width * _cameraBoundsExtensionScale,
             _boundsRect.height * _cameraBoundsExtensionScale
             );
-
-        InitializeCameraMovement(_boundsRect);
-    }
-
-    public void OnSceneLoaded(FightInfo argument)
-    {
-        Initialize(argument);
-    }
-
-    public void Initialize(FightInfo fightInfo)
-    {
-        LevelInfo levelInfo = fightInfo.LevelInfo;
-        Zone zone = levelInfo.Zone;
-
-        InitializeCardStack(fightInfo.Deck, levelInfo.CardStackCapacity);
-        InitializeEnemySpawner(zone, levelInfo.Waves);
-        InitializeCastle(fightInfo.CastleStats);
-        InitializeReward(levelInfo.MoneyReward);
-        InitializeLevelPalette(_boundsRect, zone.Palette.DefaultTile, zone.Palette.BattlefieldTiles);
     }
 
     private void InitializeCardStack(Deck deck, int cardStackCapacity)
@@ -74,9 +81,17 @@ public class FightInitializer : MonoBehaviour, ISceneLoadHandler<FightInfo>
     {
         _rewardAccounter.SetMoneyReward(moneyReward);
     }
-    
+
     private void InitializeLevelPalette(Rect bounds, TileBase defaultTile, IReadOnlyList<TileBase> tiles)
     {
         _autoTiler.FillRect(bounds, defaultTile, tiles);
+    }
+
+    private IEnumerator WaitForInitialization(FightInfo fightInfo)
+    {
+        if (_initialized == false)
+            yield return null;
+
+        Initialize(fightInfo);
     }
 }

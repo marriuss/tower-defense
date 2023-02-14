@@ -22,8 +22,13 @@ public class Deck
     {
         InitializeCardsList();
 
+        Card card;
         foreach (DeckItem item in deckItems)
+        {
+            card = item.Card;
+            card.Unlock();
             PlaceCardToIndex(item.Card, item.Index);
+        }
     }
 
     public Card PlaceCard(Card card, int index)

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7726118177523804788f9c816c1c3e6d, type: 3}
   m_Name: LevelsPool
   m_EditorClassIdentifier: 
-  _levels: []
+  _levels:
+  - {fileID: 11400000, guid: 4603597096e97f747852c21d98975969, type: 2}
   _lastLevelId: 1
