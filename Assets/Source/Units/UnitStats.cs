@@ -8,7 +8,7 @@ using Lean.Localization;
 public class UnitStats : ScriptableObject
 {
     public const int MinValue = 1;
-    public const int MaxValue = 20;
+    public const int MaxValue = 15;
     public const int ValueRange = MaxValue - MinValue;
 
     [SerializeField] private string _name;
@@ -20,11 +20,11 @@ public class UnitStats : ScriptableObject
     [SerializeField, Range(MinFloatStat, MaxRange)] private float _attackRange;
 
     private const int MinIntStat = 1;
-    private const int MaxArmor = 50;
-    private const int MaxHealth = 100;
-    private const int MaxDamage = 50;
+    private const int MaxArmor = 30;
+    private const int MaxHealth = 50;
+    private const int MaxDamage = 40;
     private const float MinFloatStat = 0.1f;
-    private const float MaxSpeed = 10;
+    private const float MaxSpeed = 3;
     private const float MaxAttackDelay = 2f;
     private const float MaxRange = 10f;
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 
   _health: 20
-  _armor: 5
+  _armor: 10
   _damage: 40
   _speed: 5
   _attackDelay: 1
