@@ -8700,59 +8700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4b4f70e3a65b04990b22f1ca6bb909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1846873487
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1846873489}
-  - component: {fileID: 1846873488}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1846873488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846873487}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d326931b4d74444aba3349970fbd9c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _fightInitializer: {fileID: 1220855250}
-  _levelInfo: {fileID: 11400000, guid: 4603597096e97f747852c21d98975969, type: 2}
-  _cardInfos:
-  - {fileID: 11400000, guid: 872859f76901e28489fb342c11b06c82, type: 2}
-  - {fileID: 11400000, guid: 2f0f56cf13458c64d82cc782d6b5eee6, type: 2}
-  - {fileID: 11400000, guid: e9f34f6707b34cb4b85134f42e9023c4, type: 2}
-  - {fileID: 11400000, guid: 072299db14fae8d41a17d8c645a96e1b, type: 2}
-  - {fileID: 11400000, guid: 4ba8d959271f55f4c9044a4666fcc6d9, type: 2}
-  - {fileID: 11400000, guid: d50d2c40310dd514ab96ffb671870002, type: 2}
---- !u!4 &1846873489
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1846873487}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7912529, y: -0.4254238, z: -0.03543218}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 18
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1885186965
 GameObject:
   m_ObjectHideFlags: 0
@@ -10499,7 +10446,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!82 &2135064591
 AudioSource:
