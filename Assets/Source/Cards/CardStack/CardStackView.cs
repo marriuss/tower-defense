@@ -48,22 +48,25 @@ public class CardStackView : MonoBehaviour
         FightingCard card;
         bool usable;
 
-        foreach(FightCardView cardView in _cardViews)
+        foreach (FightCardView cardView in _cardViews)
         {
-            if (cardView.isActiveAndEnabled)
+            if (cardView != null)
             {
-                card = cardView.Card;
-
-                if (card != null)
+                if (cardView.isActiveAndEnabled)
                 {
-                    usable = _controller.CanUse(card);
-                }
-                else
-                {
-                    usable = false;
-                }
+                    card = cardView.Card;
 
-                cardView.SetUsable(usable);
+                    if (card != null)
+                    {
+                        usable = _controller.CanUse(card);
+                    }
+                    else
+                    {
+                        usable = false;
+                    }
+
+                    cardView.SetUsable(usable);
+                }
             }
         }
     }
