@@ -54,10 +54,18 @@ public class Deck
 
     public int GetCardIndex(Card card) => _cards.IndexOf(card);
 
+    public bool CheckIsInDeck(Card card)
+    {
+        if (CheckIsCardNull(card) == false)
+            return _cards.Contains(card);
+
+        return false;
+    }
+
     public bool IsPlaceEmpty(int index)
     {
         Card card = _cards[index];
-        return card == null || card.CardInfo == null;
+        return CheckIsCardNull(card);
     }
 
     private void InitializeCardsList()
@@ -78,6 +86,8 @@ public class Deck
 
         return replacedCard;
     }
+
+    private bool CheckIsCardNull(Card card) => card == null || card.CardInfo == null;
 }
 
 public struct DeckItem
