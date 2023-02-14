@@ -112,7 +112,7 @@ public class PlayerProgressStorage : MonoBehaviour
         if (openCardsProgress != null)
         {
             Card card;
-            int? deckIndex;
+            int deckIndex;
 
             foreach (CardProgress cardProgress in openCardsProgress)
             {
@@ -124,8 +124,8 @@ public class PlayerProgressStorage : MonoBehaviour
 
                     deckIndex = cardProgress.DeckIndex;
 
-                    if (deckIndex != null)
-                        deckItems.Add(new DeckItem(card, deckIndex.Value));
+                    if (deckIndex != -1)
+                        deckItems.Add(new DeckItem(card, deckIndex));
                 }
             }
         }

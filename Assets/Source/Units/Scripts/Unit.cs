@@ -84,7 +84,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         }
         else
         {
-            _animationPlayer.PlayTakeHitAnimation();
+            //_animationPlayer.PlayTakeHitAnimation();
             WasHit?.Invoke(attacker);
         }
     }

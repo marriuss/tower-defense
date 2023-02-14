@@ -52,15 +52,7 @@ public class Deck
         CardsChanged?.Invoke();
     }
 
-    public int? GetCardIndex(Card card)
-    {
-        int? index = _cards.IndexOf(card);
-
-        if (index == -1)
-            index = null;
-
-        return index;
-    }
+    public int GetCardIndex(Card card) => _cards.IndexOf(card);
 
     public bool IsPlaceEmpty(int index)
     {
