@@ -16,4 +16,4 @@ MonoBehaviour:
   _rarity: 0
   _mana: 4
   _name: {fileID: 1606181113760262825, guid: d88ff4e950073ab4ab37a574d33b89b1, type: 3}
-  _icon: {fileID: 21300046, guid: 317b8365a4649ab459f6cb58ec8f9f18, type: 3}
+  _icon: {fileID: 21300000, guid: 676143491c42cf64897a3aa2f312c057, type: 3}

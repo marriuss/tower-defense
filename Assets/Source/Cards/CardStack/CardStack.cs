@@ -21,15 +21,14 @@ public class CardStack : MonoBehaviour
     public void GenerateStack(HashSet<Card> cardSet, int cardAmount)
     {
         UniqueCardsAmount = cardSet.Count;
-        StackCapacity = cardAmount;
 
         if (UniqueCardsAmount == 0)
             return;
 
-        if (StackCapacity == 0)
+        if (cardAmount == 0)
             return;
 
-        if (StackCapacity < 0)
+        if (cardAmount < 0)
             throw new NegativeArgumentException();
 
         List<FightingCard> cardsList = new List<FightingCard>();
@@ -42,6 +41,7 @@ public class CardStack : MonoBehaviour
 
         cardsList = Utils.Shuffle(cardsList).ToList();
         _cards = new Stack<FightingCard>(cardsList);
+        StackCapacity = _cards.Count;
         StackGenerated = true;
     }
 
