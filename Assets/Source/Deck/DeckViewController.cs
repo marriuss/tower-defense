@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DeckViewController : MonoBehaviour
@@ -8,17 +9,24 @@ public class DeckViewController : MonoBehaviour
     [SerializeField] private CardView _cardViewPrefab;
     [SerializeField] private RectTransform _cardsContainer;
     [SerializeField] private Canvas _canvas;
-    [SerializeField] private List<CardSlot> _deckSlots;
+    [SerializeField] private CardSlot _cardSlotPrefab;
+    [SerializeField] private Transform _cardSlotsContainer;
 
     private Deck _deck;
     private List<CardView> _cardViews = new List<CardView>();
+    private List<CardSlot> _deckSlots;
+
+    private void Awake()
+    {
+        CreateSlots(Deck.Capacity);
+    }
 
     private void OnEnable()
     {
-        foreach (var slot in _deckSlots)
+        for (int i = 0; i < _deckSlots.Count; i++)
         {
-            slot.CardPlaced += OnCardPlaced;
-            slot.Freed += OnSlotFreed;
+            _deckSlots[i].CardPlaced += OnCardPlaced;
+            _deckSlots[i].Freed += OnSlotFreed;
         }
 
         for (int i = 0; i < _cardViews.Count; i++)
@@ -29,10 +37,10 @@ public class DeckViewController : MonoBehaviour
 
     private void OnDisable()
     {
-        foreach (var slot in _deckSlots)
+        for(int i = 0; i < _deckSlots.Count; i++)
         {
-            slot.CardPlaced -= OnCardPlaced;
-            slot.Freed -= OnSlotFreed;
+            _deckSlots[i].CardPlaced -= OnCardPlaced;
+            _deckSlots[i].Freed -= OnSlotFreed;
         }
 
         for (int i = 0; i < _cardViews.Count; i++)
@@ -47,6 +55,17 @@ public class DeckViewController : MonoBehaviour
         UpdateCards(_cardsPool, _deck);
     }
 
+    private void CreateSlots(int slotsCount)
+    {
+        _deckSlots = new List<CardSlot>();
+
+        for (int i = 0; i < slotsCount; i++)
+        {
+            CardSlot slot = Instantiate(_cardSlotPrefab, _cardSlotsContainer);
+            _deckSlots.Add(slot);
+        }
+    }
+
     private void UpdateCards(CardsPool cardsPool, Deck deck)
     {
         for (int i = 0; i < _cardViews.Count; i++)
@@ -56,8 +75,8 @@ public class DeckViewController : MonoBehaviour
         }
 
         _cardViews.Clear();
-        PlaceDeckCards(deck);
         PlaceAvailableCards(cardsPool, deck);
+        PlaceDeckCards(deck);
     }
 
     private void PlaceDeckCards(Deck deck)
@@ -83,7 +102,7 @@ public class DeckViewController : MonoBehaviour
         // TODO: filter available cards
         for (int i = 0; i < cardsPool.Cards.Count; i++)
         {
-            if (deck.Cards.Contains(cardsPool.Cards[i])) // Except cards in deck to avoid duplication
+            if (deck.Cards.FirstOrDefault(c => c.CardInfo == cardsPool.Cards[i].CardInfo) != null) // Except cards in deck to avoid duplication
             {
                 continue;
             }
