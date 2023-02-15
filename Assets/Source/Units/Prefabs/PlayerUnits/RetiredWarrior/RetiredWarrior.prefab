@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5329713727794341243, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: _parameters._idleSpeed
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5329713727794341243, guid: 9147615a9a864d14fa24640cf134e51b, type: 3}
       propertyPath: _parameters._moveSpeed
