@@ -11,7 +11,6 @@ public class UnitStats : ScriptableObject
     public const int MaxValue = 15;
     public const int ValueRange = MaxValue - MinValue;
 
-    [SerializeField] private string _name;
     [SerializeField, Range(1, MaxHealth)] private int _health;
     [SerializeField, Range(1, MaxArmor)] private int _armor;
     [SerializeField, Range(MinIntStat, MaxDamage)] private int _damage;
@@ -28,7 +27,7 @@ public class UnitStats : ScriptableObject
     private const float MaxAttackDelay = 2f;
     private const float MaxRange = 10f;
 
-    public string Name => _name;
+    public string Name { get; private set; }
     public int Health => _health;
     public int Armor => _armor;
     public int Damage => _damage;
@@ -40,6 +39,7 @@ public class UnitStats : ScriptableObject
     private void OnValidate()
     {
         Value = CalculateValue(Health, Armor, Damage, Speed, AttackRange, AttackDelay);
+        Name = name;
     }
 
     public int RecalculateDamage(int damage) => Mathf.CeilToInt(1.0f * _armor / 100 * damage);

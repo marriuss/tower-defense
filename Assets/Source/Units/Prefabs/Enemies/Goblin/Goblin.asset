@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af82781ca3273846b86a473dce5834b, type: 3}
   m_Name: Goblin
   m_EditorClassIdentifier: 
-  _name: 
   _health: 20
-  _armor: 40
+  _armor: 15
   _damage: 15
   _speed: 2
   _attackDelay: 0.8
