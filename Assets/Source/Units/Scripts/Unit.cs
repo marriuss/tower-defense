@@ -8,6 +8,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(SpriteFlipper))]
 [RequireComponent(typeof(AnimationPlayer))]
 [RequireComponent(typeof(GraphOwner))]
+
 public abstract class Unit : MonoBehaviour, ITargetable
 {
     [SerializeField] private UnitStats _stats;
@@ -120,9 +121,10 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     private void Die()
     {
+        _target = null;
         _animationPlayer.PlayDeathAnimation();
-        Died?.Invoke(this);
         Despawn();
+        Died?.Invoke(this);
     }
 
     private void ApplyDamageToTarget()
