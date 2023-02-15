@@ -18,7 +18,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
     private GraphOwner _graphOwner;
     private Health _health;
     private ITargetable _target;
-    private ITargetable _attackTarget;
+    private float _lastAttackTime;
 
     public event Action<ITargetable> WasHit;
     public event UnityAction<ITargetable> Died;
@@ -26,6 +26,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
     public UnitStats Stats => _stats;
     public Vector2 Position => transform.position;
     public HealthState HealthState { get; private set; }
+    public bool TargetInRange => _target == null ? false : Vector2.Distance(_target.Position, Position) <= _stats.AttackRange;
 
     private void Awake()
     {
@@ -63,14 +64,27 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void SetTarget(ITargetable target) => _target = target;
 
-    public void AttackTarget(ITargetable target)
+    public void MoveTowardsTarget()
     {
-        _attackTarget = target;
-
-        if (_attackTarget != _target)
+        if (_target == null)
             return;
 
-        _animationPlayer.PlayAttackAnimation();
+        MoveTo(Vector2.MoveTowards(Position, _target.Position, _stats.Speed * Time.deltaTime));
+        _animationPlayer.PlayMoveAnimation();
+    } 
+
+    public void AttackTarget()
+    {
+        if (TargetInRange == false)
+            return;
+
+        float time = Time.time;
+
+        if (_lastAttackTime + _stats.AttackDelay <= time)
+        {
+            _lastAttackTime = time;
+            _animationPlayer.PlayAttackAnimation();
+        }
     }
 
     public void TakeHit(Unit attacker)
@@ -94,11 +108,6 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _spriteFlipper.TurnSide(turningLeft);   
     }
 
-    public void StartMoving()
-    {
-        _animationPlayer.PlayMoveAnimation();
-    }
-
     public void Idle()
     {
         _animationPlayer.PlayIdleAnimation();
@@ -118,6 +127,6 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     private void ApplyDamageToTarget()
     {
-        _attackTarget.TakeHit(this);
+        _target.TakeHit(this);
     }
 }
