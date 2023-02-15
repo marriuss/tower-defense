@@ -18,4 +18,4 @@ MonoBehaviour:
   _damage: 30
   _speed: 2.4
   _attackDelay: 0.4
-  _attackRange: 1.5
+  _attackRange: 1.8
