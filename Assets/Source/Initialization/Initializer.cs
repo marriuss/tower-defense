@@ -10,11 +10,15 @@ public class Initializer : MonoBehaviour
     [SerializeField] private PlayerProgressStorage _playerProgressStorage;
     [SerializeField] private PlayerPrefSettings _playerPrefSettings;
     [SerializeField] private Settings _settings;
-    [SerializeField] private MapSceneLoader _mapSceneLoader;
     [SerializeField] private List<CardInfo> _defaultCards;
+
+    public bool GameInitialized { get; private set; }
+    public bool SettingsInitialized { get; private set; }
 
     private void Awake()
     {
+        GameInitialized = false;
+        SettingsInitialized = false;
         YandexGamesSdk.CallbackLogging = true;
     }
 
@@ -30,8 +34,10 @@ public class Initializer : MonoBehaviour
 #endif
 
         LoadSettings(languageCode);
+        SettingsInitialized = true;
+
         LoadPlayer();
-        _mapSceneLoader.LoadMapScene();
+        GameInitialized = true;
 
         yield return null;
     }
