@@ -9,8 +9,7 @@ using System;
 public class LanguagesDropdown : MonoBehaviour
 {
     [SerializeField] private List<LanguageNativeName> _languages;
-    [SerializeField] private Settings _settings;
-    [SerializeField] private PlayerPrefSettings _playerPrefSettings;
+    [SerializeField] private SettingsApplier _settingsApplier;
 
     private TMP_Dropdown _dropdown;
     
@@ -28,6 +27,7 @@ public class LanguagesDropdown : MonoBehaviour
     private void OnEnable()
     {
         _dropdown.onValueChanged.AddListener(OnValueChanged);
+        _dropdown.value = _languages.FindIndex(language => language.Language == SettingsApplier.Language);
     }
 
     private void OnDisable()
@@ -35,16 +35,10 @@ public class LanguagesDropdown : MonoBehaviour
         _dropdown.onValueChanged.RemoveListener(OnValueChanged);
     }
 
-    private void Update()
-    {
-        _dropdown.value = _languages.FindIndex(language => language.Language == _settings.Language);
-    }
-
     private void OnValueChanged(int index)
     {
         LeanLanguage language = _languages[index].Language;
-        _settings.SetLanguage(language);
-        _playerPrefSettings.SaveLanguageSettings(language.TranslationCode);
+        _settingsApplier.SetLanguageSettings(language);
     }
 }
 

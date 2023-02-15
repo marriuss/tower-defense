@@ -1146,6 +1146,7 @@ MonoBehaviour:
     _name: "T\xFCrk\xE7e"
   _settings: {fileID: 11400000, guid: c6d99029e92977445a602aeef8e9e42d, type: 2}
   _playerPrefSettings: {fileID: 417282189}
+  _settingsApplier: {fileID: 1718163057}
 --- !u!1 &209948943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,8 +1938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59824ddf43e924b4fbae482e3fd167b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settings: {fileID: 11400000, guid: c6d99029e92977445a602aeef8e9e42d, type: 2}
-  _playerPrefSettings: {fileID: 417282189}
+  _settingsApplier: {fileID: 1718163057}
 --- !u!114 &416369149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4777,8 +4777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef937c987456afe4db99b75fd1fab805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settings: {fileID: 11400000, guid: c6d99029e92977445a602aeef8e9e42d, type: 2}
-  _playerPrefSettings: {fileID: 417282189}
+  _settingsApplier: {fileID: 1718163057}
 --- !u!114 &967811682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7182,7 +7181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88fc577a682c814428ca244f3bde85fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingsApplier: {fileID: 1718163057}
   _exitButton: {fileID: 910433825}
   _musicLevelBar: {fileID: 496294862}
   _soundsLevelBar: {fileID: 1651118344}
@@ -7861,8 +7859,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bfb3da68a37b0e4b9734fa3c02801b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settings: {fileID: 11400000, guid: c6d99029e92977445a602aeef8e9e42d, type: 2}
+  _lean: {fileID: 7693714721616365733}
   _audio: {fileID: 1549310863}
+  _playerPrefsSettings: {fileID: 417282189}
 --- !u!4 &1718163058
 Transform:
   m_ObjectHideFlags: 0
@@ -7951,7 +7950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wave
+  m_text: "\u0412\u043E\u043B\u043D\u0430"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd0f1d10fbc853d4b92697ee2b89c247, type: 2}
   m_sharedMaterial: {fileID: 4162579934630920526, guid: bd0f1d10fbc853d4b92697ee2b89c247, type: 2}
@@ -10811,6 +10810,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b9383c2e0df4d84fa0f58ad044f4298, type: 3}
+--- !u!114 &7693714721616365733 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6993277403879783774, guid: 4b9383c2e0df4d84fa0f58ad044f4298, type: 3}
+  m_PrefabInstance: {fileID: 7693714721616365732}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8546161037776425057
 Transform:
   m_ObjectHideFlags: 0
