@@ -5,11 +5,11 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(RectTransform))]
 public class CardSlot : MonoBehaviour, IDropHandler
 {
-    public event UnityAction<CardSlot, CardView> CardPlaced;
-    public event UnityAction<CardSlot, CardView> Freed;
+    public event UnityAction<CardSlot, DeckCardView> CardPlaced;
+    public event UnityAction<CardSlot, DeckCardView> Freed;
 
     private RectTransform _rectTransform;
-    private CardView _cardView;
+    private DeckCardView _cardView;
 
     private void Awake()
     {
@@ -19,13 +19,13 @@ public class CardSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null
-            && eventData.pointerDrag.TryGetComponent(out CardView cardView))
+            && eventData.pointerDrag.TryGetComponent(out DeckCardView cardView))
         {
             CardPlaced?.Invoke(this, cardView);
         }
     }
 
-    public void PlaceCard(CardView cardView)
+    public void PlaceCard(DeckCardView cardView)
     {
         _cardView = cardView;
         RectTransform rectTransform = cardView.GetComponent<RectTransform>();

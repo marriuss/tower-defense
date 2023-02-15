@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class CardView : MonoBehaviour
+public class DeckCardView : MonoBehaviour
 {
-    public event UnityAction<CardView> NeedCheckForReturn;
+    public event UnityAction<DeckCardView> NeedCheckForReturn;
 
     [SerializeField] private CardDrag _cardDrag;
     [SerializeField] private CardRenderer _cardRenderer;
