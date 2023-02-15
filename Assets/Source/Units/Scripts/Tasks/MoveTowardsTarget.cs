@@ -13,6 +13,11 @@ namespace NodeCanvas.Tasks.Actions
             return null;
         }
 
+        protected override void OnExecute()
+        {
+            agent.StartMoving();
+        }
+
         protected override void OnUpdate()
         {
             if (agent.Position == TargetVariable.value.Position)

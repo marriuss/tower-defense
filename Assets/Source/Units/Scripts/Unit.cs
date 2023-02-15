@@ -71,7 +71,6 @@ public abstract class Unit : MonoBehaviour, ITargetable
             return;
 
         MoveTo(Vector2.MoveTowards(Position, _target.Position, _stats.Speed * Time.deltaTime));
-        _animationPlayer.PlayMoveAnimation();
     } 
 
     public void AttackTarget()
@@ -107,6 +106,11 @@ public abstract class Unit : MonoBehaviour, ITargetable
     public void TurnSide(bool turningLeft)
     {
         _spriteFlipper.TurnSide(turningLeft);   
+    }
+
+    public void StartMoving()
+    {
+        _animationPlayer.PlayMoveAnimation();
     }
 
     public void Idle()

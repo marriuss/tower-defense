@@ -8,7 +8,6 @@ public class AnimationPlayer : MonoBehaviour
 {
     [SerializeField] private UnitControllerParameters _parameters;
 
-    private const string MoveAnimation = "Move";
     private const string IdleAnimation = "Idle";
     private const string MovingParameter = "Moving";
     private const string AttackTrigger = "Attack";
@@ -51,7 +50,6 @@ public class AnimationPlayer : MonoBehaviour
     public void PlayMoveAnimation()
     {
         SetBool(MovingParameter, true);
-        PlayAnimation(MoveAnimation);
     }
 
     public void PlayAttackAnimation()
