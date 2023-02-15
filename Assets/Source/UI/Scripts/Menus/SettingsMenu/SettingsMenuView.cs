@@ -5,7 +5,6 @@ using Lean.Localization;
 
 public class SettingsMenuView : MenuView
 {
-    [SerializeField] private SettingsApplier _settingsApplier;
     [SerializeField] private MenuExitButton _exitButton;
     [SerializeField] private GameObject _musicLevelBar;
     [SerializeField] private GameObject _soundsLevelBar;
@@ -18,8 +17,7 @@ public class SettingsMenuView : MenuView
         if (active)
             _text.SetPhrase(_settingsPhrase);
 
-        _text.gameObject.SetActive(true);  
-        _settingsApplier.gameObject.SetActive(active);
+        _text.gameObject.SetActive(true);
         _musicLevelBar.SetActive(active);
         _soundsLevelBar.SetActive(active);
         _languagesDropdown.gameObject.SetActive(active);

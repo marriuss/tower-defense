@@ -5,8 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SliderView))]
 public class MusicLevelController : MonoBehaviour
 {
-    [SerializeField] private Settings _settings;
-    [SerializeField] private PlayerPrefSettings _playerPrefSettings;
+    [SerializeField] private SettingsApplier _settingsApplier;
 
     private SliderView _view;
 
@@ -17,12 +16,11 @@ public class MusicLevelController : MonoBehaviour
 
     private void OnEnable()
     {
-        _view.SetValue(_settings.MusicLevel);
+        _view.SetValue(SettingsApplier.MusicLevel);
     }
 
     private void Update()
     {
-        _settings.SetMusicLevel(_view.Value);
-        _playerPrefSettings.SaveMusicSettings(_settings.MusicLevel);
+        _settingsApplier.SetMusicSettings(_view.Value);
     }
 }

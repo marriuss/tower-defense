@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class MainScreen : MonoBehaviour
+public class StartScreen : MonoBehaviour
 {
     [SerializeField] private Initializer _initializer;
     [SerializeField] private TMP_Text _loadingText;

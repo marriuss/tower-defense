@@ -8,6 +8,8 @@ public class LanguageIdentifier : MonoBehaviour
     private LeanLocalization _lean;
     private LeanLanguage[] _languages;
 
+    public LeanLocalization Lean => _lean;
+
     private void Awake()
     {
         _lean = GetComponent<LeanLocalization>();

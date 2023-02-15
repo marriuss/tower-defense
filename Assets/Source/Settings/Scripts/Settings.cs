@@ -13,19 +13,4 @@ public class Settings : ScriptableObject
     public LeanLanguage Language => _language;
     public float SoundsLevel => _soundsLevel;
     public float MusicLevel => _musicLevel;
-
-    public void SetLanguage(LeanLanguage leanLanguage)
-    {
-        _language = leanLanguage;
-    }
-
-    public void SetSoundsLevel(float soundsLevel)
-    {
-        _soundsLevel = Mathf.Clamp01(soundsLevel);
-    }
-
-    public void SetMusicLevel(float musicLevel)
-    {
-        _musicLevel = Mathf.Clamp01(musicLevel);
-    }
 }
