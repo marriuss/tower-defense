@@ -8,23 +8,14 @@ namespace NodeCanvas.Tasks.Actions
     {
         [RequiredField] public BBParameter<ITargetable> TargetVariable;
 
-        private float _lastAttackTime;
-
         protected override string OnInit()
         {
-            _lastAttackTime = 0;
             return null;
         }
 
         protected override void OnUpdate()
         {
-            float time = Time.time;
-
-            if (_lastAttackTime + agent.Stats.AttackDelay <= time)
-            {
-                _lastAttackTime = time;
-                agent.AttackTarget(TargetVariable.value);
-            }
+            agent.AttackTarget();
         }
     }
 }
