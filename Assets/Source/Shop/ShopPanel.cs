@@ -14,7 +14,8 @@ public class ShopPanel : Panel
     private void Start()
     {
         _cardPurchases = new Dictionary<CardPurchase, Card>();
-        Card[] cards = _cardsPool.Cards.OrderBy(c => c.CardInfo.Rarity).ToArray();
+        Card[] cards = _cardsPool.Cards.Where(c => c.IsUnlocked == false)
+            .OrderBy(c => c.CardInfo.Rarity).ToArray();
 
         for (int i = 0; i < cards.Length; i++)
         {
