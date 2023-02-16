@@ -5,8 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SliderView))]
 public class SoundsLevelController : MonoBehaviour
 {
-    [SerializeField] private Settings _settings;
-    [SerializeField] private PlayerPrefSettings _playerPrefSettings;
+    [SerializeField] private SettingsApplier _settingsApplier;
     
     private SliderView _view;
 
@@ -17,12 +16,11 @@ public class SoundsLevelController : MonoBehaviour
 
     private void OnEnable()
     {
-        _view.SetValue(_settings.SoundsLevel);
+        _view.SetValue(SettingsApplier.SoundsLevel);
     }
 
     private void Update()
     {
-        _settings.SetSoundsLevel(_view.Value);
-        _playerPrefSettings.SaveSoundsSettings(_settings.SoundsLevel);
+        _settingsApplier.SetSoundsSettings(_view.Value);
     }
 }

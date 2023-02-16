@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   _deck:
-    rid: 480809052600271013
+    rid: 480809101770620928
   _castle:
-    rid: 480809052600271014
+    rid: 480809101770620929
   _balance:
-    rid: 480809052600271015
+    rid: 480809101770620930
   references:
     version: 2
     RefIds:
-    - rid: 480809052600271013
+    - rid: 480809101770620928
       type: {class: Deck, ns: , asm: Assembly-CSharp}
-    - rid: 480809052600271014
+    - rid: 480809101770620929
       type: {class: Castle, ns: , asm: Assembly-CSharp}
-    - rid: 480809052600271015
+    - rid: 480809101770620930
       type: {class: Balance, ns: , asm: Assembly-CSharp}

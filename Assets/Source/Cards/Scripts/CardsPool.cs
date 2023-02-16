@@ -19,7 +19,7 @@ public class CardsPool : ScriptableObject
     public IReadOnlyList<Card> UnlockedCards => _cards.Where(card => card.IsUnlocked).ToList();
     public IReadOnlyList<Card> LockedCards => _cards.Except(UnlockedCards).ToList();
 
-    public int GetCardId(CardInfo cardInfo) => _cardIds.ContainsKey(cardInfo) ? _cardIds[cardInfo] : -1; 
+    public int GetCardId(CardInfo cardInfo) => _cardIds.ContainsKey(cardInfo) ? _cardIds[cardInfo] : -1;
 
     public Card FindCardById(int id)
     {
@@ -71,9 +71,11 @@ public class CardsPool : ScriptableObject
                 i++;
             }
 
+#if UNITY_EDITOR
             string deserializedData = JsonUtility.ToJson(new CardIdArray(cardIds), true);
             File.WriteAllText(AssetDatabase.GetAssetPath(_jsonFile), deserializedData);
             EditorUtility.SetDirty(_jsonFile);
+#endif
         }
         else
         {

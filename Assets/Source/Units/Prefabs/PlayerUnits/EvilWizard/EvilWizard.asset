@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af82781ca3273846b86a473dce5834b, type: 3}
   m_Name: EvilWizard
   m_EditorClassIdentifier: 
-  _name: EvilWizard
   _health: 15
   _armor: 10
   _damage: 30
-  _speed: 2.4
+  _speed: 2
   _attackDelay: 0.4
-  _attackRange: 1.5
+  _attackRange: 1.8

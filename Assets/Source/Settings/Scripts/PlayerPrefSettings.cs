@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lean.Localization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,6 +49,7 @@ public class PlayerPrefSettings : MonoBehaviour
         if (PlayerPrefs.HasKey(key))
         {
             result = action.Invoke();
+
         }
 
         return result;
