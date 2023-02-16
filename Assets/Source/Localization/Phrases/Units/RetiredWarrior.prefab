@@ -45,4 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: 0
-  entries: []
+  entries:
+  - Language: English
+    Text: Retired warrior
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0412\u043E\u0438\u043D \u0432 \u043E\u0442\u0441\u0442\u0430\u0432\u043A\u0435"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Emekli sava\u015F\xE7\u0131"
+    Object: {fileID: 0}

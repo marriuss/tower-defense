@@ -45,4 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: 0
-  entries: []
+  entries:
+  - Language: Russian
+    Text: "\u0421\u0442\u0440\u0435\u043B\u043E\u043A-\u0431\u0440\u043E\u0434\u044F\u0433\u0430"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Rogue archer
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Haydut ok\xE7u"
+    Object: {fileID: 0}
