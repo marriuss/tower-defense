@@ -8,13 +8,9 @@ public class CardSlot : MonoBehaviour, IDropHandler
     public event UnityAction<CardSlot, DeckCardView> CardPlaced;
     public event UnityAction<CardSlot, DeckCardView> Freed;
 
-    private RectTransform _rectTransform;
+    private Transform _cardViewParent;
+    private RectTransform _cardViewRectTransform;
     private DeckCardView _cardView;
-
-    private void Awake()
-    {
-        _rectTransform = GetComponent<RectTransform>();
-    }
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -28,9 +24,11 @@ public class CardSlot : MonoBehaviour, IDropHandler
     public void PlaceCard(DeckCardView cardView)
     {
         _cardView = cardView;
-        RectTransform rectTransform = cardView.GetComponent<RectTransform>();
-        rectTransform.SetParent(_rectTransform);
-        rectTransform.anchoredPosition = Vector2.zero;
+        _cardViewRectTransform = cardView.GetComponent<RectTransform>();
+        _cardViewParent = _cardViewRectTransform.parent;
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        _cardViewRectTransform.SetParent(rectTransform);
+        _cardViewRectTransform.anchoredPosition = Vector2.zero;
         cardView.GetComponent<CardDrag>().DragStarted += OnCradDragStarted;
     }
 
@@ -42,7 +40,9 @@ public class CardSlot : MonoBehaviour, IDropHandler
     private void Free(CardDrag cardDrag)
     {
         Freed?.Invoke(this, _cardView);
+        _cardViewRectTransform.SetParent(_cardViewParent);
         cardDrag.DragStarted -= OnCradDragStarted;
         _cardView = null;
+        _cardViewParent = null;
     }
 }

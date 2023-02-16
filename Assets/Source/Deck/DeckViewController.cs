@@ -99,15 +99,12 @@ public class DeckViewController : MonoBehaviour
 
     private void PlaceAvailableCards(CardsPool cardsPool, Deck deck)
     {
-        // TODO: filter available cards
-        for (int i = 0; i < cardsPool.Cards.Count; i++)
-        {
-            if (deck.Cards.FirstOrDefault(c => c.CardInfo == cardsPool.Cards[i].CardInfo) != null) // Except cards in deck to avoid duplication
-            {
-                continue;
-            }
+        Card[] cards = _cardsPool.Cards.Where(c => c.IsUnlocked && deck.HasCard(c) == false)
+            .OrderBy(c => c.CardInfo.Rarity).ToArray();
 
-            DeckCardView cardView = CreateCardView(cardsPool.Cards[i], _cardsContainer);
+        for (int i = 0; i < cards.Length; i++)
+        {
+            DeckCardView cardView = CreateCardView(cards[i], _cardsContainer);
             cardView.NeedCheckForReturn += OnCardNeedCheckForReturn;
             _cardViews.Add(cardView);
         }
@@ -123,10 +120,9 @@ public class DeckViewController : MonoBehaviour
 
     private void OnCardNeedCheckForReturn(DeckCardView cardView)
     {
-        int cardIndex = _deck.Cards.IndexOf(cardView.Card);
-        
-        if (cardIndex >= 0)
+        if (_deck.HasCard(cardView.Card))
         {
+            int cardIndex = _deck.Cards.IndexOf(cardView.Card);
             _deck.PlaceCard(null, cardIndex);
         }
 

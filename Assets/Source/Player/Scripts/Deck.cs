@@ -53,6 +53,7 @@ public class Deck
     }
 
     public int GetCardIndex(Card card) => _cards.IndexOf(card);
+    public bool HasCard(Card card) => GetCardIndex(card) >= 0;
 
     public bool CheckIsInDeck(Card card)
     {
