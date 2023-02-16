@@ -4,10 +4,9 @@ using UnityEngine;
 using TMPro;
 using Lean.Localization;
 
-[RequireComponent(typeof(LeanLocalizedTextMeshProUGUI))]
 public class LocalizedText : MonoBehaviour
 {
-    [SerializeField] private LeanLocalizedTextMeshProUGUI _lean;
+    private LeanLocalizedTextMeshProUGUI _lean;
 
     private void Awake()
     {
