@@ -1,8 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public abstract class Panel : MonoBehaviour
 {
+    public event UnityAction<Panel> PanelOpened;
+    public event UnityAction<Panel> PanelClosed;
+
     [SerializeField] private Button _openButton;
     [SerializeField] private Button _closeButton;
     [SerializeField] private GameObject _panelView;
@@ -32,10 +36,12 @@ public abstract class Panel : MonoBehaviour
     private void OnOpenButtonClick()
     {
         _panelView.SetActive(true);
+        PanelOpened?.Invoke(this);
     }
 
     private void OnCloseButtonClick()
     {
         _panelView.SetActive(false);
+        PanelClosed?.Invoke(this);
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShopPanel : Panel
@@ -13,10 +14,12 @@ public class ShopPanel : Panel
     private void Start()
     {
         _cardPurchases = new Dictionary<CardPurchase, Card>();
+        Card[] cards = _cardsPool.Cards.Where(c => c.IsUnlocked == false)
+            .OrderBy(c => c.CardInfo.Rarity).ToArray();
 
-        for (int i = 0; i < _cardsPool.Cards.Count; i++)
+        for (int i = 0; i < cards.Length; i++)
         {
-            Card card = _cardsPool.Cards[i];
+            Card card = cards[i];
             CreateCardPurchase(card);
         }
     }

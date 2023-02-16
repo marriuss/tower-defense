@@ -1,24 +1,32 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DeckViewController : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private CardsPool _cardsPool;
-    [SerializeField] private CardView _cardViewPrefab;
+    [SerializeField] private DeckCardView _cardViewPrefab;
     [SerializeField] private RectTransform _cardsContainer;
     [SerializeField] private Canvas _canvas;
-    [SerializeField] private List<CardSlot> _deckSlots;
+    [SerializeField] private CardSlot _cardSlotPrefab;
+    [SerializeField] private Transform _cardSlotsContainer;
 
     private Deck _deck;
-    private List<CardView> _cardViews = new List<CardView>();
+    private List<DeckCardView> _cardViews = new List<DeckCardView>();
+    private List<CardSlot> _deckSlots;
+
+    private void Awake()
+    {
+        CreateSlots(Deck.Capacity);
+    }
 
     private void OnEnable()
     {
-        foreach (var slot in _deckSlots)
+        for (int i = 0; i < _deckSlots.Count; i++)
         {
-            slot.CardPlaced += OnCardPlaced;
-            slot.Freed += OnSlotFreed;
+            _deckSlots[i].CardPlaced += OnCardPlaced;
+            _deckSlots[i].Freed += OnSlotFreed;
         }
 
         for (int i = 0; i < _cardViews.Count; i++)
@@ -29,10 +37,10 @@ public class DeckViewController : MonoBehaviour
 
     private void OnDisable()
     {
-        foreach (var slot in _deckSlots)
+        for(int i = 0; i < _deckSlots.Count; i++)
         {
-            slot.CardPlaced -= OnCardPlaced;
-            slot.Freed -= OnSlotFreed;
+            _deckSlots[i].CardPlaced -= OnCardPlaced;
+            _deckSlots[i].Freed -= OnSlotFreed;
         }
 
         for (int i = 0; i < _cardViews.Count; i++)
@@ -47,6 +55,17 @@ public class DeckViewController : MonoBehaviour
         UpdateCards(_cardsPool, _deck);
     }
 
+    private void CreateSlots(int slotsCount)
+    {
+        _deckSlots = new List<CardSlot>();
+
+        for (int i = 0; i < slotsCount; i++)
+        {
+            CardSlot slot = Instantiate(_cardSlotPrefab, _cardSlotsContainer);
+            _deckSlots.Add(slot);
+        }
+    }
+
     private void UpdateCards(CardsPool cardsPool, Deck deck)
     {
         for (int i = 0; i < _cardViews.Count; i++)
@@ -56,8 +75,8 @@ public class DeckViewController : MonoBehaviour
         }
 
         _cardViews.Clear();
-        PlaceDeckCards(deck);
         PlaceAvailableCards(cardsPool, deck);
+        PlaceDeckCards(deck);
     }
 
     private void PlaceDeckCards(Deck deck)
@@ -71,7 +90,7 @@ public class DeckViewController : MonoBehaviour
                 continue;
             }
 
-            CardView cardView = CreateCardView(cards[i], _canvas.transform);
+            DeckCardView cardView = CreateCardView(cards[i], _canvas.transform);
             cardView.NeedCheckForReturn += OnCardNeedCheckForReturn;
             _cardViews.Add(cardView);
             _deckSlots[i].PlaceCard(cardView);
@@ -83,12 +102,12 @@ public class DeckViewController : MonoBehaviour
         // TODO: filter available cards
         for (int i = 0; i < cardsPool.Cards.Count; i++)
         {
-            if (deck.Cards.Contains(cardsPool.Cards[i])) // Except cards in deck to avoid duplication
+            if (deck.Cards.FirstOrDefault(c => c.CardInfo == cardsPool.Cards[i].CardInfo) != null) // Except cards in deck to avoid duplication
             {
                 continue;
             }
 
-            CardView cardView = CreateCardView(cardsPool.Cards[i], _cardsContainer);
+            DeckCardView cardView = CreateCardView(cardsPool.Cards[i], _cardsContainer);
             cardView.NeedCheckForReturn += OnCardNeedCheckForReturn;
             _cardViews.Add(cardView);
         }
@@ -96,13 +115,13 @@ public class DeckViewController : MonoBehaviour
         _cardsContainer.anchoredPosition = new Vector2(_cardsContainer.anchoredPosition.x, -_cardsContainer.rect.height);
     }
 
-    private void OnCardPlaced(CardSlot slot, CardView cardView)
+    private void OnCardPlaced(CardSlot slot, DeckCardView cardView)
     {
         _deck.PlaceCard(cardView.Card, _deckSlots.IndexOf(slot));
         UpdateCards(_cardsPool, _deck);
     }
 
-    private void OnCardNeedCheckForReturn(CardView cardView)
+    private void OnCardNeedCheckForReturn(DeckCardView cardView)
     {
         int cardIndex = _deck.Cards.IndexOf(cardView.Card);
         
@@ -114,15 +133,15 @@ public class DeckViewController : MonoBehaviour
         UpdateCards(_cardsPool, _deck);
     }
 
-    private void OnSlotFreed(CardSlot slot, CardView cardView)
+    private void OnSlotFreed(CardSlot slot, DeckCardView cardView)
     {
         int cardIndex = _deck.Cards.IndexOf(cardView.Card);
         _deck.PlaceCard(null, cardIndex);
     }
 
-    private CardView CreateCardView(Card card, Transform parent = null)
+    private DeckCardView CreateCardView(Card card, Transform parent = null)
     {
-        CardView cardView = Instantiate(_cardViewPrefab, parent);
+        DeckCardView cardView = Instantiate(_cardViewPrefab, parent);
         cardView.Init(card, _canvas);
         return cardView;
     }

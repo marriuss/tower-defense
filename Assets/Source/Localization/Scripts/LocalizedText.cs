@@ -7,7 +7,7 @@ using Lean.Localization;
 [RequireComponent(typeof(LeanLocalizedTextMeshProUGUI))]
 public class LocalizedText : MonoBehaviour
 {
-    private LeanLocalizedTextMeshProUGUI _lean;
+    [SerializeField] private LeanLocalizedTextMeshProUGUI _lean;
 
     private void Awake()
     {
