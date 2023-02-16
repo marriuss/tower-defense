@@ -133,6 +133,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     private void ApplyDamageToTarget()
     {
-        _target.TakeHit(this);
+        if (TargetInRange && HealthState.IsDead == false)
+            _target.TakeHit(this);
     }
 }
