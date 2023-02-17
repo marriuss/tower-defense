@@ -11,9 +11,18 @@ public class CardsPool : ScriptableObject
 {
     [SerializeField] private List<CardInfo> _cardInfos;
     [SerializeField] private TextAsset _jsonFile;
-
     [SerializeField] private List<Card> _cards;
     [SerializeField] private Dictionary<CardInfo, int> _cardIds;
+
+    private void Awake()
+    {
+        InitializeCards();
+    }
+
+    private void OnValidate()
+    {
+        InitializeCards();
+    }
 
     public IReadOnlyList<Card> Cards => _cards;
     public IReadOnlyList<Card> UnlockedCards => _cards.Where(card => card.IsUnlocked).ToList();
@@ -37,7 +46,7 @@ public class CardsPool : ScriptableObject
         return _cards.FirstOrDefault(card => card.CardInfo == cardInfo);
     }
 
-    private void OnValidate()
+    private void InitializeCards()
     {
         _cards = new List<Card>();
 

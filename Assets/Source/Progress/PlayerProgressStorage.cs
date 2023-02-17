@@ -33,7 +33,11 @@ public class PlayerProgressStorage : MonoBehaviour
         {
             usePrefs = false;
             hasSavings = true;
-            PlayerAccount.GetPlayerData(onSuccessCallback: LoadJsonData);
+            PlayerAccount.GetPlayerData(onSuccessCallback: (string json) => 
+            {
+                if ((string.IsNullOrEmpty(json) || json == "{}") == false)
+                    LoadJsonData(json); 
+            });
         }
     }
 #endif
