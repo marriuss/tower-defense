@@ -23,29 +23,25 @@ public class PlayerProgressStorage : MonoBehaviour
 
     public void LoadData()
     {
-        bool usePrefs = true;
         bool hasSavings = false;
 
 #if UNITY_WEBGL && !UNITY_EDITOR
-    if (YandexGamesSdk.IsInitialized)
-    {
-        if (PlayerAccount.IsAuthorized)
+        if (YandexGamesSdk.IsInitialized)
         {
-            usePrefs = false;
-            hasSavings = true;
-            PlayerAccount.GetPlayerData(onSuccessCallback: (string json) => 
+            if (PlayerAccount.IsAuthorized)
             {
-                if ((string.IsNullOrEmpty(json) || json == "{}") == false)
-                    LoadJsonData(json); 
-            });
+                PlayerAccount.GetPlayerData(onSuccessCallback: (string json) =>
+                {
+                    if ((string.IsNullOrEmpty(json) || json == "{}"))
+                        LoadJsonData(json, out hasSavings);
+                });
+            }
         }
-    }
 #endif
 
-        if (usePrefs && PlayerPrefs.HasKey(JsonDataKey))
+        if (PlayerPrefs.HasKey(JsonDataKey) && hasSavings == false)
         {
-            hasSavings = true;
-            LoadJsonData(PlayerPrefs.GetString(JsonDataKey));
+            LoadJsonData(PlayerPrefs.GetString(JsonDataKey), out hasSavings);
         }
 
         if (hasSavings == false)
@@ -101,9 +97,14 @@ public class PlayerProgressStorage : MonoBehaviour
         return JsonUtility.FromJson<PlayerProgress>(jsonData);
     }
 
-    private void LoadJsonData(string jsonPlayerData)
+    private void LoadJsonData(string jsonPlayerData, out bool hasSavings)
     {
         PlayerProgress playerProgress = GetPlayerDataFromJson(jsonPlayerData);
+        hasSavings = playerProgress != default;
+
+        if (hasSavings == false)
+            return;
+
         currentData = playerProgress;
         int money = playerProgress.Money;
         int castleLevel = playerProgress.CastleLevel;
