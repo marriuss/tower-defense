@@ -14,8 +14,14 @@ public class PlayerProgressStorage : MonoBehaviour
 
     private static string lastSavedJsonData;
     private static PlayerProgress currentData;
+    private static List<CardInfo> _defaultCardInfos;
 
-    public void LoadData(List<CardInfo> defaultCards)
+    public void SetDefaultData(List<CardInfo> defaultCardInfos)
+    {
+        _defaultCardInfos = defaultCardInfos;
+    }
+
+    public void LoadData()
     {
         bool usePrefs = true;
         bool hasSavings = false;
@@ -27,7 +33,11 @@ public class PlayerProgressStorage : MonoBehaviour
         {
             usePrefs = false;
             hasSavings = true;
-            PlayerAccount.GetPlayerData(onSuccessCallback: LoadJsonData);
+            PlayerAccount.GetPlayerData(onSuccessCallback: (string json) => 
+            {
+                if ((string.IsNullOrEmpty(json) || json == "{}") == false)
+                    LoadJsonData(json); 
+            });
         }
     }
 #endif
@@ -43,7 +53,7 @@ public class PlayerProgressStorage : MonoBehaviour
             int i = 0;
             List<DeckItem> deckItems = new List<DeckItem>();
 
-            foreach (CardInfo cardInfo in defaultCards)
+            foreach (CardInfo cardInfo in _defaultCardInfos)
             {
                 Card card = _cardsPool.FindCardByCardInfo(cardInfo);
                 deckItems.Add(new DeckItem(card, i));
