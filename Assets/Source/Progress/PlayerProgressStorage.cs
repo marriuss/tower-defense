@@ -14,28 +14,34 @@ public class PlayerProgressStorage : MonoBehaviour
 
     private static string lastSavedJsonData;
     private static PlayerProgress currentData;
+    private static List<CardInfo> _defaultCardInfos;
 
-    public void LoadData(List<CardInfo> defaultCards)
+    public void SetDefaultData(List<CardInfo> defaultCardInfos)
     {
-        bool usePrefs = true;
+        _defaultCardInfos = defaultCardInfos;
+    }
+
+    public void LoadData()
+    {
         bool hasSavings = false;
 
 #if UNITY_WEBGL && !UNITY_EDITOR
-    if (YandexGamesSdk.IsInitialized)
-    {
-        if (PlayerAccount.IsAuthorized)
+        if (YandexGamesSdk.IsInitialized)
         {
-            usePrefs = false;
-            hasSavings = true;
-            PlayerAccount.GetPlayerData(onSuccessCallback: LoadJsonData);
+            if (PlayerAccount.IsAuthorized)
+            {
+                PlayerAccount.GetPlayerData(onSuccessCallback: (string json) =>
+                {
+                    if ((string.IsNullOrEmpty(json) || json == "{}"))
+                        LoadJsonData(json, out hasSavings);
+                });
+            }
         }
-    }
 #endif
 
-        if (usePrefs && PlayerPrefs.HasKey(JsonDataKey))
+        if (PlayerPrefs.HasKey(JsonDataKey) && hasSavings == false)
         {
-            hasSavings = true;
-            LoadJsonData(PlayerPrefs.GetString(JsonDataKey));
+            LoadJsonData(PlayerPrefs.GetString(JsonDataKey), out hasSavings);
         }
 
         if (hasSavings == false)
@@ -43,18 +49,14 @@ public class PlayerProgressStorage : MonoBehaviour
             int i = 0;
             List<DeckItem> deckItems = new List<DeckItem>();
 
-            foreach (CardInfo cardInfo in defaultCards)
+            foreach (CardInfo cardInfo in _defaultCardInfos)
             {
                 Card card = _cardsPool.FindCardByCardInfo(cardInfo);
                 deckItems.Add(new DeckItem(card, i));
                 i++;
             }
 
-            Deck deck = new Deck(deckItems);
-            Balance balance = new Balance();
-            Castle castle = new Castle();
-
-            _player.Initialize(deck, balance, castle);
+            _player.Initialize(deckItems, 0, 0);
         }
     }
 
@@ -95,17 +97,17 @@ public class PlayerProgressStorage : MonoBehaviour
         return JsonUtility.FromJson<PlayerProgress>(jsonData);
     }
 
-    private void LoadJsonData(string jsonPlayerData)
+    private void LoadJsonData(string jsonPlayerData, out bool hasSavings)
     {
         PlayerProgress playerProgress = GetPlayerDataFromJson(jsonPlayerData);
+        hasSavings = playerProgress != default;
+
+        if (hasSavings == false)
+            return;
+
         currentData = playerProgress;
-
         int money = playerProgress.Money;
-        Balance balance = new Balance(money);
-
         int castleLevel = playerProgress.CastleLevel;
-        Castle castle = new Castle(castleLevel);
-
         CardProgress[] openCardsProgress = playerProgress.OpenCardsProgress;
         List<DeckItem> deckItems = new List<DeckItem>();
 
@@ -130,8 +132,7 @@ public class PlayerProgressStorage : MonoBehaviour
             }
         }
 
-        Deck deck = new Deck(deckItems);
-        _player.Initialize(deck, balance, castle);
+        _player.Initialize(deckItems, castleLevel, money);
         _levelsPool.Initialize(playerProgress.LastLevelId);
     }
 

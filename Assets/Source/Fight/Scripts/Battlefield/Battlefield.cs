@@ -15,6 +15,11 @@ public class Battlefield : MonoBehaviour
     public Rect BattlefieldRect => _battlefieldRect;
     public int Rows => _rows;
 
+    private void Start()
+    {
+        Initialize();
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = new Color(0.0f, 1.0f, 0.0f);
@@ -33,10 +38,7 @@ public class Battlefield : MonoBehaviour
 
     private void OnValidate()
     {
-        Vector2 position = transform.position;
-        _battlefieldRect = new Rect(position - _battlefieldSize / 2, _battlefieldSize);
-        _cellWidth = _battlefieldRect.size.x / _columns;
-        _cellHeight = _battlefieldRect.size.y / _rows;
+        Initialize();
     }
 
     public static bool IsLefter(Vector2 position, Vector2 otherPosition) => position.x <= otherPosition.x;
@@ -88,5 +90,13 @@ public class Battlefield : MonoBehaviour
         int column = cell.Column;
 
         return 0 <= row && row < _rows && 0 <= column && column < _columns;
+    }
+
+    private void Initialize()
+    {
+        Vector2 position = transform.position;
+        _battlefieldRect = new Rect(position - _battlefieldSize / 2, _battlefieldSize);
+        _cellWidth = _battlefieldRect.size.x / _columns;
+        _cellHeight = _battlefieldRect.size.y / _rows;
     }
 }

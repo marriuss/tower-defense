@@ -23,6 +23,11 @@ public class Castle
         ApplyLevelStats(level);
     }
 
+    public void Initialize(int level)
+    {
+        ApplyLevelStats(level);
+    }
+
     public bool CanUpgrade => Level < MaxLevel;
 
     public void Upgrade()

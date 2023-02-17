@@ -38,11 +38,11 @@ public class FightInitializer : MonoBehaviour, ISceneLoadHandler<FightInfo>
         LevelInfo levelInfo = fightInfo.LevelInfo;
         Zone zone = levelInfo.Zone;
 
+        InitializeLevelPalette(_boundsRect, zone.Palette.DefaultTile, zone.Palette.BattlefieldTiles);
+        InitializeCardStack(fightInfo.Deck, levelInfo.CardStackCapacity);
         InitializeCastle(fightInfo.CastleStats);
         InitializeEnemySpawner(zone, levelInfo.Waves);
-        InitializeCardStack(fightInfo.Deck, levelInfo.CardStackCapacity);
         InitializeReward(levelInfo.MoneyReward);
-        InitializeLevelPalette(_boundsRect, zone.Palette.DefaultTile, zone.Palette.BattlefieldTiles);
     }
 
     private void InitializeBounds()
@@ -89,7 +89,7 @@ public class FightInitializer : MonoBehaviour, ISceneLoadHandler<FightInfo>
 
     private IEnumerator WaitForInitialization(FightInfo fightInfo)
     {
-        if (_initialized == false)
+        while (_initialized == false)
             yield return null;
 
         Initialize(fightInfo);

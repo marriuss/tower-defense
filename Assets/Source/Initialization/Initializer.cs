@@ -58,6 +58,7 @@ public class Initializer : MonoBehaviour
 
     private void LoadPlayer()
     {
-        _playerProgressStorage.LoadData(_defaultCards);
+        _playerProgressStorage.SetDefaultData(_defaultCards);
+        _playerProgressStorage.LoadData();
     }
 }
