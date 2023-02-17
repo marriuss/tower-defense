@@ -47,6 +47,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void Spawn()
     {
+        _target = null;
         _health.IncreaseValue(Stats.Health);
 
         if (_graphOwner.isPaused)
@@ -59,7 +60,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void Despawn()
     {
-        _graphOwner.PauseBehaviour();
+        _graphOwner.StopBehaviour();
         _spriteFader.FadeOut();
     }
 

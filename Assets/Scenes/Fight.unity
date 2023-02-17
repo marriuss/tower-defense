@@ -1144,8 +1144,6 @@ MonoBehaviour:
     _name: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
   - _language: {fileID: -4933353152916006438, guid: 97675d61b306f2d4bb7bd9b7d998b9da, type: 3}
     _name: "T\xFCrk\xE7e"
-  _settings: {fileID: 11400000, guid: c6d99029e92977445a602aeef8e9e42d, type: 2}
-  _playerPrefSettings: {fileID: 417282189}
   _settingsApplier: {fileID: 1718163057}
 --- !u!1 &209948943
 GameObject:
@@ -7950,7 +7948,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u043E\u043B\u043D\u0430"
+  m_text: Wave
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd0f1d10fbc853d4b92697ee2b89c247, type: 2}
   m_sharedMaterial: {fileID: 4162579934630920526, guid: bd0f1d10fbc853d4b92697ee2b89c247, type: 2}
@@ -10808,6 +10806,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6993277403879783774, guid: 4b9383c2e0df4d84fa0f58ad044f4298, type: 3}
+      propertyPath: prefabs.Array.data[0].sources.Array.size
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 6993277403879783774, guid: 4b9383c2e0df4d84fa0f58ad044f4298, type: 3}
+      propertyPath: prefabs.Array.data[0].sources.Array.data[27]
+      value: 
+      objectReference: {fileID: 3323850651897924828, guid: e3aa695bbe807f94488117bfc833d0a6, type: 3}
+    - target: {fileID: 6993277403879783774, guid: 4b9383c2e0df4d84fa0f58ad044f4298, type: 3}
+      propertyPath: prefabs.Array.data[0].sources.Array.data[28]
+      value: 
+      objectReference: {fileID: 5002750499986440091, guid: d4ff3e28486f18f4fbb7d536f70586e2, type: 3}
+    - target: {fileID: 6993277403879783774, guid: 4b9383c2e0df4d84fa0f58ad044f4298, type: 3}
+      propertyPath: prefabs.Array.data[0].sources.Array.data[29]
+      value: 
+      objectReference: {fileID: 5862057145331721195, guid: ef109ae573b1604499e2844fe563a118, type: 3}
+    - target: {fileID: 6993277403879783774, guid: 4b9383c2e0df4d84fa0f58ad044f4298, type: 3}
+      propertyPath: prefabs.Array.data[0].sources.Array.data[30]
+      value: 
+      objectReference: {fileID: 7972992837153322354, guid: 7d3a869745b12444798caeac8dcb33f4, type: 3}
+    - target: {fileID: 6993277403879783774, guid: 4b9383c2e0df4d84fa0f58ad044f4298, type: 3}
+      propertyPath: prefabs.Array.data[0].sources.Array.data[31]
+      value: 
+      objectReference: {fileID: 216771678586237812, guid: 0dff1ba0e9231b248b32e48eaf461f9e, type: 3}
+    - target: {fileID: 6993277403879783774, guid: 4b9383c2e0df4d84fa0f58ad044f4298, type: 3}
+      propertyPath: prefabs.Array.data[0].sources.Array.data[32]
+      value: 
+      objectReference: {fileID: 8584583746769923903, guid: 16fd04a65cf397944a1f1257bccf6637, type: 3}
+    - target: {fileID: 6993277403879783774, guid: 4b9383c2e0df4d84fa0f58ad044f4298, type: 3}
+      propertyPath: prefabs.Array.data[0].sources.Array.data[33]
+      value: 
+      objectReference: {fileID: 6844191794390444691, guid: fa3e3d597b4fe9c498f276980ee17f9b, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b9383c2e0df4d84fa0f58ad044f4298, type: 3}
 --- !u!114 &7693714721616365733 stripped
