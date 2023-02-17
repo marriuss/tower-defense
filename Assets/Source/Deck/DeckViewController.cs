@@ -11,6 +11,7 @@ public class DeckViewController : MonoBehaviour
     [SerializeField] private Canvas _canvas;
     [SerializeField] private CardSlot _cardSlotPrefab;
     [SerializeField] private Transform _cardSlotsContainer;
+    [SerializeField] public CardInfoPanel _cardInfoPanel;
 
     private Deck _deck;
     private List<DeckCardView> _cardViews = new List<DeckCardView>();
@@ -37,7 +38,7 @@ public class DeckViewController : MonoBehaviour
 
     private void OnDisable()
     {
-        for(int i = 0; i < _deckSlots.Count; i++)
+        for (int i = 0; i < _deckSlots.Count; i++)
         {
             _deckSlots[i].CardPlaced -= OnCardPlaced;
             _deckSlots[i].Freed -= OnSlotFreed;
@@ -77,6 +78,7 @@ public class DeckViewController : MonoBehaviour
         _cardViews.Clear();
         PlaceAvailableCards(cardsPool, deck);
         PlaceDeckCards(deck);
+        _cardInfoPanel.ReInit(_cardViews.Select(c => c as CardPointerEnterExitDetector).ToList());
     }
 
     private void PlaceDeckCards(Deck deck)
@@ -99,7 +101,7 @@ public class DeckViewController : MonoBehaviour
 
     private void PlaceAvailableCards(CardsPool cardsPool, Deck deck)
     {
-        Card[] cards = _cardsPool.Cards.Where(c => c.IsUnlocked && deck.HasCard(c) == false)
+        Card[] cards = cardsPool.Cards.Where(c => c.IsUnlocked && deck.HasCard(c) == false)
             .OrderBy(c => c.CardInfo.Rarity).ToArray();
 
         for (int i = 0; i < cards.Length; i++)

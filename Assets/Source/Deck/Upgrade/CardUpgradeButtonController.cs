@@ -1,21 +1,40 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class CardUpgradeButtonController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+[RequireComponent(typeof(CardPointerEnterExitDetector))]
+public class CardUpgradeButtonController : MonoBehaviour
 {
     [SerializeField] private GameObject _upgradeButton;
+
+    private CardPointerEnterExitDetector _pointerDetector;
+
+    private void Awake()
+    {
+        _pointerDetector = GetComponent<CardPointerEnterExitDetector>();
+    }
+
+    private void OnEnable()
+    {
+        _pointerDetector.PointerEntered += OnPointerEntered;
+        _pointerDetector.PointerExited += OnPointerExited;
+    }
+
+    private void OnDisable()
+    {
+        _pointerDetector.PointerEntered -= OnPointerEntered;
+        _pointerDetector.PointerExited -= OnPointerExited;
+    }
 
     private void Start()
     {
         SetSelection(false);
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    private void OnPointerEntered(Card card)
     {
         SetSelection(true);
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void OnPointerExited(Card cardCard)
     {
         SetSelection(false);
     }
