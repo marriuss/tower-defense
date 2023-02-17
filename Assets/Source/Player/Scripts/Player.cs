@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 
 [CreateAssetMenu(fileName ="Player", menuName ="Player", order =51)]
 public class Player : ScriptableObject
@@ -12,10 +13,10 @@ public class Player : ScriptableObject
     public Castle Castle => _castle;
     public Balance Balance => _balance;
 
-    public void Initialize(Deck deck, Balance balance, Castle castle)
+    public void Initialize(List<DeckItem> deckCards, int castleLevel, int money)
     {
-        _deck = deck;
-        _balance = balance;
-        _castle = castle;
+        _deck.Initialize(deckCards);
+        _castle.Initialize(castleLevel);
+        _balance.Initialize(money);
     }
 }

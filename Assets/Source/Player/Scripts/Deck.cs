@@ -18,7 +18,7 @@ public class Deck
         InitializeCardsList();
     }
 
-    public Deck(List<DeckItem> deckItems)
+    public void Initialize(List<DeckItem> deckItems)
     {
         InitializeCardsList();
 

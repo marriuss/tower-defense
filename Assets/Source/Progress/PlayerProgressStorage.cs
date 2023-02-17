@@ -60,11 +60,7 @@ public class PlayerProgressStorage : MonoBehaviour
                 i++;
             }
 
-            Deck deck = new Deck(deckItems);
-            Balance balance = new Balance();
-            Castle castle = new Castle();
-
-            _player.Initialize(deck, balance, castle);
+            _player.Initialize(deckItems, 0, 0);
         }
     }
 
@@ -109,13 +105,8 @@ public class PlayerProgressStorage : MonoBehaviour
     {
         PlayerProgress playerProgress = GetPlayerDataFromJson(jsonPlayerData);
         currentData = playerProgress;
-
         int money = playerProgress.Money;
-        Balance balance = new Balance(money);
-
         int castleLevel = playerProgress.CastleLevel;
-        Castle castle = new Castle(castleLevel);
-
         CardProgress[] openCardsProgress = playerProgress.OpenCardsProgress;
         List<DeckItem> deckItems = new List<DeckItem>();
 
@@ -140,8 +131,7 @@ public class PlayerProgressStorage : MonoBehaviour
             }
         }
 
-        Deck deck = new Deck(deckItems);
-        _player.Initialize(deck, balance, castle);
+        _player.Initialize(deckItems, castleLevel, money);
         _levelsPool.Initialize(playerProgress.LastLevelId);
     }
 
