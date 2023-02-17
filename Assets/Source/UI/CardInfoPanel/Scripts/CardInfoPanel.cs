@@ -1,6 +1,5 @@
 using Lean.Localization;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +10,13 @@ public class CardInfoPanel : MonoBehaviour
     [SerializeField] private LocalizedText _nameText;
     [SerializeField] private TMP_Text _experienceText;
     [SerializeField] private TMP_Text _manaText;
-    [SerializeField] private Image _icon;
+    [SerializeField] private TMP_Text _healthText;
+    [SerializeField] private TMP_Text _damageText;
+    [SerializeField] private TMP_Text _armorText;
+    [SerializeField] private TMP_Text _speedText;
+    [SerializeField] private TMP_Text _attackRangeText;
+    [SerializeField] private TMP_Text _attackDelayText;
+
 
     private List<CardPointerEnterExitDetector> _cardPointerDetectors = new List<CardPointerEnterExitDetector>();
     private LeanPhrase _namePhrase;
@@ -46,11 +51,21 @@ public class CardInfoPanel : MonoBehaviour
 
     private void DisplayCard(Card card)
     {
+        CardInfo cardInfo = card.CardInfo;
+        UnitStats unitStats = card.CardInfo.Unit.Stats;
+
         _levelText.text = card.Level.ToString();
         _experienceText.text = string.Format("{0}/{1}", card.ExperiencePointsRequired, card.ExperiencePoints);
-        _namePhrase = card.CardInfo.Name;
-        _manaText.text = card.CardInfo.Mana.ToString();
-        _icon.sprite = card.CardInfo.Icon;
+        _namePhrase = cardInfo.Name;
+        _manaText.text = cardInfo.Mana.ToString();
+
+        _healthText.text = unitStats.Health.ToString();
+        _damageText.text = unitStats.Damage.ToString();
+        _armorText.text = unitStats.Armor.ToString();
+        _speedText.text = string.Format("{0:f1}", unitStats.Speed);
+        _attackRangeText.text = string.Format("{0:f1}", unitStats.AttackRange);
+        _attackDelayText.text = string.Format("{0:f1}", unitStats.AttackDelay);
+
         gameObject.SetActive(true);
     }
 
