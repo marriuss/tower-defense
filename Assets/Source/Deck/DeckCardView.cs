@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class DeckCardView : MonoBehaviour
+public class DeckCardView : CardPointerEnterExitDetector
 {
     public event UnityAction<DeckCardView> NeedCheckForReturn;
 
@@ -29,6 +29,7 @@ public class DeckCardView : MonoBehaviour
 
     public void Init(Card card, Canvas canvas)
     {
+        SetCard(card);
         _card = card;
         _cardDrag.Init(canvas);
         _cardUpgrade.Init(_card);

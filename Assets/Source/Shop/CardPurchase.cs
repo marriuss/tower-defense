@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class CardPurchase : MonoBehaviour
+public class CardPurchase : CardPointerEnterExitDetector
 {
     public event UnityAction<CardPurchase> CardPurchased;
 
@@ -28,6 +28,7 @@ public class CardPurchase : MonoBehaviour
 
     public void Init(Card card, Balance balance)
     {
+        SetCard(card);
         _balance = balance;
         _card = card;
         _cardRenderer.Display(_card);

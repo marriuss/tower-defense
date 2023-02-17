@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Lean.Localization;
 
+[RequireComponent(typeof(LeanLocalizedTextMeshProUGUI))]
 public class LocalizedText : MonoBehaviour
 {
     private LeanLocalizedTextMeshProUGUI _lean;

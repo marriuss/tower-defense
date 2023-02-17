@@ -12,6 +12,7 @@ public class CastleUpgrade : MonoBehaviour
     private void Awake()
     {
         Castle = _player.Castle;
+        _balance = _player.Balance;
     }
 
     public void TryUpgrade()

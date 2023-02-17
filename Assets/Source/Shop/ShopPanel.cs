@@ -8,6 +8,7 @@ public class ShopPanel : Panel
     [SerializeField] private Player _player;
     [SerializeField] private CardPurchase _cardPurchasePrefab;
     [SerializeField] private Transform _container;
+    [SerializeField] private CardInfoPanel _cardInfoPanel;
 
     private Dictionary<CardPurchase, Card> _cardPurchases;
 
@@ -22,6 +23,8 @@ public class ShopPanel : Panel
             Card card = cards[i];
             CreateCardPurchase(card);
         }
+
+        _cardInfoPanel.ReInit(_cardPurchases.Select(c => c.Key as CardPointerEnterExitDetector).ToList());
     }
 
     private void CreateCardPurchase(Card card)

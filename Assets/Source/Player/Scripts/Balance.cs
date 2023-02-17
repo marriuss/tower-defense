@@ -13,7 +13,12 @@ public class Balance
 
     public Balance(int money)
     {
-        Money = money;
+        AddMoney(money);
+    }
+
+    public void Initialize(int money)
+    {
+        AddMoney(money);
     }
 
     public void AddMoney(int value)

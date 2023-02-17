@@ -5,7 +5,7 @@ public class FullscreenAdsShower : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _cooldown;
 
-    private static int _adsShowed = 0;
+    private static int _adsShowed;
 
     private FullscreenAds _fullscreenAds;
 
