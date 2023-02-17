@@ -20,8 +20,8 @@ public class StartScreen : MonoBehaviour
     {
         _gameInitialized = _initializer.GameInitialized;
         _settingsInitialized = _initializer.SettingsInitialized;
-        _loadButton.gameObject.SetActive(_gameInitialized);
-        _loadingText.gameObject.SetActive(!_gameInitialized);
+        _loadButton.gameObject.SetActive(_gameInitialized && _settingsInitialized);
+        _loadingText.gameObject.SetActive(!_gameInitialized && _settingsInitialized);
         _audio.gameObject.SetActive(_settingsInitialized);
 
 #if UNITY_WEBGL && !UNITY_EDITOR
