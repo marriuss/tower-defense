@@ -12,7 +12,7 @@ public class Castle
     public int Level { get; private set; }
     public int Health { get; private set; }
     public int AdditionalTowersAmount { get; private set; }
-    public int TowerHealthFraction { get; private set; }
+    public float TowerHealthFraction { get; private set; }
     public int UpgradeCost { get; private set; }
 
     public event UnityAction StatsChanged;
@@ -44,12 +44,14 @@ public class Castle
     private void ApplyLevelStats(int level)
     {
         Level = level;
-        InitStats();
+        InitStats(Level);
     }
 
-    private void InitStats()
+    private void InitStats(int level)
     {
-        Health = _castleUpgrade.GetHealthByLevel(Level);
-        UpgradeCost = _castleUpgrade.GetUpgradeCostByLevel(Level);
+        Health = _castleUpgrade.GetHealthByLevel(level);
+        AdditionalTowersAmount = _castleUpgrade.GetAdditionalTowersAmountByLevel(level);
+        TowerHealthFraction = _castleUpgrade.GetTowerHealthFractionByLevel(level);
+        UpgradeCost = _castleUpgrade.GetUpgradeCostByLevel(level);
     }
 }
