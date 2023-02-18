@@ -63,6 +63,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         if (_target == null)
             return;
 
+        _animationPlayer.PlayMoveAnimation();
         MoveTo(Vector2.MoveTowards(Position, _target.Position, _stats.Speed * Time.deltaTime));
     } 
 

@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af82781ca3273846b86a473dce5834b, type: 3}
   m_Name: Bonehead
   m_EditorClassIdentifier: 
-  _name: Bonehead
   _health: 15
   _armor: 10
-  _damage: 10
+  _damage: 15
   _speed: 1
   _attackDelay: 1
-  _attackRange: 1
+  _attackRange: 1.7
