@@ -36,7 +36,7 @@ public class UnitStats : ScriptableObject
     public float AttackRange => _attackRange;
     public int Value { get; private set; }
 
-    private void OnValidate()
+    private void Awake()
     {
         Value = CalculateValue(Health, Armor, Damage, Speed, AttackRange, AttackDelay);
         Name = name;

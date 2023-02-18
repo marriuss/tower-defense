@@ -1,8 +1,10 @@
 using UnityEngine.Events;
+using System;
 
 public class Castle
 {
-    private const int StartLevel = 1;
+    public const int StartLevel = 1;
+
     private const int MaxLevel = 100;
 
     private CastleUpgradeCalculator _castleUpgrade;
@@ -20,11 +22,14 @@ public class Castle
     public Castle(int level)
     {
         _castleUpgrade = new CastleUpgradeCalculator();
-        ApplyLevelStats(level);
+        Initialize(level);
     }
 
     public void Initialize(int level)
     {
+        if (level < StartLevel)
+            throw new ArgumentException();
+
         ApplyLevelStats(level);
     }
 
