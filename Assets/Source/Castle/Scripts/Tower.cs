@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,7 @@ public class Tower : MonoBehaviour, ITargetable
     public Vector2 Position => transform.position;
     public HealthState HealthState { get; private set; }
 
-    public event UnityAction<ITargetable> Died;
+    public event Action<ITargetable> Died;
 
     private void Awake()
     {

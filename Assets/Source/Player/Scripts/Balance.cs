@@ -1,8 +1,9 @@
 using UnityEngine.Events;
+using System;
 
 public class Balance
 {
-    private const int StartMoney = 0;
+    public const int StartMoney = 0;
 
     public int Money { get; private set; }
     public bool HasEnoughMoney(int value) => Money >= value;
@@ -13,11 +14,14 @@ public class Balance
 
     public Balance(int money)
     {
-        AddMoney(money);
+        Initialize(money);
     }
 
     public void Initialize(int money)
     {
+        if (money < StartMoney)
+            throw new ArgumentException();
+
         AddMoney(money);
     }
 
