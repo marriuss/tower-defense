@@ -8,8 +8,8 @@ public class CastleUpgradeCalculator
     private const float StartTowerHealthFraction = 0.5f;
 
     private const float CostMultiplier = 2f;
-    private const float HealthMultiplier = 0.25f;
-    private const float AdditionalTowersAmountMultyplier = 0.002f;
+    private const float HealthMultiplier = 0.1f;
+    private const float AdditionalTowersAmountMultyplier = 0.0015f;
     private const float TowerHealthFractionMultyplier = 0.00015f;
 
     public int GetUpgradeCostByLevel(int level)
