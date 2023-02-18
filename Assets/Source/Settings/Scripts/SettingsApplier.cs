@@ -11,9 +11,9 @@ public class SettingsApplier : MonoBehaviour
 
     public static float MusicLevel { get; private set; }
     public static float SoundsLevel { get; private set; }
-    public static LeanLanguage Language { get; private set; }
+    public static string Language { get; private set; }
 
-    private void Awake()
+    private void Start()
     {
         ApplySettings();
     }
@@ -25,13 +25,13 @@ public class SettingsApplier : MonoBehaviour
         ApplySoundsSettings();
     }
 
-    public void SetLanguageSettings(LeanLanguage leanLanguage)
+    public void SetLanguageSettings(string leanLanguage)
     {
         if (Language == leanLanguage)
             return;
 
         Language = leanLanguage;
-        _playerPrefsSettings.SaveLanguageSettings(leanLanguage.TranslationCode);
+        _playerPrefsSettings.SaveLanguageSettings(leanLanguage);
         ApplyLanguageSettings();
     }
 
@@ -58,7 +58,7 @@ public class SettingsApplier : MonoBehaviour
     private void ApplyLanguageSettings()
     {
         if (Language != null)
-            _lean.SetCurrentLanguage(Language.name);
+            _lean.SetCurrentLanguage(Language);
     }
 
     private void ApplyMusicSettings() => _audio.SetMusicVolume(MusicLevel);
