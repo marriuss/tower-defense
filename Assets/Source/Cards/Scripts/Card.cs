@@ -16,7 +16,8 @@ public class Card
     public int ExperiencePointsRequired { get; private set; }
     public int Level { get; private set; }
     public CardInfo CardInfo { get; private set; }
-    public bool CanUpLevel => ExperiencePoints >= ExperiencePointsRequired && Level < MaxLevel;
+    public bool CanUpLevel => ExperiencePoints >= ExperiencePointsRequired && (IsMaxLevel == false);
+    public bool IsMaxLevel => Level == MaxLevel;
 
     public event UnityAction ExperienceStatsChanged;
 
