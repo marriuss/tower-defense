@@ -8,8 +8,8 @@ public class Card
     private const int MinLevel = 1;
     private const int MaxLevel = 10;
     private const int StartExperiencePoints = 0;
-    private const int StartExperiencePointsRequired = 2;
-    private const float RecurrentFormulaComponent = 0.15f;
+    private const int StartExperiencePointsRequired = 30;
+    private const float RecurrentFormulaComponent = 0.2f;
 
     public bool IsUnlocked { get; private set; }
     public int ExperiencePoints { get; private set; }
@@ -67,7 +67,7 @@ public class Card
     {
         ExperiencePoints -= ExperiencePointsRequired;
         Level++;
-        UpExperiencePointsRequired();
+        UpExperiencePointsRequired(Level);
     }
 
     private void UpExperiencePointsRequiredToLevel(int level)
@@ -75,15 +75,15 @@ public class Card
         ExperiencePointsRequired = StartExperiencePointsRequired;
 
         for (int i = MinLevel; i <= level; i++)
-            UpExperiencePointsRequired();
+            UpExperiencePointsRequired(i);
     }
 
-    private void UpExperiencePointsRequired()
+    private void UpExperiencePointsRequired(int level)
     {
-        ExperiencePointsRequired = CalculateExperiencePointsRequired();
+        ExperiencePointsRequired = CalculateExperiencePointsRequired(level);
     }
 
-    private int CalculateExperiencePointsRequired() => (int)Math.Floor(ExperiencePointsRequired * RecurrentFormulaComponent + StartExperiencePointsRequired);
+    private int CalculateExperiencePointsRequired(int level) => Mathf.CeilToInt(ExperiencePointsRequired * (level - 1) * RecurrentFormulaComponent + StartExperiencePointsRequired);
 
     private void InvokeExperienceStatsChanges()
     {
