@@ -11,6 +11,8 @@ public class Card
     private const int StartExperiencePointsRequired = 30;
     private const float RecurrentFormulaComponent = 0.2f;
 
+    private UnitStats _unitStats => CardInfo.Unit.Stats;
+
     public bool IsUnlocked { get; private set; }
     public int ExperiencePoints { get; private set; }
     public int ExperiencePointsRequired { get; private set; }
@@ -60,6 +62,7 @@ public class Card
         Level = level;
         ExperiencePoints = experiencePoints;
         UpExperiencePointsRequiredToLevel(Level);
+        ApplyUnitLevelBuff(Level);
         InvokeExperienceStatsChanges();
         IsUnlocked = isUnlocked;
     }
@@ -68,6 +71,7 @@ public class Card
     {
         ExperiencePoints -= ExperiencePointsRequired;
         Level++;
+        ApplyUnitLevelBuff(Level);
         UpExperiencePointsRequired(Level);
         InvokeExperienceStatsChanges();
     }
@@ -90,5 +94,10 @@ public class Card
     private void InvokeExperienceStatsChanges()
     {
         ExperienceStatsChanged?.Invoke();
+    }
+
+    private void ApplyUnitLevelBuff(int level)
+    {
+        _unitStats.ApplyLevelBuff(level);
     }
 }

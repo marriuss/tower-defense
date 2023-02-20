@@ -1,20 +1,16 @@
-using Lean.Localization;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FightingCard
 {
-    private Card _card;
+    private CardInfo _cardInfo;
 
-    public Sprite Icon => _card.CardInfo.Icon;
-    public Unit Unit => _card.CardInfo.Unit;
-    public int ManaCost => _card.CardInfo.Mana;
-    public Rarity Rarity => _card.CardInfo.Rarity;
-    public LeanPhrase Name => _card.CardInfo.Name;
+    public Sprite Icon => _cardInfo.Icon;
+    public Unit Unit => _cardInfo.Unit;
+    public int ManaCost => _cardInfo.Mana;
+    public Rarity Rarity => _cardInfo.Rarity;
 
     public FightingCard(Card card)
     {
-        _card = card;
+        _cardInfo = card.CardInfo;
     }
 }
