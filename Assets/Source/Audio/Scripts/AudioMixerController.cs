@@ -8,7 +8,7 @@ public class AudioMixerController : MonoBehaviour
     [SerializeField] private AudioMixer _mixer;
 
     private const float MinVolume = -80;
-    private const float MaxVolume = 20;
+    private const float MaxVolume = 0;
     private const float VolumeRange = MaxVolume - MinVolume;
     private const string VolumeParameter = "Volume";
 
