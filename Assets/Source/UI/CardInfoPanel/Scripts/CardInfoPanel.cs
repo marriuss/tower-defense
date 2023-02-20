@@ -21,6 +21,8 @@ public class CardInfoPanel : MonoBehaviour
     private List<CardPointerEnterExitDetector> _cardPointerDetectors = new List<CardPointerEnterExitDetector>();
     private LeanPhrase _namePhrase;
 
+    private Card _currentCard;
+
     private void OnEnable()
     {
         if (_namePhrase == null)
@@ -78,10 +80,23 @@ public class CardInfoPanel : MonoBehaviour
     private void OnCardPointerEntered(Card card)
     {
         DisplayCard(card);
+        _currentCard = card;
+        _currentCard.ExperienceStatsChanged += OnExperienceStatsChanged;
     }
 
     private void OnCardPointerExited(Card card)
     {
         Clear();
+
+        if (_currentCard != null)
+        {
+            _currentCard.ExperienceStatsChanged -= OnExperienceStatsChanged;
+            _currentCard = null;
+        }
+    }
+
+    private void OnExperienceStatsChanged()
+    {
+        DisplayCard(_currentCard);
     }
 }

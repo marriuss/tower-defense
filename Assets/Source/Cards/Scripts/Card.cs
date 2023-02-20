@@ -69,6 +69,7 @@ public class Card
         ExperiencePoints -= ExperiencePointsRequired;
         Level++;
         UpExperiencePointsRequired(Level);
+        InvokeExperienceStatsChanges();
     }
 
     private void UpExperiencePointsRequiredToLevel(int level)
