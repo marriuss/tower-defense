@@ -17,6 +17,8 @@ public class UnitStats : ScriptableObject
     [SerializeField, Range(MinFloatStat, MaxSpeed)] private float _speed;
     [SerializeField, Range(MinFloatStat, MaxAttackDelay)] private float _attackDelay;
     [SerializeField, Range(MinFloatStat, MaxRange)] private float _attackRange;
+    
+    [HideInInspector, SerializeField] private float _levelBuff = 1.0f;
 
     private const int MinIntStat = 1;
     private const int MaxArmor = 30;
@@ -26,8 +28,6 @@ public class UnitStats : ScriptableObject
     private const float MaxSpeed = 3;
     private const float MaxAttackDelay = 2f;
     private const float MaxRange = 10f;
-
-    private float _levelBuff;
 
     public string Name { get; private set; }
     public int Health => Mathf.RoundToInt(_health * _levelBuff);
@@ -44,7 +44,7 @@ public class UnitStats : ScriptableObject
         Name = name;
     }
 
-    public void ApplyLevel(int level)
+    public void ApplyLevelBuff(int level)
     {
         _levelBuff = 1 + (level - 1) * 0.1f;
     }
