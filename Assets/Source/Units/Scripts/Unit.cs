@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(SoundsPlayer))]
 [RequireComponent(typeof(SpriteFader))]
 [RequireComponent(typeof(SpriteFlipper))]
 [RequireComponent(typeof(AnimationPlayer))]
@@ -15,6 +16,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
     private SpriteFader _spriteFader;
     private SpriteFlipper _spriteFlipper;
     private AnimationPlayer _animationPlayer;
+    private SoundsPlayer _soundsPlayer;
     private GraphOwner _graphOwner;
     private Health _health;
     private ITargetable _target;
@@ -34,6 +36,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _spriteFlipper = GetComponent<SpriteFlipper>();
         _animationPlayer = GetComponent<AnimationPlayer>();
         _graphOwner = GetComponent<GraphOwner>();
+        _soundsPlayer = GetComponent<SoundsPlayer>();
         _health = new Health(Stats.Health);
         HealthState = new HealthState(_health);
     }
@@ -78,6 +81,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         {
             _lastAttackTime = time;
             _animationPlayer.PlayAttackAnimation();
+            _soundsPlayer.PlayAttackSound();
         }
     }
 
