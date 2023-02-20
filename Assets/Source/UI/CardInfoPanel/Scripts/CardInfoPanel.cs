@@ -2,7 +2,6 @@ using Lean.Localization;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CardInfoPanel : MonoBehaviour
 {
@@ -16,7 +15,6 @@ public class CardInfoPanel : MonoBehaviour
     [SerializeField] private TMP_Text _speedText;
     [SerializeField] private TMP_Text _attackRangeText;
     [SerializeField] private TMP_Text _attackDelayText;
-
 
     private List<CardPointerEnterExitDetector> _cardPointerDetectors = new List<CardPointerEnterExitDetector>();
     private LeanPhrase _namePhrase;
@@ -55,7 +53,7 @@ public class CardInfoPanel : MonoBehaviour
         UnitStats unitStats = card.CardInfo.Unit.Stats;
 
         _levelText.text = card.Level.ToString();
-        _experienceText.text = string.Format("{0}/{1}", card.ExperiencePointsRequired, card.ExperiencePoints);
+        _experienceText.text = string.Format("{0}/{1}", card.ExperiencePoints, card.ExperiencePointsRequired);
         _namePhrase = cardInfo.Name;
         _manaText.text = cardInfo.Mana.ToString();
 

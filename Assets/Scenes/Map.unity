@@ -436,6 +436,7 @@ MonoBehaviour:
   _cardSlotPrefab: {fileID: 3397423672374861689, guid: c39018b200cc9a94c80c90b12c556087, type: 3}
   _cardSlotsContainer: {fileID: 1766537678}
   _cardInfoPanel: {fileID: 9032476045350219513}
+  _shopPanel: {fileID: 686222}
 --- !u!114 &101581065
 MonoBehaviour:
   m_ObjectHideFlags: 0
