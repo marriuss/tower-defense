@@ -25,15 +25,11 @@ public class Initializer : MonoBehaviour
 
     private IEnumerator Start()
     {
-        string languageCode = _playerPrefSettings.TryLoadLanguageSettings();
-
 #if UNITY_WEBGL && !UNITY_EDITOR
         yield return YandexGamesSdk.Initialize();
-        
-        if (string.IsNullOrEmpty(languageCode))
-            languageCode = YandexGamesSdk.Environment.i18n.lang;
 #endif
-        LoadSettings(languageCode);
+
+        LoadSettings();
         SettingsInitialized = true;
 
         LoadPlayer();
@@ -42,10 +38,20 @@ public class Initializer : MonoBehaviour
         yield return null;
     }
 
-    private void LoadSettings(string languageCode)
+    private void LoadSettings()
     {
-        LeanLanguage language = _languageIdentifier.IdentifyLanguageByCode(languageCode);
-        _settingsApplyier.SetLanguageSettings(language);
+        LeanLanguage language = null;
+        string languageName = _playerPrefSettings.TryLoadLanguageSettings();
+
+#if UNITY_WEBGL && !UNITY_EDITOR
+        if (YandexGamesSdk.IsInitialized && string.IsNullOrEmpty(languageName))
+            language = _languageIdentifier.IdentifyLanguageByCode(YandexGamesSdk.Environment.i18n.lang);
+#endif
+
+        if (language == null)
+            language = _languageIdentifier.IdentifyLanguageByName(languageName);
+
+        _settingsApplyier.SetLanguageSettings(language.name);
 
         float? musicLevel = _playerPrefSettings.TryLoadMusicSettings();
         float musicSettings = musicLevel == null ? _defaultSettings.MusicLevel : musicLevel.Value;
