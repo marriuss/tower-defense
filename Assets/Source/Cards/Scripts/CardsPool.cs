@@ -11,8 +11,9 @@ public class CardsPool : ScriptableObject
 {
     [SerializeField] private List<CardInfo> _cardInfos;
     [SerializeField] private TextAsset _jsonFile;
-    [SerializeField] private List<Card> _cards;
-    [SerializeField] private Dictionary<CardInfo, int> _cardIds;
+
+    [HideInInspector, SerializeField] private List<Card> _cards;
+    [HideInInspector, SerializeField] private Dictionary<CardInfo, int> _cardIds;
 
     private void Awake()
     {

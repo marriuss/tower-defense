@@ -17,6 +17,8 @@ public class UnitStats : ScriptableObject
     [SerializeField, Range(MinFloatStat, MaxSpeed)] private float _speed;
     [SerializeField, Range(MinFloatStat, MaxAttackDelay)] private float _attackDelay;
     [SerializeField, Range(MinFloatStat, MaxRange)] private float _attackRange;
+    
+    [HideInInspector, SerializeField] private float _levelBuff = 1.0f;
 
     private const int MinIntStat = 1;
     private const int MaxArmor = 30;
@@ -28,18 +30,23 @@ public class UnitStats : ScriptableObject
     private const float MaxRange = 10f;
 
     public string Name { get; private set; }
-    public int Health => _health;
-    public int Armor => _armor;
-    public int Damage => _damage;
-    public float Speed => _speed;
-    public float AttackDelay => _attackDelay;
-    public float AttackRange => _attackRange;
+    public int Health => Mathf.RoundToInt(_health * _levelBuff);
+    public int Armor => Mathf.RoundToInt(_armor * _levelBuff);
+    public int Damage => Mathf.RoundToInt(_damage * _levelBuff);
+    public float Speed => _speed * _levelBuff;
+    public float AttackDelay => _attackDelay / _levelBuff;
+    public float AttackRange => _attackRange * _levelBuff;
     public int Value { get; private set; }
 
     private void Awake()
     {
-        Value = CalculateValue(Health, Armor, Damage, Speed, AttackRange, AttackDelay);
+        Value = CalculateValue(_health, _armor, _damage, _speed, _attackRange, _attackDelay);
         Name = name;
+    }
+
+    public void ApplyLevelBuff(int level)
+    {
+        _levelBuff = 1 + (level - 1) * 0.1f;
     }
 
     public int RecalculateDamage(int damage) => Mathf.CeilToInt(1.0f * _armor / 100 * damage);
