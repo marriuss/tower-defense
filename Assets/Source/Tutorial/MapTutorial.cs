@@ -6,10 +6,15 @@ public class MapTutorial : MonoBehaviour
     [SerializeField] private GameObject _tutorialPanel;
     [SerializeField] private Button _closeButton;
 
+    private bool SceneLoadedFirstTime => MapSceneLoader.SceneLoadingCount == 1;
+
     private void Start()
     {
-        _tutorialPanel.SetActive(true);
-        _closeButton.onClick.AddListener(OnButtonClick);
+        if (PlayerProgressStorage.HasSavings == false && SceneLoadedFirstTime == true)
+        {
+            _tutorialPanel.SetActive(true);
+            _closeButton.onClick.AddListener(OnButtonClick);
+        }
     }
 
     private void OnButtonClick()
