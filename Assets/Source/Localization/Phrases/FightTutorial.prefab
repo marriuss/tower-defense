@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2535842023125401000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2535842023125401001}
+  - component: {fileID: 2535842023125401002}
+  m_Layer: 0
+  m_Name: FightTutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2535842023125401001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535842023125401000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2535842023125401002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2535842023125401000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0423\u0441\u043F\u0435\u0439\u0442\u0435 \u0443\u043D\u0438\u0447\u0442\u043E\u0436\u0438\u0442\u044C
+      \u0432\u0441\u0435\u0445 \u0432\u0440\u0430\u0433\u043E\u0432, \u043F\u043E\u043A\u0430
+      \u043E\u043D\u0438 \u043D\u0435 \u0443\u0441\u043F\u0435\u043B\u0438 \u0443\u043D\u0438\u0447\u0442\u043E\u0436\u0438\u0442\u044C
+      \u0432\u0441\u0435 \u0431\u0430\u0448\u043D\u0438! \n\u041F\u0440\u0438\u0437\u044B\u0432\u0430\u0439\u0442\u0435
+      \u0441\u0432\u043E\u0438\u0445 \u0432\u043E\u0438\u043D\u043E\u0432, \u043D\u0430\u0436\u0438\u043C\u0430\u044F
+      \u043D\u0430 \u043A\u0430\u0440\u0442\u044B \u0432\u043D\u0438\u0437\u0443
+      \u044D\u043A\u0440\u0430\u043D\u0430, \u043D\u043E \u043D\u0435 \u0437\u0430\u0431\u044B\u0432\u0430\u0439\u0442\u0435
+      - \u0432\u043E\u0441\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u0435 \u043E\u0447\u043A\u043E\u0432
+      \u043F\u0440\u0438\u0437\u044B\u0432\u0430 \u0442\u0440\u0435\u0431\u0443\u0435\u0442
+      \u0432\u0440\u0435\u043C\u0435\u043D\u0438, \u0442\u0430\u043A \u0447\u0442\u043E
+      \u0442\u0440\u0430\u0442\u044C\u0442\u0435 \u0438\u0445 \u0441 \u0443\u043C\u043E\u043C! "
+    Object: {fileID: 0}
+  - Language: English
+    Text: 'Kill all the enemies before they destroy all your towers!
+
+      Summon
+      new warriors by clicking on the cards at the screen bottom, but remember -
+      summon points replenishment requires time, so spend them wisely!'
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Onlar t\xFCm kuleleri yok etmeden \xF6nce t\xFCm d\xFC\u015Fmanlar\u0131
+      yok etmek i\xE7in zaman\u0131n\u0131z olsun!\nEkran\u0131n alt\u0131ndaki kartlara
+      t\u0131klayarak sava\u015F\xE7\u0131lar\u0131n\u0131z\u0131 \xE7a\u011F\u0131r\u0131n
+      ama unutmay\u0131n - \xE7a\u011F\u0131rma puanlar\u0131n\u0131 yenilemek zaman
+      al\u0131r, bu y\xFCzden onlar\u0131 ak\u0131ll\u0131ca harcay\u0131n!"
+    Object: {fileID: 0}
