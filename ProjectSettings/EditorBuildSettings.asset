@@ -15,7 +15,16 @@ EditorBuildSettings:
     path: Assets/Scenes/Fight.unity
     guid: fbffeafa36c5820419927dc68ca47d4a
   - enabled: 1
-    path: Assets/Cainos/Pixel Art Icon Pack - RPG/Scene/SC_Pixel_Art_Icon_Pack___RPG.unity
-    guid: 80f283a544947e84e847079945622c4a
+    path: Assets/Freeui/Set.unity
+    guid: 33801d70fa37f0c4884a1dd7135f053f
+  - enabled: 1
+    path: Assets/Freeui/FreeUI.unity
+    guid: 66f07e1c41805cd4e90de6c666cd1078
+  - enabled: 1
+    path: Assets/Freeui/Main.unity
+    guid: d63d5a682bcf75a49bb3c3925ad34a6e
+  - enabled: 1
+    path: Assets/Freeui/Stage.unity
+    guid: 23ad4e831b0ce5b47a92450165cf1061
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8f5e46be2cd176f438115944419e4fcd, type: 2}
