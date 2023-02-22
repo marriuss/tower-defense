@@ -12,6 +12,7 @@ public class LevelsPool : ScriptableObject
 
     public int LastLevelId => _lastLevelId;
     public LevelInfo LastLevel => _levels.FirstOrDefault(l => l.Id == LastLevelId);
+    public int LastLevelOrderIndex => _levels.IndexOf(LastLevel);
     public IReadOnlyList<LevelInfo> Levels => _levels;
 
     public event UnityAction LastLevelChanged;
