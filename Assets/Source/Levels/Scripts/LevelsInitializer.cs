@@ -35,6 +35,7 @@ public class LevelsInitializer : MonoBehaviour
 
     private void OnLevelEntryClicked(LevelEntry levelEntry)
     {
+        levelEntry.Disable();
         var castle = _player.Castle;
         var castleFightStats = new CastleFightStats(
             castle.Health, castle.AdditionalTowersAmount, castle.TowerHealthFraction);

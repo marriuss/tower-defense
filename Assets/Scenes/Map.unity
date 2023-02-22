@@ -1388,6 +1388,7 @@ GameObject:
   - component: {fileID: 400752957}
   - component: {fileID: 400752959}
   - component: {fileID: 400752960}
+  - component: {fileID: 400752961}
   m_Layer: 0
   m_Name: ForestLevelEntry
   m_TagString: Untagged
@@ -1500,6 +1501,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31cc80a92a27da54b917e761e7df7195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &400752961
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400752956}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &409898599
 GameObject:
   m_ObjectHideFlags: 0
