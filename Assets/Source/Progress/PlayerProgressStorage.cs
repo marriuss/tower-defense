@@ -14,17 +14,18 @@ public class PlayerProgressStorage : MonoBehaviour
 
     private static string lastSavedJsonData;
     private static PlayerProgress currentData;
-    private static List<CardInfo> _defaultCardInfos;
+    private static List<CardInfo> defaultCardInfos;
+    private static bool hasSavings;
+
+    public static bool HasSavings => hasSavings;
 
     public void SetDefaultData(List<CardInfo> defaultCardInfos)
     {
-        _defaultCardInfos = defaultCardInfos;
+        PlayerProgressStorage.defaultCardInfos = defaultCardInfos;
     }
 
     public void LoadData()
     {
-        bool hasSavings = false;
-
 #if UNITY_WEBGL && !UNITY_EDITOR
         if (YandexGamesSdk.IsInitialized)
         {
@@ -49,7 +50,7 @@ public class PlayerProgressStorage : MonoBehaviour
             int i = 0;
             List<DeckItem> deckItems = new List<DeckItem>();
 
-            foreach (CardInfo cardInfo in _defaultCardInfos)
+            foreach (CardInfo cardInfo in defaultCardInfos)
             {
                 Card card = _cardsPool.FindCardByCardInfo(cardInfo);
                 deckItems.Add(new DeckItem(card, i));
