@@ -56,7 +56,7 @@ public class PlayerProgressStorage : MonoBehaviour
                 i++;
             }
 
-            _player.Initialize(deckItems, 0, 0);
+            _player.Initialize(deckItems, Castle.StartLevel, Balance.StartMoney);
         }
     }
 

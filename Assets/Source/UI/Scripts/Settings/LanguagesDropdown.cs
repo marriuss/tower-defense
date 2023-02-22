@@ -12,7 +12,7 @@ public class LanguagesDropdown : MonoBehaviour
     [SerializeField] private SettingsApplier _settingsApplier;
 
     private TMP_Dropdown _dropdown;
-    
+
     private void Awake()
     {
         _dropdown = GetComponent<TMP_Dropdown>();
@@ -26,8 +26,8 @@ public class LanguagesDropdown : MonoBehaviour
 
     private void OnEnable()
     {
+        _dropdown.value = _languages.FindIndex(language => language.Language.name == SettingsApplier.Language);
         _dropdown.onValueChanged.AddListener(OnValueChanged);
-        _dropdown.value = _languages.FindIndex(language => language.Language == SettingsApplier.Language);
     }
 
     private void OnDisable()
@@ -38,7 +38,7 @@ public class LanguagesDropdown : MonoBehaviour
     private void OnValueChanged(int index)
     {
         LeanLanguage language = _languages[index].Language;
-        _settingsApplier.SetLanguageSettings(language);
+        _settingsApplier.SetLanguageSettings(language.name);
     }
 }
 

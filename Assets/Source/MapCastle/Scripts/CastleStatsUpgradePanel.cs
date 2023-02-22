@@ -12,10 +12,16 @@ public class CastleStatsUpgradePanel : Panel
 
     [Space(10)]
     [SerializeField] private Button _upgradeButton;
-    [SerializeField] private TMP_Text _upgradeButtonText;
+    [SerializeField] private TMP_Text _upgradeCostText;
 
     [Space(10)]
     [SerializeField] private CastleUpgrade _castleUpgrade;
+
+    private void Start()
+    {
+        UpdateInfo(_castleUpgrade.Castle);
+        UpdateUpgradeButton();
+    }
 
     protected override void OnEnabled()
     {
@@ -27,19 +33,12 @@ public class CastleStatsUpgradePanel : Panel
         _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClick);
     }
 
-    public void ShowPanel()
-    {
-        gameObject.SetActive(true);
-        UpdateInfo(_castleUpgrade.Castle);
-        UpdateUpgradeButton();
-    }
-
     public void UpdateInfo(Castle castleStats)
     {
         _levelText.text = castleStats.Level.ToString();
         _healthText.text = castleStats.Health.ToString();
         _additionalTowersText.text = castleStats.AdditionalTowersAmount.ToString();
-        _towerHealthFractionText.text = string.Format("{0}f1", castleStats.TowerHealthFraction);
+        _towerHealthFractionText.text = string.Format("{0:f2}", castleStats.TowerHealthFraction);
     }
 
     private void OnUpgradeButtonClick()
@@ -52,6 +51,6 @@ public class CastleStatsUpgradePanel : Panel
     private void UpdateUpgradeButton()
     {
         _upgradeButton.interactable = _castleUpgrade.CanUpgrade;
-        _upgradeButtonText.text = $"Upgrade ({_castleUpgrade.Castle.UpgradeCost})";
+        _upgradeCostText.text = _castleUpgrade.Castle.UpgradeCost.ToString();
     }
 }

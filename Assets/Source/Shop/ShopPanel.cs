@@ -1,9 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ShopPanel : Panel
 {
+    public event UnityAction PurchasePerformed;
+
     [SerializeField] private CardsPool _cardsPool;
     [SerializeField] private Player _player;
     [SerializeField] private CardPurchase _cardPurchasePrefab;
@@ -49,5 +52,7 @@ public class ShopPanel : Panel
         {
             cardPurchase.UpdateView();
         }
+
+        PurchasePerformed?.Invoke();
     }
 }

@@ -2,10 +2,11 @@ using Lean.Localization;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CardInfoPanel : MonoBehaviour
 {
+    private const string MaxLevelSign = "Max";
+
     [SerializeField] private TMP_Text _levelText;
     [SerializeField] private LocalizedText _nameText;
     [SerializeField] private TMP_Text _experienceText;
@@ -17,9 +18,10 @@ public class CardInfoPanel : MonoBehaviour
     [SerializeField] private TMP_Text _attackRangeText;
     [SerializeField] private TMP_Text _attackDelayText;
 
-
     private List<CardPointerEnterExitDetector> _cardPointerDetectors = new List<CardPointerEnterExitDetector>();
     private LeanPhrase _namePhrase;
+
+    private Card _currentCard;
 
     private void OnEnable()
     {
@@ -55,7 +57,7 @@ public class CardInfoPanel : MonoBehaviour
         UnitStats unitStats = card.CardInfo.Unit.Stats;
 
         _levelText.text = card.Level.ToString();
-        _experienceText.text = string.Format("{0}/{1}", card.ExperiencePointsRequired, card.ExperiencePoints);
+        _experienceText.text = card.IsMaxLevel ? MaxLevelSign : string.Format("{0}/{1}", card.ExperiencePoints, card.ExperiencePointsRequired);
         _namePhrase = cardInfo.Name;
         _manaText.text = cardInfo.Mana.ToString();
 
@@ -78,10 +80,23 @@ public class CardInfoPanel : MonoBehaviour
     private void OnCardPointerEntered(Card card)
     {
         DisplayCard(card);
+        _currentCard = card;
+        _currentCard.ExperienceStatsChanged += OnExperienceStatsChanged;
     }
 
     private void OnCardPointerExited(Card card)
     {
         Clear();
+
+        if (_currentCard != null)
+        {
+            _currentCard.ExperienceStatsChanged -= OnExperienceStatsChanged;
+            _currentCard = null;
+        }
+    }
+
+    private void OnExperienceStatsChanged()
+    {
+        DisplayCard(_currentCard);
     }
 }

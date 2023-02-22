@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(SoundsPlayer))]
 [RequireComponent(typeof(SpriteFader))]
 [RequireComponent(typeof(SpriteFlipper))]
 [RequireComponent(typeof(AnimationPlayer))]
 [RequireComponent(typeof(GraphOwner))]
-
 public abstract class Unit : MonoBehaviour, ITargetable
 {
     [SerializeField] private UnitStats _stats;
@@ -16,13 +16,14 @@ public abstract class Unit : MonoBehaviour, ITargetable
     private SpriteFader _spriteFader;
     private SpriteFlipper _spriteFlipper;
     private AnimationPlayer _animationPlayer;
+    private SoundsPlayer _soundsPlayer;
     private GraphOwner _graphOwner;
     private Health _health;
     private ITargetable _target;
     private float _lastAttackTime;
 
     public event Action<ITargetable> WasHit;
-    public event UnityAction<ITargetable> Died;
+    public event Action<ITargetable> Died;
 
     public UnitStats Stats => _stats;
     public Vector2 Position => transform.position;
@@ -35,6 +36,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _spriteFlipper = GetComponent<SpriteFlipper>();
         _animationPlayer = GetComponent<AnimationPlayer>();
         _graphOwner = GetComponent<GraphOwner>();
+        _soundsPlayer = GetComponent<SoundsPlayer>();
         _health = new Health(Stats.Health);
         HealthState = new HealthState(_health);
     }
@@ -47,21 +49,14 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void Spawn()
     {
-        _target = null;
         _health.IncreaseValue(Stats.Health);
+        _spriteFader.FadeIn();
 
         if (_graphOwner.isPaused)
             _graphOwner.StartBehaviour();
 
-        _spriteFader.FadeIn();
         _animationPlayer.Reset();
         Idle();
-    }
-
-    public void Despawn()
-    {
-        _graphOwner.StopBehaviour();
-        _spriteFader.FadeOut();
     }
 
     public void SetTarget(ITargetable target) => _target = target;
@@ -71,6 +66,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         if (_target == null)
             return;
 
+        _animationPlayer.PlayMoveAnimation();
         MoveTo(Vector2.MoveTowards(Position, _target.Position, _stats.Speed * Time.deltaTime));
     } 
 
@@ -85,6 +81,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         {
             _lastAttackTime = time;
             _animationPlayer.PlayAttackAnimation();
+            _soundsPlayer.PlayAttackSound();
         }
     }
 
@@ -128,7 +125,8 @@ public abstract class Unit : MonoBehaviour, ITargetable
     {
         _target = null;
         _animationPlayer.PlayDeathAnimation();
-        Despawn();
+        _graphOwner.PauseBehaviour();
+        _spriteFader.FadeOut();
         Died?.Invoke(this);
     }
 

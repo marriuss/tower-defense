@@ -12,6 +12,7 @@ public class DeckViewController : MonoBehaviour
     [SerializeField] private CardSlot _cardSlotPrefab;
     [SerializeField] private Transform _cardSlotsContainer;
     [SerializeField] public CardInfoPanel _cardInfoPanel;
+    [SerializeField] private ShopPanel _shopPanel;
 
     private Deck _deck;
     private List<DeckCardView> _cardViews = new List<DeckCardView>();
@@ -34,6 +35,8 @@ public class DeckViewController : MonoBehaviour
         {
             _cardViews[i].NeedCheckForReturn += OnCardNeedCheckForReturn;
         }
+
+        _shopPanel.PurchasePerformed += OnPurchasePerformed;
     }
 
     private void OnDisable()
@@ -48,6 +51,8 @@ public class DeckViewController : MonoBehaviour
         {
             _cardViews[i].NeedCheckForReturn -= OnCardNeedCheckForReturn;
         }
+
+        _shopPanel.PurchasePerformed -= OnPurchasePerformed;
     }
 
     private void Start()
@@ -142,5 +147,10 @@ public class DeckViewController : MonoBehaviour
         DeckCardView cardView = Instantiate(_cardViewPrefab, parent);
         cardView.Init(card, _canvas);
         return cardView;
+    }
+
+    private void OnPurchasePerformed()
+    {
+        UpdateCards(_cardsPool, _deck);
     }
 }

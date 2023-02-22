@@ -16,16 +16,14 @@ MonoBehaviour:
   _zone: {fileID: 11400000, guid: 4ac550d9d3594d1478cab83146ec6c64, type: 2}
   _waves:
   - _waveUnits:
-    - _unitsCount: 2
+    - _unitsCount: 1
       _unitPrefab: {fileID: 565550310095632876, guid: 1a3ae7a74277b5647b15e2743b41bf3d, type: 3}
-    - _unitsCount: 2
+    - _unitsCount: 1
       _unitPrefab: {fileID: 5973364138826756512, guid: 376da41dd67b7064486927888941fc4d, type: 3}
   - _waveUnits:
-    - _unitsCount: 3
+    - _unitsCount: 1
       _unitPrefab: {fileID: 565550310095632876, guid: 1a3ae7a74277b5647b15e2743b41bf3d, type: 3}
-    - _unitsCount: 3
+    - _unitsCount: 1
       _unitPrefab: {fileID: 5973364138826756512, guid: 376da41dd67b7064486927888941fc4d, type: 3}
-    - _unitsCount: 3
-      _unitPrefab: {fileID: 2873527102235201927, guid: c5d46380247ea7644b88466b5eb01de2, type: 3}
-  _cardStackCapacity: 3
-  _moneyReward: 100
+  _cardStackCapacity: 1
+  _moneyReward: 50

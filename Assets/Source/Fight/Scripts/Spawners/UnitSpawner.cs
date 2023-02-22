@@ -46,7 +46,6 @@ public abstract class UnitSpawner : TargetableObjectsSpawner
     {
         Unit unit = target as Unit;
         unit.Died -= OnUnitDied;
-        unit.Despawn();
         _despawnedUnitsPool.Add(unit);
     }
 }
