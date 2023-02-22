@@ -5,8 +5,6 @@ public class FullscreenAdsShower : MonoBehaviour
 {
     [SerializeField, Min(0)] private int _cooldown;
 
-    private static int _adsShowed;
-
     private FullscreenAds _fullscreenAds;
 
     private void Awake()
@@ -16,14 +14,7 @@ public class FullscreenAdsShower : MonoBehaviour
 
     private void Start()
     {
-        if (_adsShowed == _cooldown)
-        {
-            _adsShowed = 0;
+        if (MapSceneLoader.SceneLoadingCount % (_cooldown + 1) == 0)
             _fullscreenAds.Show();
-        }
-        else
-        {
-            _adsShowed++;
-        }
     }
 }
