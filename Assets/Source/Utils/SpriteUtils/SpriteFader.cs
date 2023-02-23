@@ -19,6 +19,9 @@ public class SpriteFader : SpriteUtils
     
     public void FadeIn()
     {
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+
         ChangeAlpha(_startAlpha);   
     }
 
