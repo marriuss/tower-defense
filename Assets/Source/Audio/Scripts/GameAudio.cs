@@ -20,9 +20,9 @@ public class GameAudio : MonoBehaviour
         }
     }
 
-    public void SetMusicVolume(float volume)
+    public void SetMusicVolume(int index)
     {
-        _musicMixer.SetVolume(volume);
+        _musicMixer.SetVolume(index);
     } 
 
     public void MuteMusic()
@@ -35,8 +35,8 @@ public class GameAudio : MonoBehaviour
         _musicMixer.Unmute();
     }
 
-    public void SetSoundsVolume(float volume)
+    public void SetSoundsVolume(int index)
     {
-        _soundsMixer.SetVolume(volume);
+        _soundsMixer.SetVolume(index);
     }
 }

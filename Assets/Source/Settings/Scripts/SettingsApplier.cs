@@ -9,8 +9,8 @@ public class SettingsApplier : MonoBehaviour
     [SerializeField] private GameAudio _audio;
     [SerializeField] private PlayerPrefSettings _playerPrefsSettings;
 
-    public static float MusicLevel { get; private set; }
-    public static float SoundsLevel { get; private set; }
+    public static int MusicLevel { get; private set; }
+    public static int SoundsLevel { get; private set; }
     public static string Language { get; private set; }
 
     private void Start()
@@ -35,7 +35,7 @@ public class SettingsApplier : MonoBehaviour
         ApplyLanguageSettings();
     }
 
-    public void SetMusicSettings(float musicLevel)
+    public void SetMusicSettings(int musicLevel)
     {
         if (MusicLevel == musicLevel)
             return;
@@ -45,7 +45,7 @@ public class SettingsApplier : MonoBehaviour
         ApplyMusicSettings();
     }
 
-    public void SetSoundsSettings(float soundsLevel)
+    public void SetSoundsSettings(int soundsLevel)
     {
         if (SoundsLevel == soundsLevel)
             return;

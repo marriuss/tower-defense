@@ -17,14 +17,14 @@ public class PlayerPrefSettings : MonoBehaviour
         return TryLoadSettings<string>(LanguageSettings, () => PlayerPrefs.GetString(LanguageSettings));
     }
 
-    public float? TryLoadSoundsSettings()
+    public int? TryLoadSoundsSettings()
     {
-        return TryLoadSettings<float?>(SoundsSettings, () => PlayerPrefs.GetFloat(SoundsSettings));
+        return TryLoadSettings<int?>(SoundsSettings, () => PlayerPrefs.GetInt(SoundsSettings));
     }
 
-    public float? TryLoadMusicSettings()
+    public int? TryLoadMusicSettings()
     {
-        return TryLoadSettings<float?>(MusicSettings, () => PlayerPrefs.GetFloat(MusicSettings));
+        return TryLoadSettings<int?>(MusicSettings, () => PlayerPrefs.GetInt(MusicSettings));
     }
 
     public void SaveLanguageSettings(string languageCode)
@@ -32,14 +32,14 @@ public class PlayerPrefSettings : MonoBehaviour
         SaveSettings(PlayerPrefs.SetString, LanguageSettings, languageCode);
     }
 
-    public void SaveMusicSettings(float musicLevel)
+    public void SaveMusicSettings(int musicLevel)
     {
-        SaveSettings(PlayerPrefs.SetFloat, MusicSettings, musicLevel);
+        SaveSettings(PlayerPrefs.SetInt, MusicSettings, musicLevel);
     }
 
-    public void SaveSoundsSettings(float soundsLevel)
+    public void SaveSoundsSettings(int soundsLevel)
     {
-        SaveSettings(PlayerPrefs.SetFloat, SoundsSettings, soundsLevel);
+        SaveSettings(PlayerPrefs.SetInt, SoundsSettings, soundsLevel);
     }
 
     private T TryLoadSettings<T>(string key, Func<T> action)

@@ -21,6 +21,6 @@ public class SoundsLevelController : MonoBehaviour
 
     private void Update()
     {
-        _settingsApplier.SetSoundsSettings(_view.Value);
+        _settingsApplier.SetSoundsSettings((int)_view.Value);
     }
 }

@@ -7,10 +7,10 @@ using Lean.Localization;
 public class Settings : ScriptableObject
 {
     [SerializeField] private LeanLanguage _language;
-    [SerializeField, Range(0, 1)] private float _soundsLevel;
-    [SerializeField, Range(0, 1)] private float _musicLevel;
+    [SerializeField, Range(AudioMixerController.MinVolumeIndex, AudioMixerController.MaxVolumeIndex)] private int _soundsLevel;
+    [SerializeField, Range(AudioMixerController.MinVolumeIndex, AudioMixerController.MaxVolumeIndex)] private int _musicLevel;
 
     public LeanLanguage Language => _language;
-    public float SoundsLevel => _soundsLevel;
-    public float MusicLevel => _musicLevel;
+    public int SoundsLevel => _soundsLevel;
+    public int MusicLevel => _musicLevel;
 }

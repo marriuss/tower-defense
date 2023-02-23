@@ -21,6 +21,6 @@ public class MusicLevelController : MonoBehaviour
 
     private void Update()
     {
-        _settingsApplier.SetMusicSettings(_view.Value);
+        _settingsApplier.SetMusicSettings((int)_view.Value);
     }
 }

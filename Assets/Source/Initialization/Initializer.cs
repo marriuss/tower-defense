@@ -53,12 +53,12 @@ public class Initializer : MonoBehaviour
 
         _settingsApplyier.SetLanguageSettings(language.name);
 
-        float? musicLevel = _playerPrefSettings.TryLoadMusicSettings();
-        float musicSettings = musicLevel == null ? _defaultSettings.MusicLevel : musicLevel.Value;
+        int? musicLevel = _playerPrefSettings.TryLoadMusicSettings();
+        int musicSettings = musicLevel == null ? _defaultSettings.MusicLevel : musicLevel.Value;
         _settingsApplyier.SetMusicSettings(musicSettings);
 
-        float? soundsLevel = _playerPrefSettings.TryLoadSoundsSettings();
-        float soundsSettings = soundsLevel == null ? _defaultSettings.SoundsLevel : soundsLevel.Value;
+        int? soundsLevel = _playerPrefSettings.TryLoadSoundsSettings();
+        int soundsSettings = soundsLevel == null ? _defaultSettings.SoundsLevel : soundsLevel.Value;
         _settingsApplyier.SetSoundsSettings(soundsSettings);
     }
 
