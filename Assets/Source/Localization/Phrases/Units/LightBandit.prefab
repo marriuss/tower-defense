@@ -50,8 +50,7 @@ MonoBehaviour:
     Text: Light bandit
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0411\u0430\u043D\u0434\u0438\u0442 \u0432 \u043B\u0435\u0433\u043A\u043E\u0439
-      \u043E\u0434\u0435\u0436\u0434\u0435"
+    Text: "\u0411\u0430\u043D\u0434\u0438\u0442 \u0432 \u043B\u0435\u0433\u043A\u043E\u043C"
     Object: {fileID: 0}
   - Language: Turkish
     Text: Hafif haydut

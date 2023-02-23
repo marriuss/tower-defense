@@ -47,11 +47,11 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Turkish
-    Text: "Kule Sa\u011Fl\u0131\u011F\u0131"
+    Text: "Kule sa\u011Fl\u0131\u011F\u0131"
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435 \u0411\u0430\u0448\u0435\u043D"
+    Text: "\u0417\u0434\u043E\u0440\u043E\u0432\u044C\u0435 \u0431\u0430\u0448\u0435\u043D"
     Object: {fileID: 0}
   - Language: English
-    Text: Tower health
+    Text: Towers health
     Object: {fileID: 0}
