@@ -44,7 +44,6 @@ public class AnimationPlayer : MonoBehaviour
     public void PlayIdleAnimation()
     {
         SetBool(MovingParameter, false);
-        PlayAnimation(IdleAnimation);
     }
 
     public void PlayMoveAnimation()
