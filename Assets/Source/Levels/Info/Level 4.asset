@@ -10,20 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a75f7e218f19ac248b6216c7cd532696, type: 3}
-  m_Name: Level 1
+  m_Name: Level 4
   m_EditorClassIdentifier: 
-  _identifier: 1
+  _identifier: 4
   _zone: {fileID: 11400000, guid: 4ac550d9d3594d1478cab83146ec6c64, type: 2}
   _waves:
   - _waveUnits:
-    - _unitsCount: 1
-      _unitPrefab: {fileID: 565550310095632876, guid: 1a3ae7a74277b5647b15e2743b41bf3d, type: 3}
-    - _unitsCount: 1
-      _unitPrefab: {fileID: 5973364138826756512, guid: 376da41dd67b7064486927888941fc4d, type: 3}
+    - _unitsCount: 3
+      _unitPrefab: {fileID: 7349015218813537712, guid: dd4a74d9439fc0640bcae0444e298d5e, type: 3}
   - _waveUnits:
-    - _unitsCount: 1
+    - _unitsCount: 3
+      _unitPrefab: {fileID: 7349015218813537712, guid: dd4a74d9439fc0640bcae0444e298d5e, type: 3}
+    - _unitsCount: 4
       _unitPrefab: {fileID: 565550310095632876, guid: 1a3ae7a74277b5647b15e2743b41bf3d, type: 3}
-    - _unitsCount: 1
-      _unitPrefab: {fileID: 5973364138826756512, guid: 376da41dd67b7064486927888941fc4d, type: 3}
-  _cardStackCapacity: 1
-  _moneyReward: 15
+  _cardStackCapacity: 3
+  _moneyReward: 45
