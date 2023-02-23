@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75f7e218f19ac248b6216c7cd532696, type: 3}
+  m_Name: Level 7
+  m_EditorClassIdentifier: 
+  _identifier: 7
+  _zone: {fileID: 11400000, guid: 4ac550d9d3594d1478cab83146ec6c64, type: 2}
+  _waves:
+  - _waveUnits:
+    - _unitsCount: 4
+      _unitPrefab: {fileID: 7735459893594782621, guid: b94d37a1ab457ad47a3c5d1d755fbe12, type: 3}
+    - _unitsCount: 4
+      _unitPrefab: {fileID: 2914409811423413536, guid: 11dffa2d72b162f4ea9afc30ec7fcddf, type: 3}
+  - _waveUnits:
+    - _unitsCount: 3
+      _unitPrefab: {fileID: 7735459893594782621, guid: b94d37a1ab457ad47a3c5d1d755fbe12, type: 3}
+    - _unitsCount: 4
+      _unitPrefab: {fileID: 7256300069418754543, guid: 0b7150fa18ca0684aa61aad7e7b41ac5, type: 3}
+  - _waveUnits:
+    - _unitsCount: 3
+      _unitPrefab: {fileID: 7735459893594782621, guid: b94d37a1ab457ad47a3c5d1d755fbe12, type: 3}
+    - _unitsCount: 4
+      _unitPrefab: {fileID: 7349015218813537712, guid: dd4a74d9439fc0640bcae0444e298d5e, type: 3}
+  _cardStackCapacity: 5
+  _moneyReward: 100
