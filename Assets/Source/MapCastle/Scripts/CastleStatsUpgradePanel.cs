@@ -38,7 +38,7 @@ public class CastleStatsUpgradePanel : Panel
         _levelText.text = castleStats.Level.ToString();
         _healthText.text = castleStats.Health.ToString();
         _towersAmountText.text = castleStats.TotalTowersAmount.ToString();
-        _towerHealthText.text = string.Format("{0:f2}", castleStats.TotalTowerHealth);
+        _towerHealthText.text = string.Format("{0:f0}", castleStats.TotalTowerHealth);
     }
 
     private void OnUpgradeButtonClick()

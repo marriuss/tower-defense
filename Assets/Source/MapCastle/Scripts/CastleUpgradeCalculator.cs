@@ -3,7 +3,7 @@ using UnityEngine;
 public class CastleUpgradeCalculator
 {
     private const int StartCost = 10;
-    private const int StartHealth = 20;
+    private const int StartHealth = 50;
     private const int StartAdditionalTowersAmount = 0;
     private const float StartTowerHealthFraction = 0.5f;
 
