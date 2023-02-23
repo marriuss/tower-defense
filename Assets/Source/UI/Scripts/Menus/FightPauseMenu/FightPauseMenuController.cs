@@ -6,11 +6,11 @@ public class FightPauseMenuController : MenuController
 {
     [SerializeField] private FightPauseMenuView _view;
 
-    //private void OnApplicationFocus(bool focus)
-    //{
-    //    if (focus == false && MenuGroup.GameIsActive)
-    //        OpenPauseMenu();
-    //}
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus == false && MenuGroup.GameIsActive)
+            OpenPauseMenu();
+    }
 
     public void OpenPauseMenu()
     {
