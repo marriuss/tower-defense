@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -10,12 +11,34 @@ public class LevelEntry : MonoBehaviour, IPointerDownHandler
 
     public event UnityAction<LevelEntry> Clicked;
 
-    private CanvasGroup _canvasGroup;
+    [SerializeField] private GameObject _inaccessibleLevelView;
+    [SerializeField] private GameObject _currentLevelView;
+    [SerializeField] private GameObject _completedLevelView;
 
-    private void Awake()
+    private CanvasGroup _canvasGroup;
+    private LevelState _state;
+
+    public void Init(LevelState levelState)
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         _canvasGroup.alpha = EnabledAlpha;
+
+        _state = levelState;
+        _inaccessibleLevelView.SetActive(false);
+        _currentLevelView.SetActive(false);
+        _completedLevelView.SetActive(false);
+
+        switch (levelState)
+        {
+            case LevelState.Inaccessible: _inaccessibleLevelView.SetActive(true);
+                break;
+            case LevelState.Current: _currentLevelView.SetActive(true);
+                break;
+            case LevelState.Completed: _completedLevelView.SetActive(true);
+                break;
+            default:
+                throw new ArgumentException("Unrecognized level state");
+        }
     }
 
     public void Disable()
@@ -26,6 +49,11 @@ public class LevelEntry : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (_state == LevelState.Inaccessible)
+        {
+            return;
+        }
+
         Clicked?.Invoke(this);
     }
 }

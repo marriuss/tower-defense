@@ -5,19 +5,24 @@ public class LevelsInitializer : MonoBehaviour
     [SerializeField] private LevelsPool _levelsPool;
     [SerializeField] private FightSceneLoader _fightSceneLoader;
     [SerializeField] private Player _player;
-    [SerializeField] private Transform[] _points;
-    [SerializeField] private LevelEntry _levelEntry;
+    [SerializeField] private LevelEntry[] _levelEntries;
 
     private LevelInfo _currentLevelInfo;
 
     private void OnEnable()
     {
-        _levelEntry.Clicked += OnLevelEntryClicked;
+        for (int i = 0; i < _levelEntries.Length; i++)
+        {
+            _levelEntries[i].Clicked += OnLevelEntryClicked;
+        }
     }
 
     private void OnDisable()
     {
-        _levelEntry.Clicked -= OnLevelEntryClicked;
+        for (int i = 0; i < _levelEntries.Length; i++)
+        {
+            _levelEntries[i].Clicked -= OnLevelEntryClicked;
+        }
     }
 
     private void Start()
@@ -30,12 +35,30 @@ public class LevelsInitializer : MonoBehaviour
             return;
         }
 
-        _levelEntry.transform.position = _points[_levelsPool.LastLevelOrderIndex].position;
+        for (int i = 0; i < _levelEntries.Length; i++)
+        {
+            LevelState levelState = LevelState.Inaccessible;
+
+            if (i < _levelsPool.LastLevelOrderIndex)
+            {
+                levelState = LevelState.Completed;
+            }
+            else if (i == _levelsPool.LastLevelOrderIndex)
+            {
+                levelState = LevelState.Current;
+            }
+
+            _levelEntries[i].Init(levelState);
+        }
     }
 
     private void OnLevelEntryClicked(LevelEntry levelEntry)
     {
-        levelEntry.Disable();
+        for (int i = 0; i < _levelEntries.Length; i++)
+        {
+            _levelEntries[i].Disable();
+        }
+
         var castle = _player.Castle;
         var castleFightStats = new CastleFightStats(
             castle.Health, castle.AdditionalTowersAmount, castle.TowerHealthFraction);
