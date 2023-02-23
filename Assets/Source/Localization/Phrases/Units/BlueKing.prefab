@@ -50,7 +50,7 @@ MonoBehaviour:
     Text: "\u041A\u043E\u0440\u043E\u043B\u044C \u0432 \u0441\u0438\u043D\u0435\u043C"
     Object: {fileID: 0}
   - Language: English
-    Text: Blue King
+    Text: Blue king
     Object: {fileID: 0}
   - Language: Turkish
     Text: Mavi kral
