@@ -1,7 +1,6 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 
-
 namespace NodeCanvas.Tasks.Actions
 {
     public class SetTarget : ActionTask<Unit>

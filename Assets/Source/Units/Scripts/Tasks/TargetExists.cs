@@ -6,8 +6,6 @@ namespace NodeCanvas.Tasks.Conditions
 {
     public class TargetExists : ConditionTask<Unit>
     {
-        public BBParameter<ITargetable> TargetVariable;
-
         protected override string OnInit()
         {
             return null;
@@ -15,10 +13,10 @@ namespace NodeCanvas.Tasks.Conditions
 
         protected override bool OnCheck()
         {
-            bool result = !TargetVariable.isNoneOrNull;
+            bool result = agent.Target != null;
 
             if (result)
-                result &= !TargetVariable.value.HealthState.IsDead;
+                result &= !agent.Target.HealthState.IsDead;
 
             return result;
         }
