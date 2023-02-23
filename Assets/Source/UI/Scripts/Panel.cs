@@ -30,18 +30,28 @@ public abstract class Panel : MonoBehaviour
         OnDisabled();
     }
 
-    protected virtual void OnEnabled() { }
-    protected virtual void OnDisabled() { }
-
-    private void OnOpenButtonClick()
+    public void Open()
     {
         _panelView.SetActive(true);
         PanelOpened?.Invoke(this);
     }
 
-    private void OnCloseButtonClick()
+    public void Close()
     {
         _panelView.SetActive(false);
         PanelClosed?.Invoke(this);
+    }
+
+    protected virtual void OnEnabled() { }
+    protected virtual void OnDisabled() { }
+
+    private void OnOpenButtonClick()
+    {
+        Open();
+    }
+
+    private void OnCloseButtonClick()
+    {
+        Close();
     }
 }
