@@ -23,7 +23,5 @@ MonoBehaviour:
   - _waveUnits:
     - _unitsCount: 1
       _unitPrefab: {fileID: 565550310095632876, guid: 1a3ae7a74277b5647b15e2743b41bf3d, type: 3}
-    - _unitsCount: 1
-      _unitPrefab: {fileID: 5973364138826756512, guid: 376da41dd67b7064486927888941fc4d, type: 3}
   _cardStackCapacity: 1
   _moneyReward: 15
