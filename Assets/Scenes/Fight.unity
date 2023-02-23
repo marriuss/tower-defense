@@ -1924,7 +1924,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414432735}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -3168,6 +3168,7 @@ MonoBehaviour:
   _fightRewardApplier: {fileID: 648697818}
   _fightEnder: {fileID: 209948945}
   _view: {fileID: 1681577349}
+  _levelsPool: {fileID: 11400000, guid: 622e24107372c6c46934a67dd32bce0f, type: 2}
 --- !u!1 &634323960
 GameObject:
   m_ObjectHideFlags: 0

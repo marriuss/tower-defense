@@ -134,7 +134,7 @@ public class PlayerProgressStorage : MonoBehaviour
         }
 
         _player.Initialize(deckItems, castleLevel, money);
-        _levelsPool.Initialize(playerProgress.LastLevelId);
+        _levelsPool.SetLastLevelId(playerProgress.LastLevelId);
     }
 
     private void SaveDataOnChange(Action dataChangingAction)

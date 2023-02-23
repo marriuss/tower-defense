@@ -7,6 +7,7 @@ public class FightEndMenuController : MenuController
     [SerializeField] private FightRewardApplier _fightRewardApplier;
     [SerializeField] private FightEnder _fightEnder;
     [SerializeField] private FightEndMenuView _view;
+    [SerializeField] private LevelsPool _levelsPool;
 
     private const float OpenDelay = 2f;
 
@@ -23,9 +24,14 @@ public class FightEndMenuController : MenuController
     private void OnFightEnded()
     {
         FightReward reward = _fightEnder.Reward;
+        bool playerWon = _fightEnder.PlayerWon;
         _fightRewardApplier.ApplyReward(reward);
+
+        if (playerWon)
+            _levelsPool.SetLastLevelId(_levelsPool.LastLevelId + 1);
+
         _view.SetReward(reward);
-        _view.SetPlayerStatus(_fightEnder.PlayerWon);
+        _view.SetPlayerStatus(playerWon);
         MenuGroup.OpenRaycastTarget();
         StartCoroutine(OpenMenu(OpenDelay));
     }

@@ -5,13 +5,13 @@ using System;
 [CreateAssetMenu(fileName = "New Level Info", menuName = "SO/Level Info", order = 51)]
 public class LevelInfo : ScriptableObject
 {
-    [SerializeField] private int _identifier;
+    [SerializeField] private uint _identifier;
     [SerializeField] private Zone _zone;
     [SerializeField] private Wave[] _waves;
     [SerializeField] private int _cardStackCapacity;
     [SerializeField] private int _moneyReward;
 
-    public int Id => _identifier;
+    public int Id => (int)_identifier;
     public Zone Zone => _zone;
     public Wave GetWave(int index) => _waves[index];
     public int CardStackCapacity => _cardStackCapacity;
