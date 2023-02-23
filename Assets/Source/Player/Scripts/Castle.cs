@@ -34,6 +34,8 @@ public class Castle
     }
 
     public bool CanUpgrade => Level < MaxLevel;
+    public float TotalTowerHealth => Health * TowerHealthFraction;
+    public int TotalTowersAmount => AdditionalTowersAmount + 1;
 
     public void Upgrade()
     {
