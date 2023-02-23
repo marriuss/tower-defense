@@ -1976,7 +1976,6 @@ GameObject:
   m_Component:
   - component: {fileID: 416369145}
   - component: {fileID: 416369146}
-  - component: {fileID: 416369149}
   - component: {fileID: 416369148}
   m_Layer: 5
   m_Name: MusicLevelSlider
@@ -2072,18 +2071,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settingsApplier: {fileID: 1718163057}
---- !u!114 &416369149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 416369144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67e2874abc7ba1340a1b61153dee1b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &417282187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4991,7 +4978,6 @@ GameObject:
   m_Component:
   - component: {fileID: 967811679}
   - component: {fileID: 967811680}
-  - component: {fileID: 967811682}
   - component: {fileID: 967811681}
   m_Layer: 5
   m_Name: SoundsLevelSlider
@@ -5087,18 +5073,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settingsApplier: {fileID: 1718163057}
---- !u!114 &967811682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 967811678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67e2874abc7ba1340a1b61153dee1b49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &974139707
 GameObject:
   m_ObjectHideFlags: 0
@@ -8415,7 +8389,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u043E\u043B\u043D\u0430"
+  m_text: Wave
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd0f1d10fbc853d4b92697ee2b89c247, type: 2}
   m_sharedMaterial: {fileID: 4162579934630920526, guid: bd0f1d10fbc853d4b92697ee2b89c247, type: 2}

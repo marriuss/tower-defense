@@ -1,26 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(SliderView))]
+[RequireComponent(typeof(Slider))]
 public class MusicLevelController : MonoBehaviour
 {
     [SerializeField] private SettingsApplier _settingsApplier;
 
-    private SliderView _view;
+    private Slider _slider;
 
     private void Awake()
     {
-        _view = GetComponent<SliderView>();
+        _slider = GetComponent<Slider>();
     }
 
     private void OnEnable()
     {
-        _view.SetValue(SettingsApplier.MusicLevel);
+        _slider.value = SettingsApplier.MusicLevel;
+        _slider.onValueChanged.AddListener(OnValueChange);
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        _settingsApplier.SetMusicSettings((int)_view.Value);
+        _slider.onValueChanged.RemoveListener(OnValueChange);
+    }
+
+    private void OnValueChange(float newValue)
+    {
+        _settingsApplier.SetMusicSettings((int)newValue);
     }
 }
