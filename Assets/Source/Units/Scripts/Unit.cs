@@ -81,7 +81,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
         {
             _lastAttackTime = time;
             _animationPlayer.PlayAttackAnimation();
-            _soundsPlayer.PlayAttackSound();
+            //_soundsPlayer.PlayAttackSound();
         }
     }
 

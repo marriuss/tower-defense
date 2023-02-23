@@ -9,6 +9,7 @@ public class MapSceneLoader : MonoBehaviour
 
     public void LoadMapScene()
     {
+        Time.timeScale = 1;
         SceneLoadingCount++;
         Map.Load();
     }
