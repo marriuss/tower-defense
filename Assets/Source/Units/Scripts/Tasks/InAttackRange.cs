@@ -6,8 +6,6 @@ namespace NodeCanvas.Tasks.Conditions
 {
     public class InAttackRange : ConditionTask<Unit>
     {
-        [RequiredField] public BBParameter<ITargetable> TargetVariable;
-
         protected override string OnInit()
         {
             return null;

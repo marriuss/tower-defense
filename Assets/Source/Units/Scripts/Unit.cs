@@ -1,4 +1,5 @@
 using NodeCanvas.Framework;
+using NodeCanvas.BehaviourTrees;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,25 +18,26 @@ public abstract class Unit : MonoBehaviour, ITargetable
     private SpriteFlipper _spriteFlipper;
     private AnimationPlayer _animationPlayer;
     private SoundsPlayer _soundsPlayer;
-    private GraphOwner _graphOwner;
+    private BehaviourTreeOwner _btOwner;
     private Health _health;
-    private ITargetable _target;
+
     private float _lastAttackTime;
 
     public event Action<ITargetable> WasHit;
     public event Action<ITargetable> Died;
 
+    public ITargetable Target { get; private set; }
     public UnitStats Stats => _stats;
     public Vector2 Position => transform.position;
     public HealthState HealthState { get; private set; }
-    public bool TargetInRange => _target == null ? false : Vector2.Distance(_target.Position, Position) <= _stats.AttackRange;
+    public bool TargetInRange => Target == null ? false : Vector2.Distance(Target.Position, Position) <= _stats.AttackRange;
 
     private void Awake()
     {
         _spriteFader = GetComponent<SpriteFader>();
         _spriteFlipper = GetComponent<SpriteFlipper>();
         _animationPlayer = GetComponent<AnimationPlayer>();
-        _graphOwner = GetComponent<GraphOwner>();
+        _btOwner = GetComponent<BehaviourTreeOwner>();
         _soundsPlayer = GetComponent<SoundsPlayer>();
         _health = new Health(Stats.Health);
         HealthState = new HealthState(_health);
@@ -43,8 +45,8 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     private void Update()
     {
-        if (_target != null)
-            _spriteFlipper.TurnSide(!Battlefield.IsLefter(Position, _target.Position));
+        if (Target != null)
+            _spriteFlipper.TurnSide(!Battlefield.IsLefter(Position, Target.Position));
     }
 
     public void Spawn()
@@ -52,23 +54,23 @@ public abstract class Unit : MonoBehaviour, ITargetable
         _health.IncreaseValue(Stats.Health);
         _spriteFader.FadeIn();
 
-        if (_graphOwner.isPaused)
-            _graphOwner.StartBehaviour();
+        if (_btOwner.isRunning == false)
+            _btOwner.StartBehaviour();
 
         _animationPlayer.Reset();
         Idle();
     }
 
-    public void SetTarget(ITargetable target) => _target = target;
+    public void SetTarget(ITargetable target) => Target = target;
 
     public void MoveTowardsTarget()
     {
-        if (_target == null)
+        if (Target == null)
             return;
 
         _animationPlayer.PlayMoveAnimation();
-        MoveTo(Vector2.MoveTowards(Position, _target.Position, _stats.Speed * Time.deltaTime));
-    } 
+        MoveTo(Vector2.MoveTowards(Position, Target.Position, _stats.Speed * Time.deltaTime));
+    }
 
     public void AttackTarget()
     {
@@ -92,7 +94,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
         if (HealthState.IsDead)
         {
-            Die();  
+            Die();
         }
         else
         {
@@ -103,7 +105,7 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     public void TurnSide(bool turningLeft)
     {
-        _spriteFlipper.TurnSide(turningLeft);   
+        _spriteFlipper.TurnSide(turningLeft);
     }
 
     public void StartMoving()
@@ -123,16 +125,16 @@ public abstract class Unit : MonoBehaviour, ITargetable
 
     private void Die()
     {
-        _target = null;
-        _animationPlayer.PlayDeathAnimation();
-        _graphOwner.PauseBehaviour();
+        _btOwner.StopBehaviour();
+        Target = null;
         _spriteFader.FadeOut();
+        _animationPlayer.PlayDeathAnimation();
         Died?.Invoke(this);
     }
 
     private void ApplyDamageToTarget()
     {
         if (TargetInRange && HealthState.IsDead == false)
-            _target.TakeHit(this);
+            Target.TakeHit(this);
     }
 }

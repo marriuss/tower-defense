@@ -5,8 +5,6 @@ namespace NodeCanvas.Tasks.Conditions
 {
     public class TargetIsTheClosest<T> : ConditionTask<Unit> where T : ITargetable
     {
-        [RequiredField] public BBParameter<ITargetable> TargetVariable;
-
         protected override string OnInit()
         {
             return null;
@@ -14,7 +12,7 @@ namespace NodeCanvas.Tasks.Conditions
 
         protected override bool OnCheck()
         {
-            return ReferenceEquals(TargetSelector.FindClosestTarget<T>(agent.Position), TargetVariable.value);
+            return ReferenceEquals(TargetSelector.FindClosestTarget<T>(agent.Position), agent.Target);
         }
     }
 }

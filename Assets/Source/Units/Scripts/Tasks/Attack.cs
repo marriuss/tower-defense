@@ -6,8 +6,6 @@ namespace NodeCanvas.Tasks.Actions
 {
     public class Attack : ActionTask<Unit>
     {
-        [RequiredField] public BBParameter<ITargetable> TargetVariable;
-
         protected override string OnInit()
         {
             return null;

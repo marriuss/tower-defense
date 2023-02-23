@@ -6,8 +6,6 @@ namespace NodeCanvas.Tasks.Actions
 {
     public class MoveTowardsTarget : ActionTask<Unit>
     {
-        [RequiredField] public BBParameter<ITargetable> TargetVariable;
-
         protected override string OnInit()
         {
             return null;
@@ -20,7 +18,7 @@ namespace NodeCanvas.Tasks.Actions
 
         protected override void OnUpdate()
         {
-            if (agent.Position == TargetVariable.value.Position)
+            if (agent.Position == agent.Target.Position)
                 EndAction(true);
 
             agent.MoveTowardsTarget();
