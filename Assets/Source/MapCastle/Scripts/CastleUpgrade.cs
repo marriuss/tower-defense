@@ -1,7 +1,10 @@
 using UnityEngine;
- 
+using UnityEngine.Events;
+
 public class CastleUpgrade : MonoBehaviour
 {
+    public event UnityAction DataUpdated;
+
     [SerializeField] private Player _player;
 
     private Balance _balance;
@@ -15,14 +18,28 @@ public class CastleUpgrade : MonoBehaviour
         _balance = _player.Balance;
     }
 
+    private void OnEnable()
+    {
+        _balance.MoneyCountChanged += OnMoneyChanged;
+    }
+
+    private void OnDisable()
+    {
+        _balance.MoneyCountChanged -= OnMoneyChanged;
+    }
+
     public void TryUpgrade()
     {
-        if (CanUpgrade == false)
+        if (CanUpgrade == false || _balance.TrySpend(Castle.UpgradeCost) == false)
         {
             return;
         }
 
         Castle.Upgrade();
-        _balance.TrySpend(Castle.UpgradeCost);
+    }
+
+    private void OnMoneyChanged(int money)
+    {
+        DataUpdated?.Invoke();
     }
 }

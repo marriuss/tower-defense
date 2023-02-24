@@ -40,6 +40,7 @@ public class RandomCardPurchase : MonoBehaviour
             _cardPurchases[i].CardPurchased += OnCardPurchased;
         }
 
+        transform.SetAsLastSibling();
         UpdateView();
     }
 

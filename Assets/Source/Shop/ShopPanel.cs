@@ -32,12 +32,9 @@ public class ShopPanel : Panel
         _cardInfoPanel.ReInit(_cardPurchases.Select(c => c.Key as CardPointerEnterExitDetector).ToList());
     }
 
-    private void CreateCardPurchase(Card card)
+    private void OnEnable()
     {
-        CardPurchase cardPurchase = Instantiate(_cardPurchasePrefab, _container);
-        _cardPurchases.Add(cardPurchase, card);
-        cardPurchase.Init(card, _player.Balance);
-        cardPurchase.CardPurchased += OnCardPurchased;
+        _player.Balance.MoneyCountChanged += OnMoneyCountChanged;
     }
 
     private void OnDisable()
@@ -46,16 +43,35 @@ public class ShopPanel : Panel
         {
             cardPurchase.CardPurchased -= OnCardPurchased;
         }
+
+        _player.Balance.MoneyCountChanged -= OnMoneyCountChanged;
+    }
+
+    private void CreateCardPurchase(Card card)
+    {
+        CardPurchase cardPurchase = Instantiate(_cardPurchasePrefab, _container);
+        _cardPurchases.Add(cardPurchase, card);
+        cardPurchase.Init(card, _player.Balance);
+        cardPurchase.CardPurchased += OnCardPurchased;
     }
 
     private void OnCardPurchased(CardPurchase cardPurchaseCaller)
+    {
+        UpdateCards();
+        _randomCardPurchase.UpdateView();
+        PurchasePerformed?.Invoke();
+    }
+
+    private void OnMoneyCountChanged(int money)
+    {
+        UpdateCards();
+    }
+
+    private void UpdateCards()
     {
         foreach (var cardPurchase in _cardPurchases.Keys)
         {
             cardPurchase.UpdateView();
         }
-
-        _randomCardPurchase.UpdateView();
-        PurchasePerformed?.Invoke();
     }
 }

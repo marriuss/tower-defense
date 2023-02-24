@@ -16,20 +16,19 @@ public class CastleStatsUpgradePanel : Panel
     [Space(10)]
     [SerializeField] private CastleUpgrade _castleUpgrade;
 
-    private void Start()
-    {
-        UpdateInfo(_castleUpgrade.Castle);
-        UpdateUpgradeButton();
-    }
-
     protected override void OnEnabled()
     {
         _upgradeButton.onClick.AddListener(OnUpgradeButtonClick);
+        _castleUpgrade.DataUpdated += OnUpgradeDataUpdated;
+
+        UpdateInfo(_castleUpgrade.Castle);
+        UpdateUpgradeButton();
     }
 
     protected override void OnDisabled()
     {
         _upgradeButton.onClick.RemoveListener(OnUpgradeButtonClick);
+        _castleUpgrade.DataUpdated -= OnUpgradeDataUpdated;
     }
 
     public void UpdateInfo(Castle castleStats)
@@ -50,5 +49,10 @@ public class CastleStatsUpgradePanel : Panel
     {
         _upgradeButton.interactable = _castleUpgrade.CanUpgrade;
         _upgradeCostText.text = _castleUpgrade.Castle.UpgradeCost.ToString();
+    }
+
+    private void OnUpgradeDataUpdated()
+    {
+        UpdateInfo(_castleUpgrade.Castle);
     }
 }
