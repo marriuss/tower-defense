@@ -6,7 +6,6 @@ public class CastleStatsUpgradePanel : Panel
 {
     [Space(10)]
     [SerializeField] private TMP_Text _levelText;
-    [SerializeField] private TMP_Text _healthText;
     [SerializeField] private TMP_Text _towersAmountText;
     [SerializeField] private TMP_Text _towerHealthText;
 
@@ -36,7 +35,6 @@ public class CastleStatsUpgradePanel : Panel
     public void UpdateInfo(Castle castleStats)
     {
         _levelText.text = castleStats.Level.ToString();
-        _healthText.text = castleStats.Health.ToString();
         _towersAmountText.text = castleStats.TotalTowersAmount.ToString();
         _towerHealthText.text = string.Format("{0:f0}", castleStats.TotalTowerHealth);
     }

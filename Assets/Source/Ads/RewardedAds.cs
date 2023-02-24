@@ -19,6 +19,7 @@ public class RewardedAds : MonoBehaviour
     private void ShowYandexVideo()
     {
         VideoAd.Show(
+            onErrorCallback: null,
             onOpenCallback: () =>
             {
                 _menuGroup.OpenRaycastTarget();
@@ -30,6 +31,6 @@ public class RewardedAds : MonoBehaviour
                 _menuGroup.CloseRaycastTarget();
                 _audio.UnmuteMusic();
             }
-        );
+        ) ;
     }
 }
