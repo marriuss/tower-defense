@@ -17,12 +17,12 @@ public class FightCastle : MonoBehaviour
     {
         _castleStats = castleStats;
 
-        TowerStats mainTowerStats = _castleStats.CalculateMainTowerStats();
-        _mainTower.SetStats(mainTowerStats);
+        TowerStats towerStats = _castleStats.CalculateTowerStats();
+        _mainTower.SetStats(towerStats);
         _targetsPool.AddObject(_mainTower);
 
         int amount = _castleStats.AdditionalTowers;
-        TowerStats towerStats = _castleStats.CalculateTowerStats();
+
 
         if (amount > 0)
             _towerSpawner.Spawn(_towerPrefab, amount, towerStats);

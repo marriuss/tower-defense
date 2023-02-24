@@ -28,11 +28,6 @@ public class CastleFightStats
         TowerHealthFraction = towerHealthFraction;
     }
 
-    public TowerStats CalculateMainTowerStats()
-    {
-        return new TowerStats(Health);
-    }
-
     public TowerStats CalculateTowerStats()
     {
         int towerHealth = Mathf.CeilToInt(Health * TowerHealthFraction);
