@@ -12,6 +12,7 @@ public class ShopPanel : Panel
     [SerializeField] private CardPurchase _cardPurchasePrefab;
     [SerializeField] private Transform _container;
     [SerializeField] private CardInfoPanel _cardInfoPanel;
+    [SerializeField] private RandomCardPurchase _randomCardPurchase;
 
     private Dictionary<CardPurchase, Card> _cardPurchases;
 
@@ -27,6 +28,7 @@ public class ShopPanel : Panel
             CreateCardPurchase(card);
         }
 
+        _randomCardPurchase.Init(_cardPurchases.Select(c => c.Key).ToList());
         _cardInfoPanel.ReInit(_cardPurchases.Select(c => c.Key as CardPointerEnterExitDetector).ToList());
     }
 
@@ -53,6 +55,7 @@ public class ShopPanel : Panel
             cardPurchase.UpdateView();
         }
 
+        _randomCardPurchase.UpdateView();
         PurchasePerformed?.Invoke();
     }
 }
