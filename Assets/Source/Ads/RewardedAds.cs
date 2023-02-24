@@ -5,8 +5,8 @@ public class RewardedAds : MonoBehaviour
 {
     [SerializeField, Min(1)] private int _rewardAmount;
     [SerializeField] private GameAudio _audio;
-    //[SerializeField] private MenuGroup _menuGroup;
     [SerializeField] private Player _player;
+    [SerializeField] private RaycastTarget _raycastTarget;
 
     public void Show()
     {
@@ -22,13 +22,13 @@ public class RewardedAds : MonoBehaviour
             onErrorCallback: null,
             onOpenCallback: () =>
             {
-                //_menuGroup.OpenRaycastTarget();
+                _raycastTarget.gameObject.SetActive(true);
                 _audio.MuteMusic();
             },
             onRewardedCallback: () => _player.Balance.AddMoney(_rewardAmount),
             onCloseCallback: () =>
             {
-                //_menuGroup.CloseRaycastTarget();
+                _raycastTarget.gameObject.SetActive(false);
                 _audio.UnmuteMusic();
             }
         ) ;
