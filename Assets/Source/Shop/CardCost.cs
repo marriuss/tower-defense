@@ -1,8 +1,8 @@
 public static class CardCost
 {
-    private static readonly int RegularCardCost = 50;
-    private static readonly int RareCardCost = 100;
-    private static readonly int LegendCardCost = 250;
+    private const int RegularCardCost = 75;
+    private const int RareCardCost = 150;
+    private const int LegendCardCost = 375;
 
     public static int GetCardCost(Card card)
     {
