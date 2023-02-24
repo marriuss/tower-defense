@@ -32,12 +32,13 @@ public class ShopPanel : Panel
         _cardInfoPanel.ReInit(_cardPurchases.Select(c => c.Key as CardPointerEnterExitDetector).ToList());
     }
 
-    private void OnEnable()
+    protected override void OnEnabled()
     {
         _player.Balance.MoneyCountChanged += OnMoneyCountChanged;
     }
 
-    private void OnDisable()
+
+    protected override void OnDisabled()
     {
         foreach (var cardPurchase in _cardPurchases.Keys)
         {
