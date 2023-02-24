@@ -54,5 +54,6 @@ public class CastleStatsUpgradePanel : Panel
     private void OnUpgradeDataUpdated()
     {
         UpdateInfo(_castleUpgrade.Castle);
+        UpdateUpgradeButton();
     }
 }
