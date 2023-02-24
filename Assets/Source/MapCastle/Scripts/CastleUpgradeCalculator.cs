@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class CastleUpgradeCalculator
 {
-    private const int StartCost = 10;
-    private const int StartHealth = 50;
+    private const int StartCost = 20;
+    private const int StartHealth = 200;
     private const int StartAdditionalTowersAmount = 0;
     private const float StartTowerHealthFraction = 0.5f;
-
-    private const float CostMultiplier = 2f;
+    private const float CostMultiplier = 1.5f;
     private const float HealthMultiplier = 0.1f;
-    private const float AdditionalTowersAmountMultyplier = 0.0015f;
-    private const float TowerHealthFractionMultyplier = 0.00015f;
+    private const float AdditionalTowersAmountMultyplier = 0.02f;
+    private const float TowerHealthFractionMultyplier = 0.02f;
+    private const int MaxAdditionalTowersAmount = 4;
 
     public int GetUpgradeCostByLevel(int level)
     {
@@ -24,14 +24,12 @@ public class CastleUpgradeCalculator
 
     public int GetAdditionalTowersAmountByLevel(int level)
     {
-        return Mathf.Clamp(
-            GetReccurentValue(StartAdditionalTowersAmount, AdditionalTowersAmountMultyplier, level), 0, 5);
+        return Mathf.Clamp(GetReccurentValue(StartAdditionalTowersAmount, AdditionalTowersAmountMultyplier, level), 0, MaxAdditionalTowersAmount);
     }
 
     public float GetTowerHealthFractionByLevel(int level)
     {
-        return Mathf.Clamp(
-            GetReccurentValue(StartTowerHealthFraction, TowerHealthFractionMultyplier, level), 0, 1);
+        return Mathf.Clamp01(GetReccurentValue(StartTowerHealthFraction, TowerHealthFractionMultyplier, level));
     }
 
     private int GetReccurentValue(int startValue, float multiplier, int stepsCount)

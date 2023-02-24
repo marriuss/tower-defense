@@ -16,6 +16,7 @@ public class FullscreenAds : MonoBehaviour
     public void ShowYandexVideo()
     {
         InterstitialAd.Show(
+            onErrorCallback: null,
             onOpenCallback: () =>
             {
                 _audio.MuteMusic();
