@@ -10,7 +10,7 @@ public class CastleUpgradeCalculator
     private const float HealthMultiplier = 0.1f;
     private const float AdditionalTowersAmountMultyplier = 0.02f;
     private const float TowerHealthFractionMultyplier = 0.02f;
-    private const int MaxAdditionalTowersAmount = 5;
+    private const int MaxAdditionalTowersAmount = 4;
 
     public int GetUpgradeCostByLevel(int level)
     {
