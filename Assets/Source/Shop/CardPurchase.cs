@@ -56,13 +56,18 @@ public class CardPurchase : CardPointerEnterExitDetector
         _purchaseButton.gameObject.SetActive(!isLock);
     }
 
-    public void OnButtonClicked()
+    private void OnButtonClicked()
     {
         if (_balance.TrySpend(_cost) == false)
         {
             return;
         }
 
+        UnlockCard();
+    }
+
+    public void UnlockCard()
+    {
         _card.Unlock();
         CardPurchased?.Invoke(this);
     }
