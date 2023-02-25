@@ -101,7 +101,9 @@ public class PlayerProgressStorage : MonoBehaviour
     private void LoadJsonData(string jsonPlayerData, out bool hasSavings)
     {
         PlayerProgress playerProgress = GetPlayerDataFromJson(jsonPlayerData);
-        hasSavings = playerProgress != default;
+        CardProgress[] openCardsProgress = playerProgress.OpenCardsProgress;
+
+        hasSavings = openCardsProgress.Length > 0;
 
         if (hasSavings == false)
             return;
@@ -109,7 +111,6 @@ public class PlayerProgressStorage : MonoBehaviour
         currentData = playerProgress;
         int money = playerProgress.Money;
         int castleLevel = playerProgress.CastleLevel;
-        CardProgress[] openCardsProgress = playerProgress.OpenCardsProgress;
         List<DeckItem> deckItems = new List<DeckItem>();
 
         if (openCardsProgress != null)
@@ -171,17 +172,18 @@ public class PlayerProgressStorage : MonoBehaviour
 
     private void SaveJsonData(string jsonData)
     {
+        lastSavedJsonData = jsonData;
+
 #if UNITY_WEBGL && !UNITY_EDITOR
-    if (YandexGamesSdk.IsInitialized)
-    {
-        if (PlayerAccount.IsAuthorized)
-            PlayerAccount.SetPlayerData(jsonData);
-    }
+        if (YandexGamesSdk.IsInitialized)
+        {
+            if (PlayerAccount.IsAuthorized)
+                PlayerAccount.SetPlayerData(jsonData);
+        }
 #endif
 
         PlayerPrefs.SetString(JsonDataKey, jsonData);
         PlayerPrefs.Save();
-        lastSavedJsonData = jsonData;
     }
 
     private PlayerProgress GetPlayerDataObject()
