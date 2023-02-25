@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: PlayerUnitBT
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"dynamic":true,"_position":{"x":1138.388,"y":-363.4616},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"0"},{"dynamic":true,"_position":{"x":746.1609,"y":-159.0654},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"1"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.TargetExists"},"_position":{"x":597.552,"y":-42.85252},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"2"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.TargetIsTheClosest`1[[EnemyUnit,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"_position":{"x":737.5844,"y":-44.76151},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"3"},{"dynamic":true,"_position":{"x":1052.785,"y":-42.63279},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"4"},{"dynamic":true,"_position":{"x":885.4625,"y":114.9294},"_comment":"Attacking
+    sequence\n","$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"5"},{"_condition":{"$type":"NodeCanvas.Tasks.Conditions.InAttackRange"},"_position":{"x":835.7167,"y":236.624},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"6"},{"_action":{"$type":"NodeCanvas.Tasks.Actions.Attack"},"_position":{"x":980.8334,"y":231.5746},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"7"},{"_action":{"$type":"NodeCanvas.Tasks.Actions.MoveTowardsTarget"},"_position":{"x":1195.714,"y":104.0319},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"8"},{"_position":{"x":1325.686,"y":-125.404},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"9"},{"_action":{"TargetVariable":{"_name":"target","_targetVariableID":"9b034356-f975-4f06-8842-7fdad2a1b718"},"$type":"NodeCanvas.Tasks.Actions.SelectTarget`1[[EnemyUnit,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"_position":{"x":1199.429,"y":-45.41393},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"10"},{"_action":{"TargetableVariable":{"_name":"target","_targetVariableID":"9b034356-f975-4f06-8842-7fdad2a1b718"},"EventName":{"_value":"SetTarget"},"$type":"NodeCanvas.Tasks.Actions.SetTarget"},"_position":{"x":1400.123,"y":-48.78608},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"11"},{"_action":{"$type":"NodeCanvas.Tasks.Actions.Idle"},"_position":{"x":1672.175,"y":-179.8075},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"12"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"12"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"11"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.25
+    _category: 
+    _comments: 
+    _translation: {x: -382.32068, y: 375.05624}
+    _zoomFactor: 0.7778645
+  _haltSerialization: 0

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49266756cdeac7547970c8653a7affc9, type: 3}
+  m_Name: RedKingCard
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 5091540970953900837, guid: 7d30a5f29e082e54c80191268f20c587, type: 3}
+  _rarity: 1
+  _mana: 10
+  _name: {fileID: 3645514918724243388, guid: fc57decb7fe8ec5478a93022db2545ad, type: 3}
+  _icon: {fileID: 21300000, guid: d4a83f0d917d0294cafe12c3367d8559, type: 3}

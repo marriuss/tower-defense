@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 489e6f768eb81cc49b1efc87f6f25b2b, type: 3}
+  m_Name: Forest
+  m_EditorClassIdentifier: 
+  _name: Forest
+  _wavesDelay: 4
+  _spawnDelay: 4
+  _palette:
+    _defaultTile: {fileID: 11400000, guid: 73d3ce1a1823af344bc880b42a184677, type: 2}
+    _additionalTiles:
+    - {fileID: 11400000, guid: 8cf5e7a5f95e6ff43b768f1bbadac544, type: 2}
+    - {fileID: 11400000, guid: 102754dab04584043b80d39af720e588, type: 2}
+    - {fileID: 11400000, guid: c413717eab63b274ca24b9d67c1578b3, type: 2}
+    _backgroundElements: []

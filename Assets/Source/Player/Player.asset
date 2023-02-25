@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c29b60bed5691f54e86a1cf8f834460b, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  _deck:
+    rid: 480809136584916992
+  _castle:
+    rid: 480809136584916993
+  _balance:
+    rid: 480809136584916994
+  references:
+    version: 2
+    RefIds:
+    - rid: 480809136584916992
+      type: {class: Deck, ns: , asm: Assembly-CSharp}
+    - rid: 480809136584916993
+      type: {class: Castle, ns: , asm: Assembly-CSharp}
+    - rid: 480809136584916994
+      type: {class: Balance, ns: , asm: Assembly-CSharp}

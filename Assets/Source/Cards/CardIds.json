@@ -1,0 +1,52 @@
+{
+    "Array": [
+        {
+            "CardName": "BlueKing",
+            "Id": 0
+        },
+        {
+            "CardName": "EvilWizard",
+            "Id": 1
+        },
+        {
+            "CardName": "HeavyBandit",
+            "Id": 2
+        },
+        {
+            "CardName": "Knight",
+            "Id": 3
+        },
+        {
+            "CardName": "LightBandit",
+            "Id": 4
+        },
+        {
+            "CardName": "RedKing",
+            "Id": 5
+        },
+        {
+            "CardName": "RetiredWarrior",
+            "Id": 6
+        },
+        {
+            "CardName": "RogueArcher",
+            "Id": 7
+        },
+        {
+            "CardName": "Samurai",
+            "Id": 8
+        },
+        {
+            "CardName": "Specialist",
+            "Id": 9
+        },
+        {
+            "CardName": "VillageWarrior",
+            "Id": 10
+        },
+        {
+            "CardName": "Warrior",
+            "Id": 11
+        }
+    ]
+}

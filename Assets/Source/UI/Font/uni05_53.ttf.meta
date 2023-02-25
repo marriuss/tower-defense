@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: a2c6badde5b8b594e9992f9c83f7acf0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - uni 05_53
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f152c20b59891764b905ac7f8b669e32, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
